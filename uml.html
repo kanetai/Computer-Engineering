@@ -319,6 +319,7 @@ pre[class*="language-"] {
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
+	word-wrap: normal;
 	line-height: 1.5;
 
 	-moz-tab-size: 4;
@@ -456,6 +457,8 @@ function showHide(targetID) {
 <p><a id="top"></a></p>
 
 <h1 id="toc_0">UML(Unified Modeling Language:統一モデリング言語)</h1>
+
+<p>UMTP勉強用</p>
 
 <p>ソフトウェアの成果物を仕様化・図式化する方法を規定したもの。
 OMG(Object Management Group)によって標準化された表記法のみ。UMLで規定するのは表記法のみで、開発プロセス(Unified Process, XP, Agile, etc.)は統一されていない。</p>
@@ -600,12 +603,14 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 </tr>
 <tr>
 <td style="text-align: left">反復型プロセス</td>
-<td style="text-align: left">UMLを使用した開発で採用される。「分析」「設計」「実装」「テスト」の工程を繰り返し(２週間から４ヶ月に１回程度)ながら開発する。リスクが高い、優先度が高いものは、初期の繰り返しで実施する。</td>
+<td style="text-align: left">UMLを使用した開発で採用される。「分析」「設計」「実装」「テスト」の工程を繰り返し(２週間から４ヶ月に１回程度)ながら開発する。リスクが高い、優先度が高いものは、初期の繰り返しで実施する。リスクがそれほど高くないシステムでは他のプロセスを採用しても問題ない。</td>
 </tr>
 </tbody>
 </table>
 
 <h3 id="toc_8">反復型開発プロセス</h3>
+
+<p>事前に何回の反復をいつまでに行うかを計画する。<strong>反復と反復の合間</strong>で、顧客の要望を受け入れられる。それぞれの反復でシステムの<strong>異なる部分</strong>の開発を行い、実際にその部分は稼働させて、評価を行う。反復の計画には、開発者の要員数の計画も含まれており、開発を開始してからは開発要員数がたびたび変化することはない。</p>
 
 <ul>
 <li>システムのリスクを早期に発見し回避できる</li>
@@ -654,20 +659,27 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 
 <h1 id="toc_9">モデリング(Modeling)</h1>
 
-<h2 id="toc_10">構造モデリング</h2>
+<h2 id="toc_10">ビジネスモデリング</h2>
 
-<ol>
-<li>名詞を出してクラスを発見する</li>
-<li>クラス候補を選別する</li>
-<li>モデルを考えてクラス間に関係をつける(汎化すると切り替えにインスタンスの生成を要する)</li>
-<li>多重度を考える</li>
-<li>制約をつける</li>
-<li>汎化を考える(どれか一つを選ぶようなやつは汎化できないか考える)</li>
-</ol>
+<p><strong>アクティビティ図</strong>や<strong>クラス図</strong>が主に使われる。システム開発以前に、エンドユーザーの業務自体をモデリングする。この段階では、モデリングの対象は、必ずしもシステム化する部分のみではない。</p>
 
-<h2 id="toc_11">要求定義モデリング</h2>
+<h2 id="toc_11">要求モデリング</h2>
 
-<h3 id="toc_12">ユースケース図のモデリング</h3>
+<p>ユーザーのシステムに対する要求を聞いて、それを定義する。この段階では、システムの内部はブラックボックス化して、システムの外から見た機能のみに着目する。</p>
+
+<h2 id="toc_12">分析モデリング</h2>
+
+<p>システム化対象の業務部分に着目したモデルを作成する。この段階では、開発言語やDBなど、開発環境、実行環境に依存しないモデルを作成する。</p>
+
+<h2 id="toc_13">設計モデリング</h2>
+
+<p>システムの実現手段を考慮したモデルを作成する。</p>
+
+<hr>
+
+<h2 id="toc_14">要求定義モデリング</h2>
+
+<h3 id="toc_15">ユースケース図のモデリング</h3>
 
 <ol>
 <li>アクターの発見</li>
@@ -675,17 +687,17 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 <li>アクターとユースケースを関連で接続</li>
 </ol>
 
-<h3 id="toc_13">ユースケース記述(usecase description)</h3>
+<h3 id="toc_16">ユースケース記述(usecase description)</h3>
 
-<h4 id="toc_14">概要</h4>
+<h4 id="toc_17">概要</h4>
 
 <p>１つのユースケースに対して、数行程度の説明を蒸したもの</p>
 
-<h4 id="toc_15">シナリオ</h4>
+<h4 id="toc_18">シナリオ</h4>
 
-<p>１つのユースケースの１つの流れを、具体例で傷yつした文章。シナリオ内で記述する名称、金額、数量などは実際の値を仕様し、現実に処理が行われたように記述する。</p>
+<p>１つのユースケースの１つの流れを、具体例で記述した文章。シナリオ内で記述する名称、金額、数量などは実際の値を仕様し、現実に処理が行われたように記述する。</p>
 
-<h4 id="toc_16">イベントフロー</h4>
+<h4 id="toc_19">イベントフロー</h4>
 
 <table>
 <thead>
@@ -719,7 +731,22 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 </tbody>
 </table>
 
-<h2 id="toc_17">振る舞いモデリング</h2>
+<h2 id="toc_20">構造モデリング</h2>
+
+<p>分析モデリング、設計モデリングの両方で行われる。</p>
+
+<ol>
+<li>名詞を出してクラスを発見する</li>
+<li>クラス候補を選別する</li>
+<li>モデルを考えてクラス間に関係をつける(汎化すると切り替えにインスタンスの生成を要する)</li>
+<li>多重度を考える</li>
+<li>制約をつける</li>
+<li>汎化を考える(どれか一つを選ぶようなやつは汎化できないか考える)</li>
+</ol>
+
+<h2 id="toc_21">振る舞いモデリング</h2>
+
+<p>分析モデリング、設計モデリングの両方で行われる。</p>
 
 <p>クラス図と相互作用図は平行して作成する。相互作用図はシナリオに対応する。流れはシナリオを、ライフライン候補は初期のクラス図を参考にして、相互作用図を作成する。</p>
 
@@ -727,9 +754,9 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 
 <p>業務フロー、ユースケースのイベントフロー、フローチャートの代替にアクティビティ図を使う。</p>
 
-<h2 id="toc_18">実装モデリング</h2>
+<h2 id="toc_22">実装モデリング</h2>
 
-<h2 id="toc_19">複数の図を利用したモデリング</h2>
+<h2 id="toc_23">複数の図を利用したモデリング</h2>
 
 <ol>
 <li>事例からクラス候補をを抽出する</li>
@@ -737,15 +764,15 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 <li>シーケンス図からもとのクラス図に情報を追加する。多重度などをオブジェクト図から考える。オブジェクトの状態はステートマシン図を利用する。</li>
 </ol>
 
-<h2 id="toc_20"></h2>
+<h2 id="toc_24"></h2>
 
 <p><a id="packageDiaSec"></a></p>
 
-<h1 id="toc_21"><a href="#agenda">パッケージ図(Package Diagram)</a></h1>
+<h1 id="toc_25"><a href="#agenda">パッケージ図(Package Diagram)</a></h1>
 
 <p>UMLのモデル要素をまとめて整理する。</p>
 
-<h2 id="toc_22">パッケージ図の要素</h2>
+<h2 id="toc_26">パッケージ図の要素</h2>
 
 <p><a id="packageDia/element"></a></p>
 
@@ -782,11 +809,11 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 </tbody>
 </table>
 
-<h2 id="toc_23">パッケージ間の関係</h2>
+<h2 id="toc_27">パッケージ間の関係</h2>
 
 <p><a id="packageDia/nest"></a></p>
 
-<h3 id="toc_24"><a href="#packageDia/element">パッケージの階層化</a></h3>
+<h3 id="toc_28"><a href="#packageDia/element">パッケージの階層化</a></h3>
 
 <p>入れ子にしても良いし、包含する側に＋アイコンをつけて結んでも良い。</p>
 
@@ -794,27 +821,27 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 
 <p><a id="packageDia/dependency"></a></p>
 
-<h3 id="toc_25"><a href="#packageDia/element">パッケージの依存関係</a></h3>
+<h3 id="toc_29"><a href="#packageDia/element">パッケージの依存関係</a></h3>
 
 <p>クラス図で関連がある場合、パッケージ図では依存関係にある。</p>
 
 <p><img src="pic/packageDia/dependencyEX.jpg" alt=""></p>
 
-<h2 id="toc_26"></h2>
+<h2 id="toc_30"></h2>
 
 <p><a href="#packageDiaSec">パッケージ図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_27"></h2>
+<h2 id="toc_31"></h2>
 
 <p><a id="usecaseDiaSec"></a></p>
 
-<h1 id="toc_28"><a href="#agenda">ユースケース図(Use Case Diagram)</a></h1>
+<h1 id="toc_32"><a href="#agenda">ユースケース図(Use Case Diagram)</a></h1>
 
 <p>システムに対して要求する機能(ユーザ視点)、システムが提供すべき機能(システム開発者視点)を表現する。ユースケース図は、システム開発の初期段階に要求定義を明確にする目的で使用する。アクターはシステムの外部、ユースケースはシステムの内部に存在する。必要であれば何枚でも作成する。拡張予定の機能は表現できない。</p>
 
 <p><a id="usecaseDia/element"></a></p>
 
-<h2 id="toc_29">ユースケース図の要素</h2>
+<h2 id="toc_33">ユースケース図の要素</h2>
 
 <table>
 <thead>
@@ -861,7 +888,7 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 
 <p><a id="usecaseDia/actor"></a></p>
 
-<h2 id="toc_30"><a href="#usecaseDia/element">アクター(actor)</a></h2>
+<h2 id="toc_34"><a href="#usecaseDia/element">アクター(actor)</a></h2>
 
 <p>スティックマン以外のアイコンも使用可能。</p>
 
@@ -875,33 +902,33 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 
 <p><a id="usecaseDia/usecase"></a></p>
 
-<h2 id="toc_31"><a href="#usecaseDia/element">ユースケース(use case)</a></h2>
+<h2 id="toc_35"><a href="#usecaseDia/element">ユースケース(use case)</a></h2>
 
 <p>ユースケース名は、アクターが「〜する」という動詞形または名詞形とし、一つのユースケース図内で統一する。</p>
 
 <p><img src="pic/usecaseDia/usecaseEX.jpg" alt=""></p>
 
-<h2 id="toc_32">関係(relationship)</h2>
+<h2 id="toc_36">関係(relationship)</h2>
 
 <p><a id="usecaseDia/association"></a></p>
 
-<h3 id="toc_33"><a href="#usecaseDia/element">アクターとユースケースの関係</a></h3>
+<h3 id="toc_37"><a href="#usecaseDia/element">アクターとユースケースの関係</a></h3>
 
 <p>アクターとユースケースを<strong>関連</strong>で結んでコミュニケート関係を示す。関連には多重度を設定できて、アクターがユースケースを複数回利用することを表現できる。</p>
 
 <p><img src="pic/usecaseDia/actor-usecase.jpg" alt=""></p>
 
-<h3 id="toc_34"><a href="#usecaseDia/element">アクター同士の関係</a></h3>
+<h3 id="toc_38"><a href="#usecaseDia/element">アクター同士の関係</a></h3>
 
 <p>あるアクターと関連がある全てのユースケースすべてに、他のアクターも関連を持つ場合、<strong>汎化(generalization)</strong>の関係をつけて関連の記述を減らす。</p>
 
 <p><img src="pic/usecaseDia/actor-generalize-actor.jpg" alt=""><em>Bはユースケース1,2,3と関連している</em></p>
 
-<h3 id="toc_35">ユースケース同士の関係</h3>
+<h3 id="toc_39">ユースケース同士の関係</h3>
 
 <p><a id="usecaseDia/generalization"></a></p>
 
-<h5 id="toc_36"><a href="#usecaseDia/element">汎化(generalization)</a></h5>
+<h5 id="toc_40"><a href="#usecaseDia/element">汎化(generalization)</a></h5>
 
 <p>あるユースケースが<strong>デフォルトで</strong>別のユースケースを利用している場合、汎化の関係で接続する。機能追加ではなく、概念だけ共通の全く新しいユースケースを定義している。</p>
 
@@ -909,13 +936,13 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 
 <p><a id="usecaseDia/dependency"></a></p>
 
-<h5 id="toc_37"><a href="#usecaseDia/element">包含(inclusion) / 包含関係(include relationship)</a></h5>
+<h5 id="toc_41"><a href="#usecaseDia/element">包含(inclusion) / 包含関係(include relationship)</a></h5>
 
-<p>複数のユースケースに共通で利用している部分があるとき、その共通部分のユースケースを切り出し、包含の関係で接続する。include先のユースケースが必須となるような場合に使う。ベースとなるユースケースからサブルーチンコールのような感じで呼び出されるようなケース。include先は複数のユースケースで共有できる。共通部分が多い場合に包含を使い、共通部分が少しの場合汎化を使う。</p>
+<p>複数のユースケースに<strong>共通で利用</strong>している部分があるとき、その共通部分のユースケースを切り出し、包含の関係で接続する。include先のユースケースが必須となるような場合に使う。ベースとなるユースケースからサブルーチンコールのような感じで呼び出されるようなケース。include先は複数のユースケースで共有できる。共通部分が多い場合に包含を使い、共通部分が少しの場合汎化を使う。</p>
 
 <p><img src="pic/usecaseDia/usecase-include-usecase.jpg" alt=""> <em>A+B</em></p>
 
-<h5 id="toc_38"><a href="#usecaseDia/element">拡張(extension) / 拡張関係(extend relationship)</a></h5>
+<h5 id="toc_42"><a href="#usecaseDia/element">拡張(extension) / 拡張関係(extend relationship)</a></h5>
 
 <p>あるユースケースの一部分が利用されたり、利用されなかったり、<strong>オプショナルな</strong>部分をオプショナルユースケースとして切り出し、オプショナルユースケースでベースのユースケースを拡張する。オプショナルユースケースを行うのに<strong>ベースのユースケースが必須</strong>となる。複数のユースケースで共有でき無い。</p>
 
@@ -923,13 +950,13 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 
 <p><a id="usecaseDia/border"></a></p>
 
-<h2 id="toc_39"><a href="#usecaseDia/element">システム境界</a></h2>
+<h2 id="toc_43"><a href="#usecaseDia/element">システム境界</a></h2>
 
 <p>対象とするシステムの内部と外部の境界。省略可。</p>
 
 <p><img src="pic/usecaseDia/usecase_diagram.jpg" alt=""></p>
 
-<h2 id="toc_40">ユースケース図の注意点</h2>
+<h2 id="toc_44">ユースケース図の注意点</h2>
 
 <p><img src="pic/usecaseDia/usecaseDia.jpg" alt=""></p>
 
@@ -937,29 +964,24 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>の階層1,2層ぐらいにとどめておく。</p>
 
 <ul>
-<li><p><em>「DVDを宅配で借りる」は、「DVDを借りる」の特所なユースケースとなっているが、中身は異なる。</em></p></li>
+<li><p><em>「DVDを宅配で借りる」は、「DVDを借りる」の特殊なユースケースとなっているが、中身は異なる。</em></p></li>
 <li><p><em>「会員かどうかを確認する」は、<code>&lt;&lt;include&gt;&gt;</code>で接続されているので「DVDを借りる」のに必須。</em></p></li>
 <li><p><em>「カードで支払う」は、<code>&lt;&lt;extend&gt;&gt;</code>で接続されているので「DVDを借りる」のに必須ではない。</em></p></li>
 </ul>
 
-<h2 id="toc_41"></h2>
+<h2 id="toc_45"></h2>
 
 <p><a href="#usecaseDiaSec">ユースケース図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_42"></h2>
+<h2 id="toc_46"></h2>
 
 <p><a id="classDiaSec"></a></p>
 
-<h1 id="toc_43"><a href="#agenda">クラス図(Class Diagram)</a></h1>
+<h1 id="toc_47"><a href="#agenda">クラス図(Class Diagram)</a></h1>
 
-<p>クラスとクラスの<strong>静的</strong>な関係を表現する。</p>
+<p>クラス間の<strong>静的</strong>な関係、<strong>論理的な集まり</strong>を表現する。DBの設計ではER図の代替としても利用できる。</p>
 
-<p><a href="#" onClick="showHide('classDiaEX');return false;">クラス図の例</a>
-<div id="classDiaEX" style="display: none">
-<img src="pic/classDia/classDiagramEX.jpg" alt="">
-</div></p>
-
-<h2 id="toc_44">クラス図の要素</h2>
+<h2 id="toc_48">クラス図の要素</h2>
 
 <p><a id="classDia/element"></a></p>
 
@@ -1016,7 +1038,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 <tr>
 <td style="text-align: left"><a href="#classDia/qualifier">限定子(qualifier)</a></td>
 <td style="text-align: center"><img src="pic/classDia/qualifier.jpg" alt=""></td>
-<td style="text-align: left">多重度を限定するために、関連の端に付ける。相手側のクラスの属性を限定し属性に指定する。</td>
+<td style="text-align: left">多重度を限定するために、関連の端に付ける。<strong>相手側</strong>のクラスの属性を限定子属性に指定し、<strong>相手側</strong>の多重度を限定する。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#classDia/interface">インターフェース(interface)</a></td>
@@ -1028,7 +1050,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a id="classDia/class"></a></p>
 
-<h2 id="toc_45"><a href="#classDia/element">クラス(class)</a></h2>
+<h2 id="toc_49"><a href="#classDia/element">クラス(class)</a></h2>
 
 <p>オブジェクトを属性(構造)と操作(振る舞い)の共通性に着目し、<strong>抽象化</strong>しもの。「もの」「ひと」「こと」を<strong>抽象的</strong>に表現する。
 雛形としてオブジェクトを生成することを<strong>インスタンス化([名]instantiation, [動]instantiate)</strong>という。クラス間の関係では、依頼・参照・作成・使用・集約・状態などを表現する。</p>
@@ -1039,25 +1061,25 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 <li><strong>継承(Inheritance):　</strong>クラスの性質を受け継いで再利用性を上げる(sub class <strong>Is-A</strong> super class).</li>
 </ul>
 
-<h3 id="toc_46">クラス名の表記</h3>
+<h3 id="toc_50">クラス名の表記</h3>
 
 <p>クラス名には、パッケージ名を修飾できる。</p>
 
 <pre><code class="language-none">パッケージ名::クラス名</code></pre>
 
-<h3 id="toc_47">属性の表記</h3>
+<h3 id="toc_51">属性の表記</h3>
 
 <p>属性は隠すことができる。可視性、属性の型、初期値は省略できる。属性リストの区画は省略できる(クラス名の下の区画が操作リストの区画になる)。</p>
 
 <pre><code class="language-none">可視性等 属性名:属性の型=初期値</code></pre>
 
-<h3 id="toc_48">操作の表記</h3>
+<h3 id="toc_52">操作の表記</h3>
 
 <p>可視性、引数名、引数の型、戻り値の型は省略できる。</p>
 
 <pre><code class="language-none">可視性 操作名(引数名:引数の型):戻り値の型</code></pre>
 
-<h3 id="toc_49">可視性(visibility) / 派生属性(derived attribute)</h3>
+<h3 id="toc_53">可視性(visibility) / 派生属性(derived attribute)</h3>
 
 <p>属性名や操作名の前に記述する。</p>
 
@@ -1099,13 +1121,13 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 </tbody>
 </table>
 
-<h3 id="toc_50">スコープ</h3>
+<h3 id="toc_54">スコープ</h3>
 
 <p>属性(フィールド)や操作(メソッド)に<strong>クラススコープ</strong>と<strong>インスタンススコープ</strong>を設定できる。クラススコープの場合には、属性名、操作名にアンダーバーを引く。</p>
 
-<h2 id="toc_51">UMLの拡張</h2>
+<h2 id="toc_55">UMLの拡張</h2>
 
-<h4 id="toc_52">ステレオタイプ</h4>
+<h4 id="toc_56">ステレオタイプ</h4>
 
 <p>UML要素(クラスやオブジェクト)につけて意味を拡張する。クラスに付ける場合は、クラス名の前か上につける。
 属性や操作の並びにステレオタイプを付けると別のステレオタイプが指定されるまで同じステレオタイプが適用される。</p>
@@ -1140,7 +1162,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a href="https://en.wikipedia.org/wiki/Multitier_architecture">https://en.wikipedia.org/wiki/Multitier_architecture</a></p>
 
-<h4 id="toc_53">メタ属性</h4>
+<h4 id="toc_57">メタ属性</h4>
 
 <p>UMLの要素(クラスやオブジェクト)につけて、情報を付加する。</p>
 
@@ -1148,13 +1170,15 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
   ...
 属性n=値n}</code></pre>
 
-<h4 id="toc_54">制約(constraint)</h4>
+<h4 id="toc_58">制約(constraint)</h4>
 
 <p>UML要素に条件や制限を付ける。</p>
 
 <pre><code class="language-none">attribute{constraints}</code></pre>
 
-<h2 id="toc_55">クラス間の関係</h2>
+<h2 id="toc_59">クラス間の関係</h2>
+
+<p>クラス間の関係では、<strong>依頼、参照、作成、使用、集約、状態</strong>などを表現する。クラス同士を関係づけることで<strong>構造化された情報を表現</strong>でき、より複雑な情報を表現できる。</p>
 
 <ul>
 <li><a href="#classDia/association">関連(association)</a>
@@ -1173,19 +1197,19 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a id="classDia/association"></a></p>
 
-<h2 id="toc_56"><a href="#classDia/element">関連(association)</a></h2>
+<h2 id="toc_60"><a href="#classDia/element">関連(association)</a></h2>
 
 <p>クラス間に構造的な関係があるときに実線で結ぶ。
-線の上に<strong>関連名</strong>を付けることができ、任意で、関連名を読む方向を▶︎で表現できる。
+線の上に<strong>関連名</strong>を付けることができ、任意で、関連名を<strong>読む方向</strong>を▶︎で表現できる。
 <strong>関連端末名(ロール名)</strong>をつけて関連のあるクラスからみた端末のクラスが何なのかを表現できる。</p>
 
 <p><img src="pic/classDia/class-relation-class.jpg" alt=""></p>
 
 <p>同一クラスの複数のオブジェクト間に<strong>再帰的関連</strong>を引くことができる(<strong>同一クラスの同一のオブジェクト間に関係がある場合は引かない</strong>)。</p>
 
-<h3 id="toc_57">多重度(multiplicity)</h3>
+<h3 id="toc_61">多重度(multiplicity)</h3>
 
-<p><strong>関連先のクラスから見た</strong>端末のクラスの<strong>多重度</strong>をつけることができる(総インスタンス数ではない)。</p>
+<p><strong>関連先</strong>のクラスの<strong>あるオブジェクト</strong>が関連している端末のクラスの<strong>オブジェクト</strong>の数(総インスタンス数ではない)。</p>
 
 <table>
 <thead>
@@ -1223,7 +1247,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><img src="pic/classDia/multiplicity-EX1.jpg" alt=""></p>
 
-<h3 id="toc_58">誘導可能性</h3>
+<h3 id="toc_62">誘導可能性</h3>
 
 <p>関連の端に矢印か罰印つけて<strong>方向性(誘導可能性)</strong>をつけることができる。
 <code>[A]×-&gt;[B]</code>ならAからBが参照可能で、BからAは参照不可能。罰印も矢印も無い場合は、UML2.0では<strong>不定</strong>を示す。
@@ -1231,7 +1255,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a id="classDia/qualifier"></a></p>
 
-<h3 id="toc_59"><a href="#classDia/element">限定子(qualifier)</a></h3>
+<h3 id="toc_63"><a href="#classDia/element">限定子(qualifier)</a></h3>
 
 <p>keyが指定されれば、valueが特定されるような関係を示すために、<strong>限定子</strong>を使う。限定子を使うことで多重度を限定できる。限定子(小さい長方形)に書き込む限定子属性は、限定子と<strong>逆側のクラスの属性</strong>(複数でも良い)を指定する。</p>
 
@@ -1239,10 +1263,10 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p>3つ以上の関連には<strong>N項関連(N-ary association)</strong>を利用する。ひし形を中継点として各関連クラスを実線(関連)で結ぶ。</p>
 
-<h3 id="toc_60">関連クラス(association class)</h3>
+<h3 id="toc_64">関連クラス(association class)</h3>
 
 <p><strong>多重度が多対多</strong>で接続されたクラス間の情報を管理したいときに利用される、クラスと関連の性質を持ったクラス(関連の合間で仲介するクラス)。関連と関連クラスを点線で結んで表記する。
-２つのクラスに<strong>関連が引かれたときに発生するような(どちらの属性にするか迷うような)情報</strong>に使われることが多い。</p>
+２つのクラスに<strong>関連が引かれたときに発生するような(どちらの属性にするか迷うような)情報</strong>に使われることが多い。両端のクラスが関連クラスのインスタンスを<strong>別々に</strong>持っている可能性がある。</p>
 
 <p><em>例:　店舗と会員の関連が伝わりづらい</em></p>
 
@@ -1254,7 +1278,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a id="classDia/N-aryAssociation"></a></p>
 
-<h3 id="toc_61"><a href="#classDia/element">N項関連(N-ary association)</a></h3>
+<h3 id="toc_65"><a href="#classDia/element">N項関連(N-ary association)</a></h3>
 
 <p>N項関連にも関連クラスをつけることができる</p>
 
@@ -1262,17 +1286,18 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a id="classDia/aggregation"></a></p>
 
-<h3 id="toc_62"><a href="#classDia/element">集約(aggregation)</a></h3>
+<h3 id="toc_66"><a href="#classDia/element">集約(aggregation)</a></h3>
 
 <p><strong>Part-Of</strong>の関係。全体側の端にひし形を付ける。
 集約にも方向性を指定できる。
-<strong>集約では、主に全体側から部分側への方向性が指定されることが多い。</strong></p>
+<strong>集約では、主に全体側から部分側への方向性が指定されることが多い。</strong>
+<strong>一時的に</strong>所有するような場合には集約ではなく、<strong>依存関係</strong>になることが多い。</p>
 
 <p><img src="pic/classDia/shelf-aggregate-book.jpg" alt=""></p>
 
 <p><a id="classDia/composition"></a></p>
 
-<h3 id="toc_63"><a href="#classDia/element">コンポジション(composition)</a></h3>
+<h3 id="toc_67"><a href="#classDia/element">コンポジション(composition)</a></h3>
 
 <p>集約の一種。全体側と部分側の<strong>ライフサイクルがほぼ同一の場合</strong>利用する。ひし形を黒塗りにする。全体側のクラスを<strong>コンポジットクラス(composite class)</strong>と言い、表記方法が３種類ある。</p>
 
@@ -1296,9 +1321,9 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a id="classDia/dependency"></a></p>
 
-<h2 id="toc_64"><a href="#classDia/element">依存(dependency)</a></h2>
+<h2 id="toc_68"><a href="#classDia/element">依存(dependency)</a></h2>
 
-<p>利用される側に鏃を付ける。</p>
+<p>利用される側に鏃を付ける。<strong>属性値として持っている場合は集約やコンポジション。</strong></p>
 
 <ul>
 <li>引数や戻り値で受け取る</li>
@@ -1310,14 +1335,14 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a id="classDia/realization"></a></p>
 
-<h3 id="toc_65"><a href="#classDia/element">実現化(realization)/実装(implementation)</a></h3>
+<h3 id="toc_69"><a href="#classDia/element">実現化(realization)/実装(implementation)</a></h3>
 
 <p><strong>インターフェース</strong>や<strong>テンプレートクラス</strong>とその実装を持つクラスやコンポーネント,サブシステム etc.とそのインターフェースとの関係。
 インターフェース、テンプレートクラス側に鏃を付ける。</p>
 
 <p><a id="classDia/interface"></a></p>
 
-<h4 id="toc_66"><a href="#classDia/element">インターフェース(interface)</a></h4>
+<h4 id="toc_70"><a href="#classDia/element">インターフェース(interface)</a></h4>
 
 <p>外部に公開する操作を明確にし、実装側の変更を呼び出し側が受け無いようにする。インターフェースは<strong>属性を持たず、インスタンス化できない</strong>。interfaceは必ずしも<strong>javaなどのinterfaceで実装されるとは限らない</strong>。
 ステレオタイプ<code>&lt;&lt;interface&gt;&gt;</code>をつけた実現関係を引く。</p>
@@ -1336,7 +1361,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><img src="pic/classDia/interfaceWithUML2.jpg" alt=""></p>
 
-<h4 id="toc_67">テンプレートクラス(template class)</h4>
+<h4 id="toc_71">テンプレートクラス(template class)</h4>
 
 <p>クラスを生成するクラス。仮パラメタに具体的な値をバインドすることで実際に使用可能なクラスを生成する。</p>
 
@@ -1354,11 +1379,11 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a id="classDia/generalization"></a></p>
 
-<h2 id="toc_68"><a href="#classDia/element">汎化(generalization)/継承(inheritance)</a></h2>
+<h2 id="toc_72"><a href="#classDia/element">汎化(generalization)/継承(inheritance)</a></h2>
 
 <p><strong>Is-A</strong>の関係。スーパークラス側に▷をつける。線に<strong>区別子</strong>(テキストラベル)をつけて汎化関係のグループ化ができる。</p>
 
-<h4 id="toc_69">汎化関係の制約</h4>
+<h4 id="toc_73">汎化関係の制約</h4>
 
 <table>
 <thead>
@@ -1390,18 +1415,18 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><img src="pic/classDia/inheritance-constraint.jpg" alt="i"></p>
 
-<h4 id="toc_70">抽象クラス(abstract class)</h4>
+<h4 id="toc_74">抽象クラス(abstract class)</h4>
 
 <p>オブジェクトを生成することが無い。下位のクラスをまとめるクラス。クラス名を<strong>斜体</strong>にする、あるいは、メタ属性<strong>{abstract}</strong>をつけて表記する。
 抽象クラスは、<strong>インスタンスを作れず、属性と操作をもつが一部操作は具象クラスの再実装を要する</strong>。</p>
 
-<h2 id="toc_71">その他のクラス</h2>
+<h2 id="toc_75">その他のクラス</h2>
 
-<h3 id="toc_72">ユーティリティクラス(utility class)</h3>
+<h3 id="toc_76">ユーティリティクラス(utility class)</h3>
 
 <p>クラスにステレオタイプ<code>&lt;&lt;utility&gt;&gt;</code>を記述して、<strong>他のクラスやプログラムから全て参照可能</strong>なユーティリティクラスを定義できる。</p>
 
-<h3 id="toc_73">メタクラス(meta class)</h3>
+<h3 id="toc_77">メタクラス(meta class)</h3>
 
 <p>クラスにステレオタイプ<code>&lt;&lt;metaclass&gt;&gt;</code>を記述して、<strong>生成されるインスタンスがクラスである</strong>メタクラスを定義できる。クラス自体の定義に利用される。</p>
 
@@ -1414,15 +1439,15 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><img src="pic/classDia/metaClass.jpg" alt=""></p>
 
-<h2 id="toc_74">クラス図の注意点</h2>
+<h2 id="toc_78">クラス図の注意点</h2>
 
-<h3 id="toc_75">関連の誘導可能性</h3>
+<h3 id="toc_79">関連の誘導可能性</h3>
 
 <p><em>例:　</em>unreachableが独立するスレッドで動いて動作の起点になっているようなことがなければunreachableクラスは必要ない</p>
 
 <p><img src="pic/classDia/unreachableClass.jpg" alt=""></p>
 
-<h3 id="toc_76">汎化と関連</h3>
+<h3 id="toc_80">汎化と関連</h3>
 
 <p><em>例:　</em>OKとキャンセルのボタンを一つずつ持つdialog</p>
 
@@ -1436,7 +1461,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><img src="pic/classDia/dialog-rightAssociation.jpg" alt=""></p>
 
-<h3 id="toc_77">汎化と実現化の使い分け</h3>
+<h3 id="toc_81">汎化と実現化の使い分け</h3>
 
 <table>
 <thead>
@@ -1466,7 +1491,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 </tbody>
 </table>
 
-<h3 id="toc_78">集約とコンポジション</h3>
+<h3 id="toc_82">集約とコンポジション</h3>
 
 <p>集約は、全体側オブジェクトと部分側オブジェクトのライフサイクルは必ずしも一致せず、部分側オブジェクトは<strong>複数の全体側オブジェクトから共有されることがある</strong>。</p>
 
@@ -1476,19 +1501,19 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><img src="pic/classDia/compositionEX.jpg" alt=""></p>
 
-<h2 id="toc_79"></h2>
+<h2 id="toc_83"></h2>
 
 <p><a href="#classDiaSec">クラス図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_80"></h2>
+<h2 id="toc_84"></h2>
 
 <p><a id="objDiaSec"></a></p>
 
-<h1 id="toc_81"><a href="#agenda">オブジェクト図(Object Diagram)</a></h1>
+<h1 id="toc_85"><a href="#agenda">オブジェクト図(Object Diagram)</a></h1>
 
 <p>システムのある瞬間の状態など、<strong>静的な側面</strong>を表現する。<strong>ある瞬間のオブジェクトの状態</strong>や、クラス図の<strong>多重度</strong>を考えるときに使用する。オブジェクトは「もの」「ひと」「こと」を<strong>具体的</strong>に表したもの。</p>
 
-<h2 id="toc_82">オブジェクト図の要素</h2>
+<h2 id="toc_86">オブジェクト図の要素</h2>
 
 <p><a id="objDia/element"></a></p>
 
@@ -1517,7 +1542,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><a id="objDia/object"></a></p>
 
-<h2 id="toc_83"><a href="#objDia/element">オブジェクト(Object)</a></h2>
+<h2 id="toc_87"><a href="#objDia/element">オブジェクト(Object)</a></h2>
 
 <p><strong>属性</strong>(静的かつ単純な情報)、<strong>振る舞い</strong>(動的な手続き)と<strong>状態</strong>を持つ。<strong>メッセージ送信</strong>でオブジェクト間の情報のやり取りを行う。分析段階では現実に存在するもの(物理的あるいは概念的に存在するもの)で、設計段階では、必ずしも実在するものとは限らない(list, stack, utility etc.)。</p>
 
@@ -1536,28 +1561,28 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><em>クラス名(パッケージ含む)とオブジェク名のどちか一方を省略可能</em></p>
 
-<h3 id="toc_84">コンポジットオブジェクト(composite object)</h3>
+<h3 id="toc_88">コンポジットオブジェクト(composite object)</h3>
 
 <p>コンポジットクラスのオブジェクト。</p>
 
 <p><img src="pic/objDia/compositeObject.jpg" alt=""></p>
 
-<h2 id="toc_85"></h2>
+<h2 id="toc_89"></h2>
 
 <p><a href="#objDiaSec">オブジェクト図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_86"></h2>
+<h2 id="toc_90"></h2>
 
 <p><a id="seqDiaSec"></a></p>
 
-<h1 id="toc_87"><a href="#agenda">シーケンス図(Sequence Diagram)</a></h1>
+<h1 id="toc_91"><a href="#agenda">シーケンス図(Sequence Diagram)</a></h1>
 
 <p><em>参考：</em><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Demeterの法則(Law of Demeter (LoD)), 最小知識の原則(principle of least knowledge)</a></p>
 
 <p>相互作用図(interaction diagram)の一つ。
 <strong>ライフライン</strong>(人や物、オブジェクト)同士のメッセージのやり取りを<strong>時系列に沿って１つのシナリオ(ユースケース)の具体的な流れ</strong>整理する。<em>1つのシナリオ(ユースケース)</em>に沿って作成する。</p>
 
-<h2 id="toc_88">シーケンス図の要素</h2>
+<h2 id="toc_92">シーケンス図の要素</h2>
 
 <table>
 <thead>
@@ -1624,7 +1649,7 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <p><img src="pic/seqDia/sequenceDiagram.jpg" alt="sequenceDiagram"></p>
 
-<h2 id="toc_89">メッセージのフォーマット</h2>
+<h2 id="toc_93">メッセージのフォーマット</h2>
 
 <pre><code class="language-none">シーケンス番号[ガード条件]*[繰り返しの条件]:戻り値リスト:=メッセージ名(引数リスト)</code></pre>
 
@@ -1640,9 +1665,9 @@ WBSができてしまわないように、<code>&lt;&lt;include&gt;&gt;</code>�
 
 <pre><code class="language-none">2.1*[i=0..5]:result:=method()</code></pre>
 
-<p>受信側の視点で命名すると良い。シーケンス図の例とその疑似コード(swift)。<strong>ライフラインの生成と消滅に注目しなくても良い場合は、生成、消滅の記述は省略する</strong></p>
+<p>受信側の視点で命名すると良い。シーケンス図の例とその疑似コード(swift)。<strong>ライフラインの生成と消滅に注目しなくても良い場合は、生成、消滅の記述は省略する。関数の呼び出し関係を表現するために、シーケンス番号にサブ番号をつける。</strong></p>
 
-<p><img src="pic/seqDia/messageImage.jpg" alt="sequenceDiagram"></p>
+<p><img src="pic/seqDia/messageImage.jpg" alt=""></p>
 
 <pre><code class="language-swift">class lifeline1 {
     func message1() {
@@ -1659,7 +1684,7 @@ class lifeline2 {
     }
 }</code></pre>
 
-<h2 id="toc_90">結合(複合)フラグメント(combined fragment)</h2>
+<h2 id="toc_94">結合(複合)フラグメント(combined fragment)</h2>
 
 <p><a id="seqDia/fragment"></a>
 複合フラグメントを使って、フレーム単位に分割記述できる。</p>
@@ -1744,7 +1769,7 @@ class lifeline2 {
 
 <p><a id="seqDia/fragment-ref"></a></p>
 
-<h3 id="toc_91"><a href="#seqDia/fragment">参照(<code>ref</code>)</a></h3>
+<h3 id="toc_95"><a href="#seqDia/fragment">参照(<code>ref</code>)</a></h3>
 
 <p>別に定義されている要素を参照する。</p>
 
@@ -1754,7 +1779,7 @@ class lifeline2 {
 
 <p><a id="seqDia/fragment-alt"></a></p>
 
-<h3 id="toc_92"><a href="#seqDia/fragment">条件分岐(<code>alt</code>)</a></h3>
+<h3 id="toc_96"><a href="#seqDia/fragment">条件分岐(<code>alt</code>)</a></h3>
 
 <p>点線で区切られた区画のうち、ガード内の条件が成り立つものだけが実行される。<strong>同時に実行されることはない</strong>。</p>
 
@@ -1764,7 +1789,7 @@ class lifeline2 {
 
 <p><a id="seqDia/fragment-opt"></a></p>
 
-<h3 id="toc_93"><a href="#seqDia/fragment">条件判断(<code>opt</code>)</a></h3>
+<h3 id="toc_97"><a href="#seqDia/fragment">条件判断(<code>opt</code>)</a></h3>
 
 <p>ガード内の条件を満たす時だけフラグメント内の処理が実行される。</p>
 
@@ -1774,13 +1799,13 @@ class lifeline2 {
 
 <p><a id="seqDia/fragment-par"></a></p>
 
-<h3 id="toc_94"><a href="#seqDia/fragment">並列処理(<code>par</code>)</a></h3>
+<h3 id="toc_98"><a href="#seqDia/fragment">並列処理(<code>par</code>)</a></h3>
 
 <p>点線で区切られた各区画を並列処理する。</p>
 
 <p><a id="seqDia/fragment-critical"></a></p>
 
-<h3 id="toc_95"><a href="#seqDia/fragment">クリティカルセクション(<code>critical</code>)</a></h3>
+<h3 id="toc_99"><a href="#seqDia/fragment">クリティカルセクション(<code>critical</code>)</a></h3>
 
 <p>そのフラグメントを実行するスレッドが常に一つでフラグメントが終了するまで別のスレッドを実行できない。割り込みや中断を許さない。</p>
 
@@ -1790,13 +1815,13 @@ class lifeline2 {
 
 <p><a id="seqDia/fragment-loop"></a></p>
 
-<h3 id="toc_96"><a href="#seqDia/fragment">反復処理(<code>loop</code>)</a></h3>
+<h3 id="toc_100"><a href="#seqDia/fragment">反復処理(<code>loop</code>)</a></h3>
 
 <p>フラグメント内を繰り返し処理する。反復条件は、ヘッダに<code>loop[開始, 終了]</code>, <code>loop[反復回数]</code>, <code>loop[開始,*]</code>という形式で書くか、フラグメント内にガード条件として定義できる。</p>
 
 <p><a id="seqDia/fragment-break"></a></p>
 
-<h3 id="toc_97"><a href="#seqDia/fragment">中断処理(<code>break</code>)</a></h3>
+<h3 id="toc_101"><a href="#seqDia/fragment">中断処理(<code>break</code>)</a></h3>
 
 <p>ガード条件が成り立つときに、フレーム内の処理を実行して外側のフレームを中断させる。</p>
 
@@ -1806,25 +1831,25 @@ class lifeline2 {
 
 <p><a id="seqDia/fragment-assert"></a></p>
 
-<h3 id="toc_98"><a href="#seqDia/fragment">アサート(<code>assert</code>)</a></h3>
+<h3 id="toc_102"><a href="#seqDia/fragment">アサート(<code>assert</code>)</a></h3>
 
 <p>処理が妥当であるための定義(状態)を<code>{}</code>内を書く。</p>
 
 <p><a id="seqDia/fragment-neg"></a></p>
 
-<h3 id="toc_99"><a href="#seqDia/fragment">不正処理(<code>neg</code>)</a></h3>
+<h3 id="toc_103"><a href="#seqDia/fragment">不正処理(<code>neg</code>)</a></h3>
 
 <p>通常、起こり得ない処理。エラーハンドリングする。</p>
 
 <p><a id="seqDia/fragment-ignore"></a></p>
 
-<h3 id="toc_100"><a href="#seqDia/fragment">重要でない(<code>ignore</code>)</a></h3>
+<h3 id="toc_104"><a href="#seqDia/fragment">重要でない(<code>ignore</code>)</a></h3>
 
 <p>フラグメント内の重要でない処理を<code>ignore{message_i, message_j,...}</code>の形式で示す。</p>
 
 <p><a id="seqDia/fragment-consider"></a></p>
 
-<h3 id="toc_101"><a href="#seqDia/fragment">重要(<code>consider</code>)</a></h3>
+<h3 id="toc_105"><a href="#seqDia/fragment">重要(<code>consider</code>)</a></h3>
 
 <p>フラグメント内の重要なメッセージを<code>consider{message_i, message_j, ...}</code>の形式で示す。</p>
 
@@ -1832,23 +1857,23 @@ class lifeline2 {
 
 <p><em>message2, 2.1は妥当な状態condition Aになっているものとして処理する。message3,4は重要でないので無視しても構わない。condition Aになっていないならerror処理を行う。message6,7は重要な処理。</em></p>
 
-<h2 id="toc_102">シーケンス図の注意点</h2>
+<h2 id="toc_106">シーケンス図の注意点</h2>
 
 <p>ライフライン自身へのメッセージ(<strong>再帰的メッセージ:recursive message</strong>)があっても、クラス図で自分自身への<strong>再帰的関連(recursive association)</strong>があるとは限らない。別のライフライン(インスタンス)へメッセージがあり送信側と受信側両方のライフラインのクラスが同じ場合、再帰的関連となる。</p>
 
-<h2 id="toc_103"></h2>
+<h2 id="toc_107"></h2>
 
 <p><a href="#seqDiaSec">シーケンス図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_104"></h2>
+<h2 id="toc_108"></h2>
 
 <p><a id="comDiaSec"></a></p>
 
-<h1 id="toc_105"><a href="#agenda">コミュニケーション図(Communication Diagram)</a></h1>
+<h1 id="toc_109"><a href="#agenda">コミュニケーション図(Communication Diagram)</a></h1>
 
 <p>旧コラボレーション図(collaboration diagram)。相互作用図の一つ。<strong>ライフライン間のメッセージ</strong>のやり取り、<strong>システムの動的な側面</strong>を表現する。<strong>クラス図の操作</strong>を検討することができる。</p>
 
-<h2 id="toc_106">コミュニケーション図の要素</h2>
+<h2 id="toc_110">コミュニケーション図の要素</h2>
 
 <table>
 <thead>
@@ -1908,23 +1933,23 @@ class lifeline2 {
 
 <p><em>同期メッセージ1,2が送信され、続いて、非同期メッセージ3,4a,4b,5が送信されるが、4a, 4bが並列に送信される。5の送信には、先立って4bが送信されている必要がある。</em></p>
 
-<h2 id="toc_107">コミュニケーション図の注意点</h2>
+<h2 id="toc_111">コミュニケーション図の注意点</h2>
 
 <p>シーケンス図同様、ライフライン自身へのメッセージがあっても、クラス図で再帰的関連があるとは限らない。</p>
 
-<h2 id="toc_108"></h2>
+<h2 id="toc_112"></h2>
 
 <p><a href="#comDiaSec">コミュニケーション図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_109"></h2>
+<h2 id="toc_113"></h2>
 
 <p><a id="stateMachineDiaSec"></a></p>
 
-<h1 id="toc_110"><a href="#agenda">ステートマシン図(State Machine Diagram)</a></h1>
+<h1 id="toc_114"><a href="#agenda">ステートマシン図(State Machine Diagram)</a></h1>
 
-<p><strong>１つのオブジェクトの生成から消滅まで</strong>の時間経過に伴う<strong>状態変化</strong>を表現する。</p>
+<p><strong>１つ</strong>の<strong>オブジェクト</strong>の<strong>生成から消滅まで</strong>の時間経過に伴う<strong>状態変化</strong>を表現する。</p>
 
-<h2 id="toc_111">ステートマシン図の要素</h2>
+<h2 id="toc_115">ステートマシン図の要素</h2>
 
 <p><a id="stateMachineDia/element"></a></p>
 
@@ -2008,7 +2033,7 @@ class lifeline2 {
 
 <p><a id="stateMachineDia/transition"></a></p>
 
-<h2 id="toc_112"><a href="#stateMachineDia/element">状態遷移(state transition)</a></h2>
+<h2 id="toc_116"><a href="#stateMachineDia/element">状態遷移(state transition)</a></h2>
 
 <p>ある状態から同じトリガーで別の状態に遷移する場合はガード条件を書いて分岐できる。</p>
 
@@ -2020,7 +2045,7 @@ class lifeline2 {
 
 <p><a id="stateMachineDia/state"></a></p>
 
-<h3 id="toc_113">処理(評価)の順番</h3>
+<h3 id="toc_117">処理(評価)の順番</h3>
 
 <p><img src="pic/stateMachineDia/stepEX.jpg" alt=""></p>
 
@@ -2029,11 +2054,11 @@ class lifeline2 {
 <li><strong>アクティビティ(activity):　</strong>状態に入るときに開始し、<strong>一定時間継続する</strong>。動作中にトリガーにより状態遷移で<strong>中断される</strong>。</li>
 <li><strong>トリガー(trigger):　</strong>なんらかの影響をもたらす事象</li>
 <li><strong>ガード条件(gard):　</strong>状態遷移可能かどうかの条件</li>
-<li><strong>退場アクション(exit action):　</strong>状態からでるときに<strong>瞬間的に</strong>行われ、<strong>中断されない</strong>。</li>
+<li><strong>退場アクション(exit action):　</strong>状態からでるときに<strong>瞬間的に</strong>行われ、<strong>中断されない</strong>。(アクティビティの後にトリガが発生しない or ガード条件を満たさないで遷移しない場合も実行される？ (L1 16章 2))</li>
 <li><strong>エフェクト(effect):　</strong>状態遷移と<strong>同時に瞬間的</strong>に行われ、<strong>中断されない</strong>。</li>
 </ol>
 
-<h3 id="toc_114">据え置きイベント(deferred event)</h3>
+<h3 id="toc_118">据え置きイベント(deferred event)</h3>
 
 <p>アクションdeferがつけられたイベントは、<strong>据え置きイベント(defferred event)</strong>と呼ばれ、他の状態に遷移するまで捨てられずに処理が据え置かれる。</p>
 
@@ -2045,7 +2070,7 @@ class lifeline2 {
 
 <p><a id="stateMachineDia/compositeState"></a></p>
 
-<h2 id="toc_115"><a href="#stateMachineDia/element">コンポジット(合成)状態(composite state)</a></h2>
+<h2 id="toc_119"><a href="#stateMachineDia/element">コンポジット(合成)状態(composite state)</a></h2>
 
 <p>状態の内部にサブ状態をもつ状態。各スコープで開始状態は一つ。</p>
 
@@ -2060,15 +2085,17 @@ class lifeline2 {
 
 <p><a id="stateMachineDia/orthogonal"></a></p>
 
-<h3 id="toc_116"><a href="#stateMachineDia/element">直交状態(orthogonal state)</a></h3>
+<h3 id="toc_120"><a href="#stateMachineDia/element">直交状態(orthogonal state)</a></h3>
 
-<p>1つのコンポジット状態のなkで、同時に複数のサブ状態が存在する状態。点線で領域(UML1.xでは平行サブ状態)を作って表現する。</p>
+<p>1つのコンポジット状態のなkで、<strong>同時に</strong>複数のサブ状態が存在する状態。点線で領域(UML1.xでは平行サブ状態)を作って表現する。それぞれの領域は<strong>独立した状態</strong>を持っている。</p>
 
 <p><img src="pic/stateMachineDia/orthogonalState.jpg" alt=""></p>
 
+<p><strong>各領域は独立しており、取りうる状態の数は2<em>2</em>2=8状態</strong></p>
+
 <p><a id="stateMachineDia/fork-join"></a></p>
 
-<h3 id="toc_117"><a href="#stateMachineDia/element">平行遷移(concurrent transition)</a></h3>
+<h3 id="toc_121"><a href="#stateMachineDia/element">平行遷移(concurrent transition)</a></h3>
 
 <p><strong>同期バー</strong>を使って、<strong>分岐(fork)</strong>と<strong>合流(join)</strong>の同期を記述できる。forkした各サブ状態が終了するまでjoin地点で待つ。</p>
 
@@ -2076,7 +2103,7 @@ class lifeline2 {
 
 <p><a id="stateMachineDia/history"></a></p>
 
-<h3 id="toc_118"><a href="#stateMachineDia/element">履歴(history)</a></h3>
+<h3 id="toc_122"><a href="#stateMachineDia/element">履歴(history)</a></h3>
 
 <p>履歴を使って、コンポジット状態(の最後にアクティブであったサブ状態)を保存できる。
 コンポジット状態に入るときは直接履歴に遷移を貼る。初めてアクティブになったときの開始状態を忘れないようにしておく。<strong>浅い履歴はサブ状態のサブ状態までは覚えておけない。</strong>コンポジット状態の開始状態の代わりに、履歴を使用しても良い。</p>
@@ -2087,19 +2114,19 @@ class lifeline2 {
 
 <p><a id="stateMachineDia/choice"></a></p>
 
-<h2 id="toc_119"><a href="#stateMachineDia/element">選択疑似状態(choice, conditional pseudo state)</a></h2>
+<h2 id="toc_123"><a href="#stateMachineDia/element">選択疑似状態(choice, conditional pseudo state)</a></h2>
 
 <p><strong>動的条件分岐(dynamic conditional branch)</strong>。選択疑似状態から出て行く遷移のうち、ガード条件に合致するものが１つもなければ、記述の誤り。[else]のガード条件を使うと良い。属性値をアイコンの中に書いて、ガード条件の左辺を省略しても良い。</p>
 
 <p><a id="stateMachineDia/junction"></a></p>
 
-<h2 id="toc_120"><a href="#stateMachineDia/element">交差状態(junction)</a></h2>
+<h2 id="toc_124"><a href="#stateMachineDia/element">交差状態(junction)</a></h2>
 
 <p><strong>静的条件分岐 (static conditional branch)</strong>。交差状態から出て行く遷移のうち、ガード条件に合致するものが１つもなくても良い。その場合は直ちに遷移しない(交差状態の前の状態のまま)。</p>
 
-<h2 id="toc_121">ステートマシン図の注意点</h2>
+<h2 id="toc_125">ステートマシン図の注意点</h2>
 
-<h3 id="toc_122">ガード条件の評価</h3>
+<h3 id="toc_126">ガード条件の評価</h3>
 
 <p><a href="http://labo.mamezou.com/special/sp_002/sp_002_004.html">参考</a></p>
 
@@ -2115,7 +2142,7 @@ class lifeline2 {
 
 <p><em>whenイベントは、チェンジイベントなので、開始状態で既に条件を満たしている場合は、発火しない。そのため、選択疑似状態を挟んでいる。</em></p>
 
-<h3 id="toc_123">選択疑似状態と交差状態</h3>
+<h3 id="toc_127">選択疑似状態と交差状態</h3>
 
 <p><a href="http://labo.mamezou.com/special/sp_002/sp_002_004.html">参考</a></p>
 
@@ -2123,19 +2150,20 @@ class lifeline2 {
 
 <p><em>上の例だと最大で、actionが4回(retryは3回)行われる。選択疑似状態を交差状態に変えると、[action success]の評価と同時に[retry &lt;= 3], [retry &gt;3]が評価されて、retryのインクリメントが行われるので、最大でactionが5回(retryは4回)行われる。</em></p>
 
-<h2 id="toc_124"></h2>
+<h2 id="toc_128"></h2>
 
 <p><a href="#stateMachineDiaSec">ステートマシン図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_125"></h2>
+<h2 id="toc_129"></h2>
 
 <p><a id="activityDiaSec"></a></p>
 
-<h1 id="toc_126"><a href="#agenda">アクティビティ図(Activity Diagram)</a></h1>
+<h1 id="toc_130"><a href="#agenda">アクティビティ図(Activity Diagram)</a></h1>
 
-<p>システムや業務の流れを表現する。フローチャート的なもの。</p>
+<p>システムや業務の流れを表現する。フローチャート的なもの。
+ステートマシン図の全ての状態にアクティビティがついて、完了遷移を行うと、アクティビティ図になる。</p>
 
-<h2 id="toc_127">アクティビティ図の要素</h2>
+<h2 id="toc_131">アクティビティ図の要素</h2>
 
 <table>
 <thead>
@@ -2220,23 +2248,23 @@ class lifeline2 {
 </tbody>
 </table>
 
-<h2 id="toc_128"></h2>
+<h2 id="toc_132"></h2>
 
 <p><a href="#activityDiaSec">アクティビティ図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_129"></h2>
+<h2 id="toc_133"></h2>
 
 <p><a id="componentDiaSec"></a></p>
 
-<h1 id="toc_130"><a href="#agenda">コンポーネント図(Component Diagram)</a></h1>
+<h1 id="toc_134"><a href="#agenda">コンポーネント図(Component Diagram)</a></h1>
 
-<p><strong>実装</strong>を表現する図の一つ。システムの<strong>モジュール</strong>構成、<strong>ソフトウェアコンポーネント</strong>の構成を表現する。ハードウェア的なものは表記しない。</p>
+<p><strong>物理的なシステム構成</strong>、<strong>実装</strong>を表現する図の１つ。システムの<strong>モジュール</strong>構成、<strong>ソフトウェアコンポーネント</strong>の構成を表現する。ハードウェア的なものは表記しない。</p>
 
-<h2 id="toc_131">コンポーネント図の要素</h2>
+<h2 id="toc_135">コンポーネント図の要素</h2>
 
 <p>インターフェースには、クラス図のものと同じアイコンも使用可能。依存、実装などはクラス図と同じ記号を使う。</p>
 
-<p>コンポーネント間は依存関係により、ソースファイルのコンパイルや、実行ファイルの呼び出し間駅を表現する。</p>
+<p>コンポーネント間は<strong>依存関係</strong>により、ソースファイルのコンパイルや、実行ファイルの呼び出し間駅を表現する。</p>
 
 <table>
 <thead>
@@ -2276,23 +2304,23 @@ class lifeline2 {
 </tbody>
 </table>
 
-<h3 id="toc_132">コンポーネント間の関係</h3>
+<h3 id="toc_136">コンポーネント間の関係</h3>
 
 <p><code>&lt;&lt;copy&gt;&gt;</code>, <code>&lt;&lt;become&gt;&gt;</code>, <code>&lt;&lt;import&gt;&gt;</code> などのステレオタイプが仕様される。</p>
 
-<h2 id="toc_133"></h2>
+<h2 id="toc_137"></h2>
 
 <p><a href="#componentDiaSec">コンポーネント図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_134"></h2>
+<h2 id="toc_138"></h2>
 
 <p><a id="deploymentDiaSec"></a></p>
 
-<h1 id="toc_135"><a href="#agenda">配置図(Deployment Diagram)</a></h1>
+<h1 id="toc_139"><a href="#agenda">配置図(Deployment Diagram)</a></h1>
 
-<p><strong>実装</strong>を表現する図の一つ。<strong>物理的な</strong>ファイルを配置する<strong>ハードウェア</strong>構成を表現する。</p>
+<p><strong>物理的なシステム構成</strong>、<strong>実装</strong>を表現する図の１つ。<strong>物理的な</strong>ファイルを配置する<strong>ハードウェア</strong>構成を表現する。</p>
 
-<h2 id="toc_136">配置図の要素</h2>
+<h2 id="toc_140">配置図の要素</h2>
 
 <p><a id="deploymentDia/element"></a></p>
 
@@ -2356,16 +2384,16 @@ class lifeline2 {
 
 <p><a id="deploymentDia/node"></a></p>
 
-<h2 id="toc_137"><a href="#deploymentDia/element">ノード(node)</a></h2>
+<h2 id="toc_141"><a href="#deploymentDia/element">ノード(node)</a></h2>
 
 <p><strong>メモリや処理機能</strong>を持ち、演算を実行するコンピュータ、プリンタ、ハードウェアなどの<strong>システムリソース</strong>。ノードは入れ子にすることができる。
 ノード型とノードインスタンスがある。</p>
 
-<h2 id="toc_138">配置図の関係</h2>
+<h2 id="toc_142">配置図の関係</h2>
 
 <p><a id="deploymentDia/manifestation"></a></p>
 
-<h3 id="toc_139"><a href="#deploymentDia/element">マニフェステーション関係</a></h3>
+<h3 id="toc_143"><a href="#deploymentDia/element">マニフェステーション関係</a></h3>
 
 <p>成果物(を含むノード)とコンポーネントの関係。成果物(実行ファイル、スクリプト, ソースファイル etc.)でコンポーネントを実現する。依存関係に<code>&lt;&lt;manifest&gt;&gt;</code>をつける。</p>
 
@@ -2375,7 +2403,7 @@ class lifeline2 {
 
 <p><a id="deploymentDia/deployment"></a></p>
 
-<h3 id="toc_140"><a href="#deploymentDia/element">配置</a></h3>
+<h3 id="toc_144"><a href="#deploymentDia/element">配置</a></h3>
 
 <p>ノードと成果物(ノード)の配置関係を視覚表記、代替配置表記(依存関係に<code>&lt;&lt;deploy&gt;&gt;</code>をつける)、リスト表記で記述できる。</p>
 
@@ -2383,25 +2411,25 @@ class lifeline2 {
 
 <p><a id="deploymentDia/channel"></a></p>
 
-<h3 id="toc_141"><a href="#deploymentDia/element">通信路</a></h3>
+<h3 id="toc_145"><a href="#deploymentDia/element">通信路</a></h3>
 
 <p>ノード型には多重度をつけることができる。</p>
 
 <p><img src="pic/deploymentDia/channelEX.jpg" alt=""></p>
 
-<h2 id="toc_142"></h2>
+<h2 id="toc_146"></h2>
 
 <p><a href="#deploymentDiaSec">配置図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_143"></h2>
+<h2 id="toc_147"></h2>
 
 <p><a id="compositeStructureDiaSec"></a></p>
 
-<h1 id="toc_144"><a href="#agenda">合成構造図(Composite Structure Diagram)</a></h1>
+<h1 id="toc_148"><a href="#agenda">合成構造図(Composite Structure Diagram)</a></h1>
 
 <p>あるクラスとその<strong>内部構造</strong>との関係の詳細を表す。クラス図のコンポジションをパートを用いてよりわかりやすくしたもの。</p>
 
-<h2 id="toc_145">合成構造図の要素</h2>
+<h2 id="toc_149">合成構造図の要素</h2>
 
 <table>
 <thead>
@@ -2431,20 +2459,20 @@ class lifeline2 {
 </tbody>
 </table>
 
-<h2 id="toc_146"></h2>
+<h2 id="toc_150"></h2>
 
 <p><a href="#compositeStructureDiaSec">合成構造図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_147"></h2>
+<h2 id="toc_151"></h2>
 
 <p><a id="timingDiaSec"></a></p>
 
-<h1 id="toc_148"><a href="#agenda">タイミング図(Timing Diagram)</a></h1>
+<h1 id="toc_152"><a href="#agenda">タイミング図(Timing Diagram)</a></h1>
 
 <p>相互作用図の一つ。
 <strong>時刻と状態の変化</strong>の厳密な関係を表現する。ステートマシン図と同様に、ライフラインの状態を表現するが、シーケンス図のように<strong>複数のライフライン間</strong>のメッセージのやり取りを表現することもできる。</p>
 
-<h2 id="toc_149">タイミング図の要素</h2>
+<h2 id="toc_153">タイミング図の要素</h2>
 
 <table>
 <thead>
@@ -2484,19 +2512,21 @@ class lifeline2 {
 
 <p><img src="pic/timingDia/timingDiagram.jpg" alt=""></p>
 
-<h2 id="toc_150"></h2>
+<p><a href="http://www.itsenka.com/contents/development/uml/timing.html">参考</a></p>
+
+<h2 id="toc_154"></h2>
 
 <p><a href="#timingDiaSec">タイミング図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_151"></h2>
+<h2 id="toc_155"></h2>
 
 <p><a id="interactionOverviewDiaSec"></a></p>
 
-<h1 id="toc_152"><a href="#agenda">相互作用概要図(Interaction Overview Diagram)</a></h1>
+<h1 id="toc_156"><a href="#agenda">相互作用概要図(Interaction Overview Diagram)</a></h1>
 
 <p>相互作用図の一つ。<a href="#activityDiaSec">アクティビティ図</a>と<a href="#seqDiaSec">シーケンス図</a>を組み合わせ、複数の相互作用の関係を鳥瞰する。</p>
 
-<h2 id="toc_153">相互作用概要図の要素</h2>
+<h2 id="toc_157">相互作用概要図の要素</h2>
 
 <table>
 <thead>
@@ -2541,102 +2571,132 @@ class lifeline2 {
 </tbody>
 </table>
 
-<h2 id="toc_154"></h2>
+<h2 id="toc_158"></h2>
 
 <p><a href="#interactionOverviewDiaSec">相互作用概要図</a>　<a href="#agenda">目次へ戻る</a></p>
 
-<h2 id="toc_155"></h2>
+<h2 id="toc_159"></h2>
 
-<h1 id="toc_156">Review Point</h1>
-
-<p><a href="http://www.amazon.co.jp/%E6%94%B9%E8%A8%82%E7%89%88-UML%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93-%E5%85%A5%E9%96%80%E3%83%AC%E3%83%99%E3%83%AB-%E5%95%8F%E9%A1%8C%E9%9B%86--UML2-0%E5%AF%BE%E5%BF%9C/dp/4774132454/ref=sr_1_1?ie=UTF8&amp;qid=1443222547&amp;sr=8-1&amp;keywords=uml%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93">[改訂版] UMLモデリング技能認定試験&lt;入門レベル(L1)&gt;問題集 -UML2.0対応</a></p>
-
-<h2 id="toc_157">開発プロセス/モデリング</h2>
+<h1 id="toc_160">Review Point</h1>
 
 <ul>
-<li>12章　5, 8, 9</li>
+<li><a href="http://www.amazon.co.jp/%E6%94%B9%E8%A8%82%E7%89%88-UML%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93-%E5%85%A5%E9%96%80%E3%83%AC%E3%83%99%E3%83%AB-%E5%95%8F%E9%A1%8C%E9%9B%86--UML2-0%E5%AF%BE%E5%BF%9C/dp/4774132454/ref=sr_1_1?ie=UTF8&amp;qid=1443222547&amp;sr=8-1&amp;keywords=uml%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93">[改訂版] UMLモデリング技能認定試験&lt;入門レベル(L1)&gt;問題集 -UML2.0対応</a></li>
+<li>L1:<a href="http://www.amazon.co.jp/gp/product/4844324829?psc=1&amp;redirect=true&amp;ref_=oh_aui_detailpage_o02_s00">徹底攻略UMLモデリング技能認定試験問題集―L1(T1/T2)対応 (ITプロ/ITエンジニアのための徹底攻略)</a></li>
 </ul>
 
-<h2 id="toc_158">ユースケース図</h2>
+<h2 id="toc_161">開発プロセス/モデリング</h2>
+
+<p>- 1章　9
+- 12章　5, 8, 9
+- L1 22章　3, 4</p>
+
+<h2 id="toc_162">ユースケース図</h2>
 
 <ul>
-<li>13章　2, 6, 8</li>
+<li>2章  15</li>
+<li>13章　1, 2, 3, 4, 6, 8</li>
+<li>L1 12章　2, 7, 9</li>
 </ul>
 
-<h2 id="toc_159">シーケンス図</h2>
+<h2 id="toc_163">シーケンス図</h2>
 
 <ul>
 <li>4章　4, 9, 12, 17</li>
 <li>15章　4, 7, 8</li>
+<li>L1 14章　8</li>
 </ul>
 
-<h2 id="toc_160">コミュニケーション図</h2>
+<h2 id="toc_164">コミュニケーション図</h2>
 
 <ul>
-<li>5章　1, 6, 8, 13</li>
+<li>5章　1, 6, 8</li>
 <li>15章　11</li>
+<li>L1 15章　2, 5, 6</li>
+<li>L1 22章 20</li>
 </ul>
 
-<h3 id="toc_161">コミュニケーション図とシーケンス図</h3>
+<h3 id="toc_165">コミュニケーション図とシーケンス図</h3>
 
 <ul>
 <li>10章　11</li>
 </ul>
 
-<h2 id="toc_162">ステートマシン図</h2>
+<h2 id="toc_166">ステートマシン図</h2>
 
 <ul>
 <li>6章　1, 7, 12, 14, 16, 17, 18, 19</li>
+<li>L1 16章　2</li>
+<li>L1 22章 22</li>
 </ul>
 
-<h3 id="toc_163">ステートマシン図とコミュニケーション図</h3>
+<h3 id="toc_167">ステートマシン図とコミュニケーション図</h3>
 
 <ul>
 <li>10章　12</li>
 </ul>
 
-<h2 id="toc_164">コンポーネント図</h2>
+<h3 id="toc_168">ステートマシン図とクラス図</h3>
+
+<ul>
+<li>L1 20章　5</li>
+</ul>
+
+<h2 id="toc_169">アクティビティ図</h2>
+
+<ul>
+<li>7章　2</li>
+</ul>
+
+<h2 id="toc_170">コンポーネント図</h2>
 
 <ul>
 <li>8章　1, 4, 9, 10, 11</li>
+<li>L1 22章　25</li>
 </ul>
 
-<h2 id="toc_165">配置図</h2>
+<h2 id="toc_171">配置図</h2>
 
 <ul>
-<li>9章　7, 8, 10</li>
+<li>9章　3, 7, 8, 10</li>
 <li>16章　5, 6</li>
 </ul>
 
-<h2 id="toc_166">クラス図とオブジェクト図</h2>
+<h2 id="toc_172">クラス図とオブジェクト図</h2>
 
 <ul>
-<li>3章　5, 21, 22, 26, 31, 38, 41, 42, 44, 46, 51</li>
+<li>1章  2</li>
+<li>3章　3, 5, 21, 22, 25, 26, 30, 31, 33, 34, 38, 41, 42, 44, 46, 51</li>
 <li>5章　10, 13</li>
-<li>14章　1, 2, 4, 8, 9, 11, 13, 15, 19, 20, 21</li>
+<li>14章　1, 2, 4, 8, 9, 10, 11, 13, 15, 19, 20, 21</li>
 <li>17章　3, 6</li>
+<li>L1 13章　1, 6, 11, 13, 15, 17, 20, 23, 24</li>
+<li>L1 22章 10, 11, 14, 30</li>
 </ul>
 
-<h3 id="toc_167">クラス図とシーケンス図</h3>
+<h3 id="toc_173">クラス図とシーケンス図</h3>
 
 <ul>
 <li>17章　4, 11</li>
+<li>L1 20章　4, 9, 11</li>
+<li>L1 22章　17</li>
 </ul>
 
-<h3 id="toc_168">クラス図とコミュニケーション図</h3>
+<h3 id="toc_174">クラス図とコミュニケーション図</h3>
 
 <ul>
 <li>17章　5</li>
+<li>1L 20章　6</li>
+<li>1L 22章　29</li>
 </ul>
 
 <script type="text/javascript">
-var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=_self.Prism={util:{encode:function(e){return e instanceof n?new n(e.type,t.util.encode(e.content),e.alias):"Array"===t.util.type(e)?e.map(t.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=t.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return t.util.clone(e)})}return e}},languages:{extend:function(e,n){var a=t.util.clone(t.languages[e]);for(var r in n)a[r]=n[r];return a},insertBefore:function(e,n,a,r){r=r||t.languages;var i=r[e];if(2==arguments.length){a=arguments[1];for(var l in a)a.hasOwnProperty(l)&&(i[l]=a[l]);return i}var o={};for(var s in i)if(i.hasOwnProperty(s)){if(s==n)for(var l in a)a.hasOwnProperty(l)&&(o[l]=a[l]);o[s]=i[s]}return t.languages.DFS(t.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,n,a){for(var r in e)e.hasOwnProperty(r)&&(n.call(e,r,e[r],a||r),"Object"===t.util.type(e[r])?t.languages.DFS(e[r],n):"Array"===t.util.type(e[r])&&t.languages.DFS(e[r],n,r))}},highlightAll:function(e,n){for(var a,r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'),i=0;a=r[i++];)t.highlightElement(a,e===!0,n)},highlightElement:function(a,r,i){for(var l,o,s=a;s&&!e.test(s.className);)s=s.parentNode;s&&(l=(s.className.match(e)||[,""])[1],o=t.languages[l]),a.className=a.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,s=a.parentNode,/pre/i.test(s.nodeName)&&(s.className=s.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var u=a.textContent,c={element:a,language:l,grammar:o,code:u};if(u&&(c.code=u.replace(/^(?:\r?\n|\r)/,"")),!u||!o)return t.hooks.run("complete",c),void 0;if(t.hooks.run("before-highlight",c),r&&_self.Worker){var g=new Worker(t.filename);g.onmessage=function(e){c.highlightedCode=n.stringify(JSON.parse(e.data),l),t.hooks.run("before-insert",c),c.element.innerHTML=c.highlightedCode,i&&i.call(c.element),t.hooks.run("after-highlight",c),t.hooks.run("complete",c)},g.postMessage(JSON.stringify({language:c.language,code:c.code}))}else c.highlightedCode=t.highlight(c.code,c.grammar,c.language),t.hooks.run("before-insert",c),c.element.innerHTML=c.highlightedCode,i&&i.call(a),t.hooks.run("after-highlight",c),t.hooks.run("complete",c)},highlight:function(e,a,r){var i=t.tokenize(e,a);return n.stringify(t.util.encode(i),r)},tokenize:function(e,n){var a=t.Token,r=[e],i=n.rest;if(i){for(var l in i)n[l]=i[l];delete n.rest}e:for(var l in n)if(n.hasOwnProperty(l)&&n[l]){var o=n[l];o="Array"===t.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,f=0,h=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var d=r[p];if(r.length>e.length)break e;if(!(d instanceof a)){u.lastIndex=0;var m=u.exec(d);if(m){g&&(f=m[1].length);var y=m.index-1+f,m=m[0].slice(f),v=m.length,k=y+v,b=d.slice(0,y+1),w=d.slice(k+1),N=[p,1];b&&N.push(b);var O=new a(l,c?t.tokenize(m,c):m,h);N.push(O),w&&N.push(w),Array.prototype.splice.apply(r,N)}}}}}return r},hooks:{all:{},add:function(e,n){var a=t.hooks.all;a[e]=a[e]||[],a[e].push(n)},run:function(e,n){var a=t.hooks.all[e];if(a&&a.length)for(var r,i=0;r=a[i++];)r(n)}}},n=t.Token=function(e,t,n){this.type=e,this.content=t,this.alias=n};if(n.stringify=function(e,a,r){if("string"==typeof e)return e;if("Array"===t.util.type(e))return e.map(function(t){return n.stringify(t,a,e)}).join("");var i={type:e.type,content:n.stringify(e.content,a,r),tag:"span",classes:["token",e.type],attributes:{},language:a,parent:r};if("comment"==i.type&&(i.attributes.spellcheck="true"),e.alias){var l="Array"===t.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(i.classes,l)}t.hooks.run("wrap",i);var o="";for(var s in i.attributes)o+=s+'="'+(i.attributes[s]||"")+'"';return"<"+i.tag+' class="'+i.classes.join(" ")+'" '+o+">"+i.content+"</"+i.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var n=JSON.parse(e.data),a=n.language,r=n.code;_self.postMessage(JSON.stringify(t.util.encode(t.tokenize(r,t.languages[a])))),_self.close()},!1),_self.Prism):_self.Prism;var a=document.getElementsByTagName("script");return a=a[a.length-1],a&&(t.filename=a.src,document.addEventListener&&!a.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism);
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=_self.Prism={util:{encode:function(e){return e instanceof n?new n(e.type,t.util.encode(e.content),e.alias):"Array"===t.util.type(e)?e.map(t.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=t.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return t.util.clone(e)})}return e}},languages:{extend:function(e,n){var a=t.util.clone(t.languages[e]);for(var r in n)a[r]=n[r];return a},insertBefore:function(e,n,a,r){r=r||t.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==n)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return t.languages.DFS(t.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,n,a){for(var r in e)e.hasOwnProperty(r)&&(n.call(e,r,e[r],a||r),"Object"===t.util.type(e[r])?t.languages.DFS(e[r],n):"Array"===t.util.type(e[r])&&t.languages.DFS(e[r],n,r))}},plugins:{},highlightAll:function(e,n){for(var a,r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'),l=0;a=r[l++];)t.highlightElement(a,e===!0,n)},highlightElement:function(n,a,r){for(var l,i,o=n;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=t.languages[l]),n.className=n.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=n.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=n.textContent,u={element:n,language:l,grammar:i,code:s};if(!s||!i)return t.hooks.run("complete",u),void 0;if(t.hooks.run("before-highlight",u),a&&_self.Worker){var g=new Worker(t.filename);g.onmessage=function(e){u.highlightedCode=e.data,t.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),t.hooks.run("after-highlight",u),t.hooks.run("complete",u)},g.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=t.highlight(u.code,u.grammar,u.language),t.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(n),t.hooks.run("after-highlight",u),t.hooks.run("complete",u)},highlight:function(e,a,r){var l=t.tokenize(e,a);return n.stringify(t.util.encode(l),r)},tokenize:function(e,n){var a=t.Token,r=[e],l=n.rest;if(l){for(var i in l)n[i]=l[i];delete n.rest}e:for(var i in n)if(n.hasOwnProperty(i)&&n[i]){var o=n[i];o="Array"===t.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],g=u.inside,c=!!u.lookbehind,f=0,h=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var d=r[p];if(r.length>e.length)break e;if(!(d instanceof a)){u.lastIndex=0;var m=u.exec(d);if(m){c&&(f=m[1].length);var y=m.index-1+f,m=m[0].slice(f),v=m.length,k=y+v,b=d.slice(0,y+1),w=d.slice(k+1),P=[p,1];b&&P.push(b);var A=new a(i,g?t.tokenize(m,g):m,h);P.push(A),w&&P.push(w),Array.prototype.splice.apply(r,P)}}}}}return r},hooks:{all:{},add:function(e,n){var a=t.hooks.all;a[e]=a[e]||[],a[e].push(n)},run:function(e,n){var a=t.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(n)}}},n=t.Token=function(e,t,n){this.type=e,this.content=t,this.alias=n};if(n.stringify=function(e,a,r){if("string"==typeof e)return e;if("Array"===t.util.type(e))return e.map(function(t){return n.stringify(t,a,e)}).join("");var l={type:e.type,content:n.stringify(e.content,a,r),tag:"span",classes:["token",e.type],attributes:{},language:a,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===t.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}t.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var n=JSON.parse(e.data),a=n.language,r=n.code,l=n.immediateClose;_self.postMessage(t.highlight(r,t.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var a=document.getElementsByTagName("script");return a=a[a.length-1],a&&(t.filename=a.src,document.addEventListener&&!a.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
 </script>
 <script type="text/javascript">
-Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\w\W]*?\*\//,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0}],string:/("|')(\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,"class-name":{pattern:/((?:(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,lookbehind:!0,inside:{punctuation:/(\.|\\)/}},keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(true|false)\b/,"function":/[a-z0-9_]+(?=\()/i,number:/\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/,operator:/[-+]{1,2}|!|<=?|>=?|={1,3}|&{1,2}|\|?\||\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\w\W]*?\*\//,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0}],string:/(["'])(\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,"class-name":{pattern:/((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,lookbehind:!0,inside:{punctuation:/(\.|\\)/}},keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(true|false)\b/,"function":/[a-z0-9_]+(?=\()/i,number:/\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,operator:/--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
 </script>
 <script type="text/javascript">
-Prism.languages.swift=Prism.languages.extend("clike",{keyword:/\b(as|associativity|break|case|catch|class|continue|convenience|default|defer|deinit|didSet|do|dynamic|dynamicType|else|enum|extension|fallthrough|final|for|func|get|guard|if|import|in|infix|init|inout|internal|is|lazy|left|let|mutating|new|none|nonmutating|operator|optional|override|postfix|precedence|prefix|private|Protocol|public|repeat|required|rethrows|return|right|safe|self|Self|set|static|struct|subscript|super|switch|throws?|try|Type|typealias|unowned|unsafe|var|weak|where|while|willSet|__COLUMN__|__FILE__|__FUNCTION__|__LINE__)\b/,number:/\b([\d_]+(\.[\de_]+)?|0x[a-f0-9_]+(\.[a-f0-9p_]+)?|0b[01_]+|0o[0-7_]+)\b/i,constant:/\b(nil|[A-Z_]{2,}|k[A-Z][A-Za-z_]+)\b/,atrule:/@\b(IBOutlet|IBDesignable|IBAction|IBInspectable|class_protocol|exported|noreturn|NSCopying|NSManaged|objc|UIApplicationMain|auto_closure)\b/,builtin:/\b([A-Z]\S+|abs|advance|alignof|alignofValue|assert|contains|count|countElements|debugPrint|debugPrintln|distance|dropFirst|dropLast|dump|enumerate|equal|filter|find|first|getVaList|indices|isEmpty|join|last|lazy|lexicographicalCompare|map|max|maxElement|min|minElement|numericCast|overlaps|partition|prefix|print|println|reduce|reflect|reverse|sizeof|sizeofValue|sort|sorted|split|startsWith|stride|strideof|strideofValue|suffix|swap|toDebugString|toString|transcode|underestimateCount|unsafeBitCast|withExtendedLifetime|withUnsafeMutablePointer|withUnsafeMutablePointers|withUnsafePointer|withUnsafePointers|withVaList)\b/});
+Prism.languages.swift=Prism.languages.extend("clike",{string:{pattern:/("|')(\\(?:\((?:[^()]|\([^)]+\))+\)|\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,inside:{interpolation:{pattern:/\\\((?:[^()]|\([^)]+\))+\)/,inside:{delimiter:{pattern:/^\\\(|\)$/,alias:"variable"}}}}},keyword:/\b(as|associativity|break|case|catch|class|continue|convenience|default|defer|deinit|didSet|do|dynamic(?:Type)?|else|enum|extension|fallthrough|final|for|func|get|guard|if|import|in|infix|init|inout|internal|is|lazy|left|let|mutating|new|none|nonmutating|operator|optional|override|postfix|precedence|prefix|private|Protocol|public|repeat|required|rethrows|return|right|safe|self|Self|set|static|struct|subscript|super|switch|throws?|try|Type|typealias|unowned|unsafe|var|weak|where|while|willSet|__(?:COLUMN__|FILE__|FUNCTION__|LINE__))\b/,number:/\b([\d_]+(\.[\de_]+)?|0x[a-f0-9_]+(\.[a-f0-9p_]+)?|0b[01_]+|0o[0-7_]+)\b/i,constant:/\b(nil|[A-Z_]{2,}|k[A-Z][A-Za-z_]+)\b/,atrule:/@\b(IB(?:Outlet|Designable|Action|Inspectable)|class_protocol|exported|noreturn|NS(?:Copying|Managed)|objc|UIApplicationMain|auto_closure)\b/,builtin:/\b([A-Z]\S+|abs|advance|alignof(?:Value)?|assert|contains|count(?:Elements)?|debugPrint(?:ln)?|distance|drop(?:First|Last)|dump|enumerate|equal|filter|find|first|getVaList|indices|isEmpty|join|last|lexicographicalCompare|map|max(?:Element)?|min(?:Element)?|numericCast|overlaps|partition|print(?:ln)?|reduce|reflect|reverse|sizeof(?:Value)?|sort(?:ed)?|split|startsWith|stride(?:of(?:Value)?)?|suffix|swap|toDebugString|toString|transcode|underestimateCount|unsafeBitCast|with(?:ExtendedLifetime|Unsafe(?:MutablePointers?|Pointers?)|VaList))\b/}),Prism.languages.swift.string.inside.interpolation.inside.rest=Prism.util.clone(Prism.languages.swift);
 </script>
 <script type="text/x-mathjax-config">
 if (typeof MathJaxListener !== 'undefined') {
@@ -2645,7 +2705,7 @@ if (typeof MathJaxListener !== 'undefined') {
   });
 }
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>
