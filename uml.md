@@ -10,6 +10,7 @@ function showHide(targetID) {
 }
 </script>
 <a id="top"></a>
+
 #UML(Unified Modeling Language:統一モデリング言語)
 
 UMTP勉強用
@@ -30,7 +31,7 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 - **Infrastructure:　**アーキテクチャの再構築や拡張メカニズム
 - **Superstructure:　**UMLの図や要素
 - **Diagram Interchange:　**図とその情報を相互に交換する形式をサポート
-- **OCL(Object Constraint Language):　**Superstructureで規定仕切れない情報(制約)をテキストで表現
+- **[OCL(Object Constraint Language)](#OCLSec):　**Superstructureで規定仕切れない情報(制約)をテキストで表現
 
 ##UMLで規定されるダイアグラム
 <a id="agenda"></a>
@@ -44,13 +45,13 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 	- [配置図(Deployment Diagram)](#deploymentDiaSec)
 - 振る舞い図
 	- [ユースケース図(Use Case Diagram)](#usecaseDiaSec)
-	- [アクティビティ図(Activity Diagram)](#activityDiaSec)
+	- [アクティビティ図(活動図)(Activity Diagram)](#activityDiaSec)
 	- 相互作用図(Interaction Diagram)
 		- [シーケンス図(Sequence Diagram)](#seqDiaSec)
-		- [コミュニケーション図(Communication Diagram)](#comDiaSec)　*旧コラボレーション図*
+		- [コミュニケーション図(Communication Diagram)](#comDiaSec)　*旧コラボレーション図(協調図)*
 		- [相互作用概要図(Interaction Overview Diagram)](#interactionOverviewDiaSec)
 		- [タイミング図(Timing Diagram)](#timingDiaSec)
-	- [ステートマシン図(State Machine Diagram)](#stateMachineDiaSec)　*旧ステートチャート図*
+	- [ステートマシン図(状態機械図)(State Machine Diagram)](#stateMachineDiaSec)　*旧ステートチャート図*
 
 
 ##ノート(note)
@@ -164,7 +165,6 @@ Agile | XP, Scrum, FDD, Crystalを含む複数のプロセスの集合体。
 1. 事例からクラス候補をを抽出する
 2. クラス候補と処理の流れからシーケンス図(コミュニケーション図)を作成する
 3. シーケンス図からもとのクラス図に情報を追加する。多重度などをオブジェクト図から考える。オブジェクトの状態はステートマシン図を利用する。
-
 --
 <a id="packageDiaSec"></a>
 #[パッケージ図(Package Diagram)](#agenda)
@@ -296,7 +296,7 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 [クラス(class)](#classDia/class) | ![](pic/classDia/class.jpg) | オブジェクトを属性(構造)と操作(振る舞い)の共通性に着目し、**抽象化**しもの。「もの」「ひと」「こと」を**抽象的**に表現する。
 [関連(association)](#classDia/association) | ![](pic/classDia/association.jpg) | クラス間に構造的な関係を示す。鏃をつけて方向性の指定も可能。
 [集約(aggregation)](#classDia/aggregation) | ![](pic/classDia/aggregation.jpg) | 関連の一種。**Part-Of**の関係。全体側の端にひし形を付ける。
-[コンポジション(composition)](#classDia/composition) | ![](pic/classDia/composition.jpg) | 集約の一種。全体側と部分側の**ライフサイクルがほぼ同一の場合**利用する。
+[合成集約,コンポジション(composition)](#classDia/composition) | ![](pic/classDia/composition.jpg) | 集約の一種。全体側と部分側の**ライフサイクルがほぼ同一の場合**利用する。
 [依存(dependency)](#classDia/dependency) | ![](pic/classDia/dependency.jpg) | あるクラスが別のクラスを利用する関係。利用されるクラス側に鏃を付ける。
 [実現化(realization)/実装(implementation)](#classDia/realization) | ![](pic/classDia/realization.jpg) | 依存関係の一種。**インターフェース**や**テンプレートクラス**とその実装を持つクラスやコンポーネント,サブシステム etc.とそのインターフェースとの関係。
 [汎化(generalization)](#classDia/generalization) | ![](pic/classDia/generalization.jpg) | スーパークラス側に鏃をつけてサブクラスを汎化する。**Is-a**の関係。
@@ -334,7 +334,7 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 可視性 操作名(引数名:引数の型):戻り値の型
 ```
 
-###可視性(visibility) / 派生属性(derived attribute)
+###可視性(visibility) / 派生(導出)属性(derived attribute)
 属性名や操作名の前に記述する。
 
 記号 | 意味 | 説明
@@ -402,15 +402,15 @@ attribute{constraints}
 ##[関連(association)](#classDia/element)
 
 クラス間に構造的な関係があるときに実線で結ぶ。
-線の上に**関連名**を付けることができ、任意で、関連名を**読む方向**を▶︎で表現できる。
+線の上に**関連名**を付けることができ、任意で、関連名を**読む方向**を▶︎で表現できる(関連名は通常３単現の動詞)。
 **関連端末名(ロール名)**をつけて関連のあるクラスからみた端末のクラスが何なのかを表現できる。
 
 ![](pic/classDia/class-relation-class.jpg)
 
-同一クラスの複数のオブジェクト間に**再帰的関連**を引くことができる(**同一クラスの同一のオブジェクト間に関係がある場合は引かない**)。
-
 ###多重度(multiplicity)
-**関連先**のクラスの**あるオブジェクト**が関連している端末のクラスの**オブジェクト**の数(総インスタンス数ではない)。
+**ターゲット**クラスの**あるオブジェクト**が関連しているソースクラスの**オブジェクト数**(総インスタンス数ではない)。オブジェクト図(に相当する集合図)とER図のcrow's footを見ればイメージしやすい。
+
+![](pic/classDia/multiplicity-EX.jpg)
 
 | 多重度の表記 | 意味    |
 | ---------- | ------ |
@@ -419,18 +419,43 @@ attribute{constraints}
 | x..*       | x以上   |
 | x, y, z    | x, y, z|
 
+*例: *ロールをつけて関連ごとに分けてみないと、多対多の関連(リンク)があるように見える場合があるので注意。
+
+![](pic/classDia/multiplicity-EX2.jpg)
+
 *例:　*下限が1の場合、Aのインスタンスが存在するときBのインスタンスが必ずBのインスタンスが必ず存在する(インスタンスの生成順序や生存期間を気にしなければなら無い)。下限が0ならBのインスタンスが存在しなくても良い。
 
 ![](pic/classDia/multiplicityLowerBound.jpg)
 
-*例: クラス図から総インスタンス数はわからない*
+*例:　*１対多
 
-![](pic/classDia/multiplicity-EX1.jpg)
+*AからBへの多重度が1なのでBのオブジェクト(b3)が単独で存在できない。BからAへの多重度が0以上なのでAのオブジェクト(a2)が単独で存在できる。AからBへの多重度が1なのでb2から複数のリンク(a2からb2へのリンク)を貼れない*
 
-###誘導可能性
+![](pic/classDia/multiplicity-1-m.jpg)
+
+###誘導可能性(navigability)
 関連の端に矢印か罰印つけて**方向性(誘導可能性)**をつけることができる。
 ``[A]×->[B]``ならAからBが参照可能で、BからAは参照不可能。罰印も矢印も無い場合は、UML2.0では**不定**を示す。
 双方向の関連をつけることもできる(片方向の関連よりメンテコストは高くなりやすい)。
+
+###再帰的関連(recursive association)
+同一クラスの複数のオブジェクト間の関連(**同一クラスの同一のオブジェクト間に関係がある場合は引かない**)。
+
+再帰的関連になっている場合は、**ループを許すかどうか**(任意のインスタンスから再帰的にナビゲートして出来上がるインスタンスのツリー構造の中にそのインスタンス自身が存在するかどうか)に注意する。制約`{階層}`をつけてノートで定義しておくと良い。
+
+
+*例: ディレクトリー構造。entryからdirectoryへの多重度が0 or 1なのでトップレベルに複数のentryがある。ループするような関連を許さない場合は制約をつける*
+
+*例: 上司と部下の関係。AがBの上司かつBがAの上司、あるいは、AがAの上司という関係はおかしいので制約をつける必要がある*
+
+![](pic/classDia/directory.jpg)![](pic/classDia/boss-subordinate.jpg)
+
+```
+{階層}
+制約：
+　上司及び部下に向かって再帰的にナビゲートして出来上がるインスタンスの
+　ツリー構造の中に再び自分が存在しないこと
+```
 
 <a id="classDia/qualifier"></a>
 ###[限定子(qualifier)](#classDia/element)
@@ -443,23 +468,28 @@ keyが指定されれば、valueが特定されるような関係を示すため
 ###関連クラス(association class)
 
 **多重度が多対多**で接続されたクラス間の情報を管理したいときに利用される、クラスと関連の性質を持ったクラス(関連の合間で仲介するクラス)。関連と関連クラスを点線で結んで表記する。
-２つのクラスに**関連が引かれたときに発生するような(どちらの属性にするか迷うような)情報**に使われることが多い。両端のクラスが関連クラスのインスタンスを**別々に**持っている可能性がある。
+２つのクラスに**関連が引かれたときに発生するような(どちらの属性にするか迷うような)情報**に使われることが多い。両端のクラスが関連クラスのインスタンスを**別々に**持っている可能性がある。**関連クラスは１対多なら多側のクラスに紛れ込ますことが多い。** また、関連は集合であり重複せず、関連クラスもその性質を持っており、**特に宣言しない限り、同じインスタンス同士のリンクは重複しない(インスタンスの組み合わせがユニーク)。**
 
-*例:　店舗と会員の関連が伝わりづらい*
-
-![](pic/classDia/nonAssociationClass.jpg)
-
-*関連クラスを使って整理*
+*(狭義の)関連クラスの例:　(同じ学生が同じ授業を何度も受講できない)* 
 
 ![](pic/classDia/associationClass.jpg)
 
+####広義の関連クラス
+多対多の関連がある場合、広義の関連クラスに置き換えて実装すると良いことが多い。(狭義の)関連クラスとは異なり、**特に宣言しない限り、ユニーク制限はない。**
+
+ 
+*広義の関連クラスの例:　特に制限がないため同じ学生が同じ授業を何度も受講できる。授業・学生でユニークという制約をつけると上の例と同じ*
+
+![](pic/classDia/nonAssociationClass.jpg)
+
 <a id="classDia/N-aryAssociation"></a>
 ###[N項関連(N-ary association)](#classDia/element)
-N項関連にも関連クラスをつけることができる
+N項関連にも関連クラスをつけることができる。２項関連と同様に広義の関連クラスにすることもできる。多項関連になっている場合は、インスタンスの生成単位が曖昧になっているので、**どの単位でユニーク制約を課すかを検討してノートをつけておく。**
 
 ![](pic/classDia/N−aryAssociationEX.jpg)
 
 <a id="classDia/aggregation"></a>
+
 ###[集約(aggregation)](#classDia/element)
 
 **Part-Of**の関係。全体側の端にひし形を付ける。
@@ -531,12 +561,20 @@ N項関連にも関連クラスをつけることができる
 
 制約 | 意味
 :---: | :---
-`{overlapping}` | あるスーパークラスのインスタンスは、２つ以上のサブクラスのインスタンスを持つ可能性がある。
+`{overlapping}` | **汎化セット(generalization set)**が複数定義されている**多重分類(dynamic classification)**を表現する。あるスーパークラスのインスタンスは、２つ以上のサブクラスのインスタンスを持つ可能性がある。
 `{disjoint}` | あるスーパークラスのインスタンスは、１つのサブクラスのインスタンスしか持てない。
-`{complete}` | 汎化階層に、新たなサブクラスを追加することができない。
-`{incomplete}` | 汎化階層に、サブクラスが追加される可能性がある。
+`{complete}` | 汎化階層に、新たなサブクラスを追加することができない。補集合がない。
+`{incomplete}` | 汎化階層に、サブクラスが追加される可能性がある。補集合がある。 **補集合(スーパークラスに属すが汎化階層のどのサブクラスにも属さないもの)が存在し得る。(デフォルト)**
 
-![i](pic/classDia/inheritance-constraint.jpg)
+*例: 汎化セットが複数あるので{overlapping}を付けて明示する*
+
+![](pic/classDia/inheritance-constraint.jpg)
+
+*例: 汎化して{xor}付きの関連をまとめる。補集合(B1でもB2でもないがBに属すもの)が無いので{complete}を付けている。片方の多重度の情報が失われているのでノートで制約を付ける。*
+
+![](pic/classDia/xor-complete.jpg)
+
+- *{ordered}*　インスタンスがあるルールで並んでいるという関連端(association end)のプロパティ。**制約ではない**
 
 ####抽象クラス(abstract class)
 
@@ -559,6 +597,33 @@ N項関連にも関連クラスをつけることができる
 - <https://en.wikipedia.org/wiki/Metaclass>
 
 ![](pic/classDia/metaClass.jpg)
+
+##導出(derivation)
+既存の属性や関連から、論理的に導出すること。導出方法をノートしておくと良い。
+
+###導出属性(derived attribute)
+他の属性から導出できる属性。`/`をつける。
+
+###導出関連(derived relationship)
+ある既存の属性や関連から、論理的に導出できる導出できる関連。関連端には`/`をつける。想定上のリンクの存在制約なので`{derived}`をつけておく。
+
+![](pic/classDia/derivedRelationship.jpg)
+
+###導出クラス(derived class)
+導出属性を型として外出ししたもの。RDBMSのView(導出表)などが実装方法として考えられる。
+導出クラス名には`/`をつける。
+
+##べき型(powertype)
+基本となる型をカテゴライズする型。ベースとなる型のインスタンス生成を制約するのが主な目的。べき型からなる構造を**知識レベル(knowledge level)**, ベースとなる型からなる構造を**操作レベル(operation level)**と呼ぶ。
+
+*例:　*幾つかの個客種、商品種、注文種の組み合わせが決まっていて、それに反する注文は出来ない(インスタンスはない)。
+
+![](pic/classDia/knowledgeLevel_EX1.jpg)
+
+
+*注文と出荷の例:　*予定と実績の対応関係は知識レベルと実績の対応関係にある。
+
+![](pic/classDia/knowledgeLevel_EX2.jpg)
 
 ##クラス図の注意点
 
@@ -629,9 +694,10 @@ interfaceと実体        | 実現化
 
 ```
 オブジェクト名           
-オブジェクト名:クラス名　　          //クラス名修飾
-:クラス名                         //オブジェクト名省略
-オブジェクト名:パッケージ名::クラス名 //クラス名のパッケージ修飾
+オブジェクト名:クラス名　　                //クラス名修飾
+オブジェクト名:クラス名,スーパークラス名,..  //スーパークラス修飾, 複数指定できる
+:クラス名                               //オブジェクト名省略
+オブジェクト名:パッケージ名::クラス名       //クラス名のパッケージ修飾
 ```
 
 *クラス名(パッケージ含む)とオブジェク名のどちか一方を省略可能*
@@ -658,7 +724,7 @@ interfaceと実体        | 実現化
 
 要素 | 表示形式 | 意味
 :--- |:---: |:---
-ライフライン(lifeline) | ![](pic/seqDia/lifeline.jpg) | `役割名:分類子名`　役割名、分類子(クラス、データタイプ、インターフェース、コンポーネントなど)名のどちらかは省略可能
+生存線、ライフライン(lifeline) | ![](pic/seqDia/lifeline.jpg) | `役割名:分類子名`　役割名、分類子(クラス、データタイプ、インターフェース、コンポーネントなど)名のどちらかは省略可能
 アクター(actor) | ![](pic/seqDia/actor.jpg) | モデリング対象のシステムから見たアクター。他のシステムもアクターになりうる。
 実行指定,活性区間,実行仕様(execution spec) | ![](pic/seqDia/executionSpec.jpg) | メッセージの制御関係、実行期間
 同期メッセージ(synchronous message) | ![](pic/seqDia/syncMessage.jpg) | メッセージの呼び出し終了を待つ
@@ -1169,6 +1235,17 @@ class lifeline2 {
 
 --
 
+<a id="OCLSec"></a>
+#[オブジェクト制約言語(OCL: Object Constraint Language)](#agenda)
+
+制約を記述する述語論理に基づく論理言語。
+
+--
+[オブジェクト制約言語](#OCLSec)　[目次へ戻る](#agenda)
+
+--
+
+
 #Review Point
 - [[改訂版] UMLモデリング技能認定試験<入門レベル(L1)>問題集 -UML2.0対応](http://www.amazon.co.jp/%E6%94%B9%E8%A8%82%E7%89%88-UML%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93-%E5%85%A5%E9%96%80%E3%83%AC%E3%83%99%E3%83%AB-%E5%95%8F%E9%A1%8C%E9%9B%86--UML2-0%E5%AF%BE%E5%BF%9C/dp/4774132454/ref=sr_1_1?ie=UTF8&qid=1443222547&sr=8-1&keywords=uml%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93)
 - L1:[徹底攻略UMLモデリング技能認定試験問題集―L1(T1/T2)対応 (ITプロ/ITエンジニアのための徹底攻略)](http://www.amazon.co.jp/gp/product/4844324829?psc=1&redirect=true&ref_=oh_aui_detailpage_o02_s00)
@@ -1237,3 +1314,12 @@ class lifeline2 {
 - 17章　5
 - 1L 20章　6
 - 1L 22章　29
+
+--
+#関連知識
+
+##CASE(Computer Aided Software Engineering)
+ソフトウェア開発やソフトウェアの保守にソフトウェアツールを利用すること。
+
+#メモ
+
