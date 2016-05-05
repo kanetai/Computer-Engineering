@@ -286,7 +286,7 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 <a id="classDiaSec"></a>
 #[クラス図(Class Diagram)](#agenda)
 
-クラス間の**静的**な関係、**論理的な集まり**を表現する。DBの設計ではER図の代替としても利用できる。
+クラス間の**静的**な関係、**論理的な集まり**を表現する。DBの設計ではER図の代替としても利用できる。
 
 ##クラス図の要素
 <a id="classDia/element"></a>
@@ -294,7 +294,7 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 要素 | 表示形式 | 意味
 :--- |:---: |:---
 [クラス(class)](#classDia/class) | ![](pic/classDia/class.jpg) | オブジェクトを属性(構造)と操作(振る舞い)の共通性に着目し、**抽象化**しもの。「もの」「ひと」「こと」を**抽象的**に表現する。
-[関連(association)](#classDia/association) | ![](pic/classDia/association.jpg) | クラス間に構造的な関係を示す。鏃をつけて方向性の指定も可能。
+[関連(association)](#classDia/association) | ![](pic/classDia/association.jpg) | クラス間に構造的な関係を示す。鏃をつけて方向性の指定も可能。
 [集約(aggregation)](#classDia/aggregation) | ![](pic/classDia/aggregation.jpg) | 関連の一種。**Part-Of**の関係。全体側の端にひし形を付ける。
 [合成集約,コンポジション(composition)](#classDia/composition) | ![](pic/classDia/composition.jpg) | 集約の一種。全体側と部分側の**ライフサイクルがほぼ同一の場合**利用する。
 [依存(dependency)](#classDia/dependency) | ![](pic/classDia/dependency.jpg) | あるクラスが別のクラスを利用する関係。利用されるクラス側に鏃を付ける。
@@ -331,7 +331,7 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 可視性、引数名、引数の型、戻り値の型は省略できる。
 
 ```
-可視性 操作名(引数名:引数の型):戻り値の型
+可視性 操作名(引数名:引数の型):戻り値の型
 ```
 
 ###可視性(visibility) / 派生(導出)属性(derived attribute)
@@ -504,7 +504,7 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 
 集約の一種。全体側と部分側の**ライフサイクルがほぼ同一の場合**利用する。ひし形を黒塗りにする。全体側のクラスを**コンポジットクラス(composite class)**と言い、表記方法が３種類ある。
 
-コンポジションによる表記 | 部分側クラスの入れ子表記 | 部分側クラスの属性表記
+コンポジションによる表記 | 部分側クラスの入れ子表記 | 部分側クラスの属性表記
 :---: | :---: | :---: 
 ![](pic/classDia/compositeClass1.jpg) | ![](pic/classDia/compositeClass2.jpg) | ![](pic/classDia/compositeClass3.jpg)
 
@@ -561,7 +561,7 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 
 制約 | 意味
 :---: | :---
-`{overlapping}` | **汎化セット(generalization set)**が複数定義されている**多重分類(dynamic classification)**を表現する。あるスーパークラスのインスタンスは、２つ以上のサブクラスのインスタンスを持つ可能性がある。
+`{overlapping}` | 一つの方に対して**汎化セット(generalization set)**が複数定義されている**多重分類(multiple classification)**を表現する。あるスーパークラスのインスタンスは、２つ以上のサブクラスのインスタンスを持つ可能性がある。
 `{disjoint}` | あるスーパークラスのインスタンスは、１つのサブクラスのインスタンスしか持てない。
 `{complete}` | 汎化階層に、新たなサブクラスを追加することができない。補集合がない。
 `{incomplete}` | 汎化階層に、サブクラスが追加される可能性がある。補集合がある。 **補集合(スーパークラスに属すが汎化階層のどのサブクラスにも属さないもの)が存在し得る。(デフォルト)**
@@ -575,6 +575,11 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 ![](pic/classDia/xor-complete.jpg)
 
 - *{ordered}*　インスタンスがあるルールで並んでいるという関連端(association end)のプロパティ。**制約ではない**
+
+- **動的分類(dynamic classification)**
+
+同じ分類軸にある部分集合の間を、インスタンスが行ったり来たりすることを許す分類。`<<dynamic>>`キーワードを定義して、汎化セット名の近くにつけておくと良い。
+フラグやStateパターンなどで実装できる。
 
 ####抽象クラス(abstract class)
 
@@ -872,7 +877,7 @@ class lifeline2 {
 フラグメント内の重要でない処理を`ignore{message_i, message_j,...}`の形式で示す。
 
 <a id="seqDia/fragment-consider"></a>
-###[重要(`consider`)](#seqDia/fragment)
+###[重要(`consider`)](#seqDia/fragment)
 
 フラグメント内の重要なメッセージを`consider{message_i, message_j, ...}`の形式で示す。
 
@@ -903,7 +908,7 @@ class lifeline2 {
 非同期メッセージ(asyncronous message) | ![](pic/comDia/asyncMessage.jpg) | メッセージの呼び出し終了を待たない
 応答,戻り(reply) | ![](pic/comDia/reply.jpg) | 送信先から送信元への応答
 リンク(link),関係 | ![](pic/comDia/link.jpg) | データ.メッセージの送受信などやり取りが存在するライフライン間に引く。リンクに矢印(メッセージ)をつける。
-データフロー | ♂ | データの流れ
+データフロー | ♂ | データの流れ
 
 - メッセージのフォーマット
 
@@ -931,7 +936,7 @@ class lifeline2 {
 <a id="stateMachineDiaSec"></a>
 #[ステートマシン図(State Machine Diagram)](#agenda)
 
-**１つ**の**オブジェクト**の**生成から消滅まで**の時間経過に伴う**状態変化**を表現する。
+**１つ**の**オブジェクト**の**生成から消滅まで**の時間経過に伴う**状態変化**を表現する。UML2から**(振る舞い)ステートマシン図**と**プロトコルステートマシン図(protocol state machine diagram)**を書き分けるようになった。
 
 ##ステートマシン図の要素
 <a id="stateMachineDia/element"></a>
@@ -955,7 +960,7 @@ class lifeline2 {
 <a id="stateMachineDia/transition"></a>
 ##[状態遷移(state transition)](#stateMachineDia/element)
 
-
+遷移の矢印に沿って状態間で**トークン(token)**を受け渡し、トークンを持っている状態がインスタンスの現在の状態となる。
 ある状態から同じトリガーで別の状態に遷移する場合はガード条件を書いて分岐できる。
 
 
@@ -974,9 +979,9 @@ class lifeline2 {
 
 1. **入場アクション(entry action):　**状態に入るときに**瞬間的**に行われ、**中断しない**。
 2. **アクティビティ(activity):　**状態に入るときに開始し、**一定時間継続する**。動作中にトリガーにより状態遷移で**中断される**。
-3. **トリガー(trigger):　**なんらかの影響をもたらす事象
-4. **ガード条件(gard):　**状態遷移可能かどうかの条件
-5. **退場アクション(exit action):　**状態からでるときに**瞬間的に**行われ、**中断されない**。(アクティビティの後にトリガが発生しない or ガード条件を満たさないで遷移しない場合も実行される？ (L1 16章 2))
+3. **トリガー(trigger):　**なんらかの影響をもたらす事象。**外部からのメソッドコール**。
+4. **ガード条件(gard):　**状態遷移可能かどうかの条件。**評価は全て同時で一瞬のうちに行われる**
+5. **退場アクション(exit action):　**状態からでるときに**瞬間的に**行われ、**中断されない**。(アクティビティの後にトリガが発生しない or ガード条件を満たさないで遷移しない場合も実行される？ (L1 16章 2))
 6. **エフェクト(effect):　**状態遷移と**同時に瞬間的**に行われ、**中断されない**。
 
 ###据え置きイベント(deferred event)
@@ -1042,7 +1047,7 @@ class lifeline2 {
 ##ステートマシン図の注意点
 
 ###ガード条件の評価
-[参考](http://labo.mamezou.com/special/sp_002/sp_002_004.html)
+[参考](http://labo.mamezou.com/special/sp_002/sp_002_003.html)
 
 遷移が起ころうとするのをガードするために付加する条件。**ガード条件がかけられている遷移が起ころうとする時にだけ評価される。**タイムイベント**after**を使ってポーリングしていれば、自己遷移によってガード条件の再評価が行われる。
 
@@ -1064,6 +1069,20 @@ class lifeline2 {
 
 *上の例だと最大で、actionが4回(retryは3回)行われる。選択疑似状態を交差状態に変えると、[action success]の評価と同時に[retry <= 3], [retry >3]が評価されて、retryのインクリメントが行われるので、最大でactionが5回(retryは4回)行われる。*
 
+##プロトコルステートマシン図(Protocol State Machine Diagram)
+インスタンスのとりうる状態ではなく、**状態ごとに許される操作**を記述する。
+使う記号は(振る舞い)ステートマシン図と同じで遷移情報の記述の仕方だけ異なる。
+図名の後ろに`{protocol}`をつけて明示する。
+
+```
+トリガ[ガード条件]/エフェクト //振る舞いステートマシン図
+[事前条件]操作/[事後条件]    //プロトコルステートマシン図
+```
+
+振る舞いステートマシン図 | プロトコルステートマシン図
+:---: |:---: 
+![](pic/stateMachineDia/boil.jpg) | ![](pic/stateMachineDia/boilProtocol.jpg)
+
 --
 [ステートマシン図](#stateMachineDiaSec)　[目次へ戻る](#agenda)
 
@@ -1078,27 +1097,36 @@ class lifeline2 {
 
 要素 | 表示形式 | 意味
 :--- |:---: |:---
-開始状態(begin, initial state) | ![](pic/activityDia/begin.jpg) | アクティビティ図の開始状態
+アクティビティエッジ | ![](pic/activityDia/activityEdge.jpg) | **制御フロー**と**オブジェクトフロー**がある。オブジェクトに流入するフローをオブジェクトフローと言い、トークンは素通りして次のアクションを発火する。
+開始状態(begin, initial state) | ![](pic/activityDia/begin.jpg) | アクティビティ図の開始状態
 終了状態(sink state) | ![](pic/activityDia/sink.jpg) | アクティビティ図の終了状態。必要なら複数存在する。
 フロー終了ノード(flow final node) | ![](pic/activityDia/flowFinalNode.jpg) | 流入するフローを止める(分岐している場合、リュ運輸していないフローはそのまま)。
-同期バー(分岐:fork, 合流:join) | ![](pic/activityDia/syncBar.jpg) | 分岐、合流の同期を表現する。
-デシジョン/マージノード(decision/merge node) | ![](pic/activityDia/decision-mergeNode.jpg) | 前のアクションを受けて、次の状態を選択するためのノード(**ノードの中には何も書かない**)。合致するものがなければ記述の誤り。`<<decisionInput>>`をつけたノートに判断基準を書いて付加して良い([true] or [false]で分岐する)。
-アクション(action) | ![](pic/activityDia/action.jpg) | その状態の中でアクティビティが終了すると、他の状態に遷移する状態。制御を表す。`<<localPrecondition>>`, `<<localPostcondition>>`と制約をつけたノートを付与することで、アクションの事前条件, 事後条件をつけることができる。
+コネクタ(connector) | ![](pic/activityDia/connector.jpg) | ある端から他の端へ線を引かずにすませるためのもの。同じ文字が書かれているコネクタどうしが繋がっている。
+同期バー(分岐:fork, 合流:join) | ![](pic/activityDia/syncBar.jpg) | 分岐、合流の同期を表現する。UML2.0からオブジェクトフローをforkノードから出したり、joinノードに合流させたりしても良いことになった。
+デシジョン/マージノード(decision/merge node) | ![](pic/activityDia/decision-mergeNode.jpg) | 前のアクションを受けて、次の状態を選択するためのノード(**ノードの中には何も書かない**)。合致するものがなければ記述の誤り。`<<decisionInput>>`をつけたノートに判断基準を書いて付加して良い(ガードをつけて[true], [false] etc. で分岐する)。
+アクションノード(action node) | ![](pic/activityDia/action.jpg) | その状態の中でアクティビティが終了すると、他の状態に遷移する状態。制御を表す。`<<localPrecondition>>`, `<<localPostcondition>>`と制約をつけたノートを付与することで、アクションの事前条件, 事後条件をつけることができる。
 シグナル送信アクション(signal sending action) | ![](pic/activityDia/signalSending.jpg) | オブジェクトへのシグナル送信の強調表記。
 シグナル受信アクション(signal receipt action) | ![](pic/activityDia/signalReceipt.jpg) | シグナル、イベントの発生待機、受信の強調表現。
 タイムイベント(time evnet) | ![](pic/activityDia/timeEvent.jpg) | 時間に依存したイベント。出力だけ持ち、入力フローは持たない。
-オブジェクトノード(object node) | ![](pic/activityDia/objectNode.jpg) | 制御対象のオブジェクト。
+オブジェクトノード(object node) | ![](pic/activityDia/objectNode.jpg) | 制御対象のオブジェクト。**パーティションをまたがってアクションを発火するためにオブジェクトを渡すことが多い。**同じ型の複数のインスタンスをまとめて処理したりする場合があるので、**オブジェクト名のアンダーラインは引かず**、インスタンスの重なりであることを示す。
 例外(exception) | ![](pic/activityDia/exception.jpg) | 例外発生
 割り込み可能アクティビティ領域(interruptible activity region) | ![](pic/activityDia/interruptibleActivityRegion.jpg) |領域内の制御の流れが、割り込み可能。
 拡張領域(expansion region) | ![](pic/activityDia/expansionRegion.jpg) | オブジェクトフローで流れてきたオブジェクトの集合の各要素についての処理。`<<parallel>>`(並列処理), `<<iterative>>`(反復処理), `<<stream>>`(１回の実行で全ての要素を扱う)が設定できる。中のアクションが一つならアクションに直接拡張ノードを付与できる。
 アクティビティパーティション(activity partition) | ![](pic/activityDia/activityPartition.jpg) | アクションをまとめることができる。入れ子、縦横の組み合わせが可能。
+
+##プロセス図(Process Diagram)
+**UML1.0**のアクティビティ図を拡張したもの。内容がはっきりしない段階の活動や行為の集合「プロセス」の大まかな流れを表す。*UMLに含まれるものでは無い。*
+
+![](http://www.bcm.co.jp/site/2002/uml/img/figure14-03.gif)
+
+[図, 参考](http://www.bcm.co.jp/site/2002/uml/uml14.htm)
 
 --
 [アクティビティ図](#activityDiaSec)　[目次へ戻る](#agenda)
 
 --
 <a id="componentDiaSec"></a>
-#[コンポーネント図(Component Diagram)](#agenda)
+#[コンポーネント図(Component Diagram)](#agenda)
 
 **物理的なシステム構成**、**実装**を表現する図の１つ。システムの**モジュール**構成、**ソフトウェアコンポーネント**の構成を表現する。ハードウェア的なものは表記しない。
 
@@ -1251,22 +1279,22 @@ class lifeline2 {
 - L1:[徹底攻略UMLモデリング技能認定試験問題集―L1(T1/T2)対応 (ITプロ/ITエンジニアのための徹底攻略)](http://www.amazon.co.jp/gp/product/4844324829?psc=1&redirect=true&ref_=oh_aui_detailpage_o02_s00)
 
 ##開発プロセス/モデリング
-- 1章　9
+- 1章　9
 - 12章　5, 8, 9
 - L1 22章　3, 4
 
-##ユースケース図
+##ユースケース図
 - 2章  15
 - 13章　1, 2, 3, 4, 6, 8
 - L1 12章　2, 7, 9
 
 ##シーケンス図
 - 4章　4, 9, 12, 17
-- 15章　4, 7, 8
+- 15章　4, 7, 8
 - L1 14章　8
 
 ##コミュニケーション図
-- 5章　1, 6, 8
+- 5章　1, 6, 8
 - 15章　11
 - L1 15章　2, 5, 6
 - L1 22章 20
@@ -1276,7 +1304,7 @@ class lifeline2 {
 
 ##ステートマシン図
 - 6章　1, 7, 12, 14, 16, 17, 18, 19
-- L1 16章　2
+- L1 16章　2
 - L1 22章 22
 
 ###ステートマシン図とコミュニケーション図
@@ -1300,9 +1328,9 @@ class lifeline2 {
 - 1章  2
 - 3章　3, 5, 21, 22, 25, 26, 30, 31, 33, 34, 38, 41, 42, 44, 46, 51
 - 5章　10, 13
-- 14章　1, 2, 4, 8, 9, 10, 11, 13, 15, 19, 20, 21
+- 14章　1, 2, 4, 8, 9, 10, 11, 13, 15, 19, 20, 21
 - 17章　3, 6
-- L1 13章　1, 6, 11, 13, 15, 17, 20, 23, 24
+- L1 13章　1, 6, 11, 13, 15, 17, 20, 23, 24
 - L1 22章 10, 11, 14, 30
 
 ###クラス図とシーケンス図
@@ -1323,3 +1351,19 @@ class lifeline2 {
 
 #メモ
 
+#References
+
+- [[改訂版] UMLモデリング技能認定試験<入門レベル(L1)>問題集 -UML2.0対応](http://www.amazon.co.jp/%E6%94%B9%E8%A8%82%E7%89%88-UML%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93-%E5%85%A5%E9%96%80%E3%83%AC%E3%83%99%E3%83%AB-%E5%95%8F%E9%A1%8C%E9%9B%86--UML2-0%E5%AF%BE%E5%BF%9C/dp/4774132454/ref=sr_1_1?ie=UTF8&qid=1443222547&sr=8-1&keywords=uml%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93)
+- [徹底攻略UMLモデリング技能認定試験問題集―L1(T1/T2)対応 (ITプロ/ITエンジニアのための徹底攻略)](http://www.amazon.co.jp/gp/product/4844324829?psc=1&redirect=true&ref_=oh_aui_detailpage_o02_s00)
+- [ダイアグラム別 UML徹底活用](http://www.amazon.co.jp/%E3%83%80%E3%82%A4%E3%82%A2%E3%82%B0%E3%83%A9%E3%83%A0%E5%88%A5-UML%E5%BE%B9%E5%BA%95%E6%B4%BB%E7%94%A8-DB-Magazine-SELECTION/dp/4798109304?ie=UTF8&keywords=UML%E5%BE%B9%E5%BA%95%E6%B4%BB%E7%94%A8&qid=1462439840&ref_=sr_1_2&sr=8-2)
+- [UMLモデリング入門](http://www.amazon.co.jp/dp/4822283585/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=187205609&pf_rd_s=lpo-top-stripe&pf_rd_t=201&pf_rd_i=4822284646&pf_rd_m=AN1VRQENFRJN5&pf_rd_r=1AAF3ZV4P8CGR6MXXK8G)
+- [UMLモデリングレッスン](http://www.amazon.co.jp/dp/4822283496/ref=pd_lpo_sbs_dp_ss_3?pf_rd_p=187205609&pf_rd_s=lpo-top-stripe&pf_rd_t=201&pf_rd_i=4822284646&pf_rd_m=AN1VRQENFRJN5&pf_rd_r=1AAF3ZV4P8CGR6MXXK8G)
+- [OCUPブログ　第7回](http://www.umlcert.org/reading/ocup_blog/07.html)
+- [Multitier architecture](https://en.wikipedia.org/wiki/Multitier_architecture)
+- [Metaclass](https://en.wikipedia.org/wiki/Metaclass)
+- [誤解しがちなモデリングの技
+第3回：ステートマシン図（Ｉ）](http://labo.mamezou.com/special/sp_002/sp_002_003.html)
+- [誤解しがちなモデリングの技
+第4回：ステートマシン図 (II)](http://labo.mamezou.com/special/sp_002/sp_002_004.html)
+- [連載第14－１回 UMLの基礎と応用](http://www.bcm.co.jp/site/2002/uml/uml14.htm)
+- [タイミング図（Timing Diagram）](http://www.itsenka.com/contents/development/uml/timing.html)
