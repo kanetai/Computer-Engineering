@@ -308,8 +308,8 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 拡張要素 | 表示形式 | 意味
 :--- |:---: |:---
 バウンダリ(boundary) | ![](pic/usecaseDia/boundary.jpg) | ユーザとシステムの境界。UIを提供するクラス。
-コントロール(control) | ![](pic/usecaseDia/control.jpg)  | ユースケースの機能ロジックをて帰郷するクラス。
-エンティティ(entity) | ![](pic/usecaseDia/entity.jpg)  | ドメイン層の型であるクラス。
+コントロール(control) | ![](pic/usecaseDia/control.jpg) | ユースケースの機能ロジックをて帰郷するクラス。
+エンティティ(entity) | ![](pic/usecaseDia/entity.jpg) | ドメイン層の型であるクラス。
 
 ![](pic/usecaseDia/BCE_diagram.jpg)
 
@@ -1148,6 +1148,10 @@ class lifeline2 {
 拡張領域(expansion region) | ![](pic/activityDia/expansionRegion.jpg) | オブジェクトフローで流れてきたオブジェクトの集合の各要素についての処理。`<<parallel>>`(並列処理), `<<iterative>>`(反復処理), `<<stream>>`(１回の実行で全ての要素を扱う)が設定できる。中のアクションが一つならアクションに直接拡張ノードを付与できる。
 アクティビティパーティション(activity partition) | ![](pic/activityDia/activityPartition.jpg) | アクションをまとめることができる。入れ子、縦横の組み合わせが可能。
 
+アクションノードから複数のオブジェクトにトークンを投げる場合`<<multicast>>`を、逆に複数のオブジェクトからアクションノードにトークンが投げられる場合`<<multi-receive>>`のキーワードをオブジェクトノードにつけておくと良い。
+
+また、ユースケースに相当するアクションノードにユースケースのノートを`<<usecase>>`キーワード付きで載せると良い。
+
 ##プロセス図(Process Diagram)
 **UML1.0**のアクティビティ図を拡張したもの。内容がはっきりしない段階の活動や行為の集合「プロセス」の大まかな流れを表す。*UMLに含まれるものでは無い。*
 
@@ -1383,6 +1387,26 @@ class lifeline2 {
 ##CASE(Computer Aided Software Engineering)
 ソフトウェア開発やソフトウェアの保守にソフトウェアツールを利用すること。
 
+##CATWOE
+
+- Customer(受益者または被害者)
+- Actor(次の変換をトリガーする行為者)
+- Transformation(システム全体が行う変換過程)
+- Weltanschauung(世界観、価値基準)
+- Owner(施主)
+- Environment(環境からの制約)
+
+に相当するものを明らかにして、基本定義(root definition)の意味を確認して合意する手法。
+
+##ConOps(Concept of Operation)
+
+情報システムの開発において，ユーザ要求を記述するために，IEEE Std 1362で定められたドキュメントの標準仕様。
+
+参考
+
+- [ISディジタル辞典－重要用語の基礎知識－](http://ipsj-is.jp/isdic/1292/)
+- [Wikipedia](https://en.wikipedia.org/wiki/Concept_of_operations)
+
 #メモ
 
 #References
@@ -1401,3 +1425,5 @@ class lifeline2 {
 第4回：ステートマシン図 (II)](http://labo.mamezou.com/special/sp_002/sp_002_004.html)
 - [連載第14－１回 UMLの基礎と応用](http://www.bcm.co.jp/site/2002/uml/uml14.htm)
 - [タイミング図（Timing Diagram）](http://www.itsenka.com/contents/development/uml/timing.html)
+- [ISディジタル辞典－重要用語の基礎知識－](http://ipsj-is.jp/isdic/1292/)
+- [Concept of Operations](https://en.wikipedia.org/wiki/Concept_of_operations)
