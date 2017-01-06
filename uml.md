@@ -11,7 +11,7 @@ function showHide(targetID) {
 </script>
 <a id="top"></a>
 
-#UML(Unified Modeling Language:統一モデリング言語)
+# UML(Unified Modeling Language:統一モデリング言語)
 
 UMTP勉強用
 
@@ -20,20 +20,22 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 
 抽象化された概念をもとに、分析領域の全体像を視覚的にわかりやすく表現することを**モデリング(Modeling)**と呼ぶ。
 
-###MDA(Model Driven Architecture)
+### MDA(Model Driven Architecture)
+
 実行可能なシステムをモデルから自動生成する技術
 
-###Action Language
+### Action Language
+
 ステートマシン図でアクションの定義を記述するための言語
 
-##UMLの構成要素
+## UMLの構成要素
 
 - **Infrastructure:　**アーキテクチャの再構築や拡張メカニズム
 - **Superstructure:　**UMLの図や要素
 - **Diagram Interchange:　**図とその情報を相互に交換する形式をサポート
 - **[OCL(Object Constraint Language)](#OCLSec):　**Superstructureで規定仕切れない情報(制約)をテキストで表現
 
-##UMLで規定されるダイアグラム
+## UMLで規定されるダイアグラム
 <a id="agenda"></a>
 
 - 構造図
@@ -54,12 +56,13 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 	- [ステートマシン図(状態機械図)(State Machine Diagram)](#stateMachineDiaSec)　*旧ステートチャート図*
 
 
-##ノート(note)
-フォルダのようなアイコンで要素をまとめることができる。**全てのUML要素**につけることができる。点線でアンカーする。
+## ノート(note)
+
+付箋のようなアイコンで要素をまとめることができる。**全てのUML要素**につけることができる。点線でアンカーする。
 
 ![](pic/modeling/note.jpg)
 
-##UMLの各図の対応関係
+## UMLの各図の対応関係
 
 クラス図 | 相互作用図
 ------- | --------
@@ -75,7 +78,7 @@ OMG(Object Management Group)によって標準化された表記法のみ。UML�
 -------------- | ---------
 トリガー | メッセージ
 
-##開発プロセス
+## 開発プロセス
 
 開発プロセス | 意味
 :--- |:---
@@ -84,7 +87,8 @@ XP | Kent Beckらが提唱。軽量なプロセス。
 Agile | XP, Scrum, FDD, Crystalを含む複数のプロセスの集合体。
 反復型プロセス | UMLを使用した開発で採用される。「分析」「設計」「実装」「テスト」の工程を繰り返し(２週間から４ヶ月に１回程度)ながら開発する。リスクが高い、優先度が高いものは、初期の繰り返しで実施する。リスクがそれほど高くないシステムでは他のプロセスを採用しても問題ない。
 
-###反復型開発プロセス
+### 反復型開発プロセス
+
 事前に何回の反復をいつまでに行うかを計画する。**反復と反復の合間**で、顧客の要望を受け入れられる。それぞれの反復でシステムの**異なる部分**の開発を行い、実際にその部分は稼働させて、評価を行う。反復の計画には、開発者の要員数の計画も含まれており、開発を開始してからは開発要員数がたびたび変化することはない。
 
 - システムのリスクを早期に発見し回避できる
@@ -100,47 +104,57 @@ Agile | XP, Scrum, FDD, Crystalを含む複数のプロセスの集合体。
 実装 |
 テスト |
 
-#モデリング(Modeling)
-##ビジネスモデリング
+# モデリング(Modeling)
+
+## ビジネスモデリング
+
 **アクティビティ図**や**クラス図**が主に使われる。システム開発以前に、エンドユーザーの業務自体をモデリングする。この段階では、モデリングの対象は、必ずしもシステム化する部分のみではない。
 
-##要求モデリング
+## 要求モデリング
+
 ユーザーのシステムに対する要求を聞いて、それを定義する。この段階では、システムの内部はブラックボックス化して、システムの外から見た機能のみに着目する。
-##分析モデリング
+## 分析モデリング
+
 システム化対象の業務部分に着目したモデルを作成する。この段階では、開発言語やDBなど、開発環境、実行環境に依存しないモデルを作成する。
-##設計モデリング
+## 設計モデリング
+
 システムの実現手段を考慮したモデルを作成する。
 
 ---
 
-##要求定義モデリング
+## 要求定義モデリング
 
-###ユースケース図のモデリング
+### ユースケース図のモデリング
 
 1. アクターの発見
-2. ユースケースの発見
-3. アクターとユースケースを関連で接続
+1. ユースケースの発見
+1. アクターとユースケースを関連で接続
 
-###ユースケース記述(use case description)
+### ユースケース記述(use case description)
 
 - *XYZ公式*:　"do X by Y in order to Z"の形式。
 
-####ユースケース名
+#### ユースケース名
+
 アクターの行為を支援する手段名「(システムは)YをXする」という形式。
 
 #### 概要
+
 １つのユースケースに対して、数行程度の説明。
 
-####アクター
+#### アクター
+
 ユースケースの行為者(顧客または施主の代理人のロール)
 
-####目的
+#### 目的
+
 ユースケースの存在意義。(顧客 or 施主は)「Zしたい」あるいは「Zするため」という形式。
 
-####シナリオ
+#### シナリオ
+
 １つのユースケースの１つの流れを、具体例で記述した文章。シナリオ内で記述する名称、金額、数量などは実際の値を仕様し、現実に処理が行われたように記述する。
 
-####イベントフロー
+#### イベントフロー
 
 フロー | 説明
 :--- |:--- 
@@ -150,23 +164,27 @@ Agile | XP, Scrum, FDD, Crystalを含む複数のプロセスの集合体。
 代替フロー | 基本フローより頻度が少ない正常な流れ
 例外フロー | 正常終了しない流れ
 
-####備考
+#### 備考
+
 解説や非機能要求などがあれば書く。
 
-####変更履歴
+#### 変更履歴
+
 変更日時、カ所、内容、理由、担当者、承認者 etc.
 
-##構造モデリング
+## 構造モデリング
+
 分析モデリング、設計モデリングの両方で行われる。
 
 1. 名詞を出してクラスを発見する
-2. クラス候補を選別する
-3. モデルを考えてクラス間に関係をつける(汎化すると切り替えにインスタンスの生成を要する)
-4. 多重度を考える
-5. 制約をつける
-6. 汎化を考える(どれか一つを選ぶようなやつは汎化できないか考える)
+1. クラス候補を選別する
+1. モデルを考えてクラス間に関係をつける(汎化すると切り替えにインスタンスの生成を要する)
+1. 多重度を考える
+1. 制約をつける
+1. 汎化を考える(どれか一つを選ぶようなやつは汎化できないか考える)
 
-##振る舞いモデリング
+## 振る舞いモデリング
+
 分析モデリング、設計モデリングの両方で行われる。
 
 クラス図と相互作用図は平行して作成する。相互作用図はシナリオに対応する。流れはシナリオを、ライフライン候補は初期のクラス図を参考にして、相互作用図を作成する。
@@ -175,20 +193,21 @@ Agile | XP, Scrum, FDD, Crystalを含む複数のプロセスの集合体。
 
 業務フロー、ユースケースのイベントフロー、フローチャートの代替にアクティビティ図を使う。
 
-##実装モデリング
+## 実装モデリング
 
-##複数の図を利用したモデリング
+## 複数の図を利用したモデリング
 
 1. 事例からクラス候補をを抽出する
-2. クラス候補と処理の流れからシーケンス図(コミュニケーション図)を作成する
-3. シーケンス図からもとのクラス図に情報を追加する。多重度などをオブジェクト図から考える。オブジェクトの状態はステートマシン図を利用する。
+1. クラス候補と処理の流れからシーケンス図(コミュニケーション図)を作成する
+1. シーケンス図からもとのクラス図に情報を追加する。多重度などをオブジェクト図から考える。オブジェクトの状態はステートマシン図を利用する。
 
 --
 <a id="packageDiaSec"></a>
-#[パッケージ図(Package Diagram)](#agenda)
+# [パッケージ図(Package Diagram)](#agenda)
+
 UMLのモデル要素をまとめて整理する。
 
-##パッケージ図の要素
+## パッケージ図の要素
 <a id="packageDia/element"></a>
 
 要素 | 表示形式 | 意味
@@ -198,15 +217,17 @@ UMLのモデル要素をまとめて整理する。
 [依存(dependency)](#packageDia/dependency) | ![](pic/packageDia/dependency.jpg) | パッケージ内の要素が他のパッケージ内の要素を利用している。利用される側に矢印をつける。`<<import>>`をつけても良い。
 汎化(generalization) | ![](pic/usecaseDia/generalization.jpg) | より汎用的なパッケージと具体的なパッケージの関係。汎用的なパッケージの側に矢印をつける。
 
-##パッケージ間の関係
+## パッケージ間の関係
 <a id="packageDia/nest"></a>
-###[パッケージの階層化](#packageDia/element)
+### [パッケージの階層化](#packageDia/element)
+
 入れ子にしても良いし、包含する側に＋アイコンをつけて結んでも良い。
 
 ![](pic/packageDia/nestEX.jpg)
 
 <a id="packageDia/dependency"></a>
-###[パッケージの依存関係](#packageDia/element)
+### [パッケージの依存関係](#packageDia/element)
+
 クラス図で関連がある場合、パッケージ図では依存関係にある。
 
 ![](pic/packageDia/dependencyEX.jpg)
@@ -216,11 +237,12 @@ UMLのモデル要素をまとめて整理する。
 
 --
 <a id="usecaseDiaSec"></a>
-#[ユースケース図(Use Case Diagram)](#agenda)
+# [ユースケース図(Use Case Diagram)](#agenda)
 システムに対して要求する機能(ユーザ視点)、システムが提供すべき機能(システム開発者視点)を表現する。ユースケース図は、システム開発の初期段階に要求定義を明確にする目的で使用する。アクターはシステムの外部、ユースケースはシステムの内部に存在する。必要であれば何枚でも作成する。拡張予定の機能は表現できない。
 
 <a id="usecaseDia/element"></a>
-##ユースケース図の要素
+## ユースケース図の要素
+
 要素 | 表示形式 | 意味
 :--- |:---: |:---
 [アクター(actor)](#usecaseDia/actor) | ![](pic/usecaseDia/stickman.jpg) | 対象とするシステムを起動したり、データのやり取りをしたりする人や外部ハードウェア、他システム等。
@@ -231,75 +253,81 @@ UMLのモデル要素をまとめて整理する。
 [システム境界](#usecaseDia/border) | - | 対象とするシステムの内部と外部の境界
 
 <a id="usecaseDia/actor"></a>
-##[アクター(actor)](#usecaseDia/element)
+## [アクター(actor)](#usecaseDia/element)
+
 スティックマン以外のアイコンも使用可能。
 
 ![](pic/usecaseDia/actor.jpg)
 
 1. 人名ではなく**役割**
-2. システムと直接関わっている
-3. 人以外にシステムと**直接関わる既存システム**、**ハードウェア**(*プリンターはアクターとせずとも良い*)
+1. システムと直接関わっている
+1. 人以外にシステムと**直接関わる既存システム**、**ハードウェア**(*プリンターはアクターとせずとも良い*)
 
 <a id="usecaseDia/usecase"></a>
-##[ユースケース(use case)](#usecaseDia/element)
+## [ユースケース(use case)](#usecaseDia/element)
+
 ユースケース名は、アクターが「〜する」という動詞形または名詞形とし、一つのユースケース図内で統一する。
 
 ![](pic/usecaseDia/usecaseEX.jpg)
 
-##関係(relationship)
+## 関係(relationship)
 <a id="usecaseDia/association"></a>
-###[アクターとユースケースの関係](#usecaseDia/element)
+### [アクターとユースケースの関係](#usecaseDia/element)
+
 アクターとユースケースを**関連**で結んでコミュニケート関係を示す。関連には多重度を設定できて、アクターがユースケースを複数回利用することを表現できる。
  
  ![](pic/usecaseDia/actor-usecase.jpg)
   
-###[アクター同士の関係](#usecaseDia/element)
+### [アクター同士の関係](#usecaseDia/element)
 
 あるアクターと関連がある全てのユースケースすべてに、他のアクターも関連を持つ場合、**汎化(generalization)**の関係をつけて関連の記述を減らす。
 
 ![](pic/usecaseDia/actor-generalize-actor.jpg)*Bはユースケース1,2,3と関連している*
 
-###ユースケース同士の関係
+### ユースケース同士の関係
 <a id="usecaseDia/generalization"></a>
-#####[汎化(generalization)](#usecaseDia/element)
+##### [汎化(generalization)](#usecaseDia/element)
 
 あるユースケースが**デフォルトで**別のユースケースを利用している場合、汎化の関係で接続する。機能追加ではなく、概念だけ共通の全く新しいユースケースを定義している。
 
 ![](pic/usecaseDia/usecase-generalize-usecase.jpg)*B=A+α*
 
 <a id="usecaseDia/dependency"></a>
-#####[包含(inclusion) / 包含関係(include relationship)](#usecaseDia/element)
+##### [包含(inclusion) / 包含関係(include relationship)](#usecaseDia/element)
 
-`<<include>>`キーワードをつける(UML 1では`<<includes>>`だった)。柄がincluding use caseで、矢尻がincluded use case。
+`<<include>>`キーワードをつける(UML 1では`<<includes>>`だった)。柄のユースケースが、鏃のユースケースに含まれる。
 複数のユースケースに**共通で利用**している部分があるとき、その共通部分のユースケースを切り出し、包含の関係で接続する。include先のユースケースが必須となるような場合に使う。ベースとなるユースケースからサブルーチンコールのような感じで呼び出されるようなケース。include先は複数のユースケースで共有できる。共通部分が多い場合に包含を使い、共通部分が少しの場合汎化を使う。一方が**他方の系列の中で実行される**関係。
 
-![](pic/usecaseDia/usecase-include-usecase.jpg) *A+B*
+![](pic/usecaseDia/usecase-include-usecase.jpg) *A[B] includes common usecase.*
 
-#####[拡張(extension) / 拡張関係(extend relationship)](#usecaseDia/element)
+##### [拡張(extension) / 拡張関係(extend relationship)](#usecaseDia/element)
 
-`<<extend>>`キーワードをつける。柄がextending use caseで、矢尻がextended use case。
+`<<extend>>`キーワードをつける。柄が**オプショナルのユースケース**で、鏃がベースのユースケース。
 あるユースケースの一部分が利用されたり、利用されなかったり、**オプショナルな**部分をオプショナルユースケースとして切り出し、オプショナルユースケースでベースのユースケースを拡張する。オプショナルユースケースを行うのに**ベースのユースケースが必須**となる。複数のユースケースで共有でき無い。一方の系列の**一部を他方の系列が置き換える**関係。
 
-![](pic/usecaseDia/usecase-extend-usecase.jpg) 
+![](pic/usecaseDia/usecase-extend-usecase.jpg) *Optional usecase extends A.*
 
 <a id="usecaseDia/border"></a>
-##[システム境界](#usecaseDia/element)
+## [システム境界](#usecaseDia/element)
+
 対象とする(サブ)システムの内部と外部の境界。**主題(subject)**とも言う省略可。サブシステムの場合`<<subsystem>>`キーワードをつけておくと良い。
 
 ![](pic/usecaseDia/usecase_diagram.jpg)
 
-##ユースケース図の注意点
+## ユースケース図の注意点
+
 ![](pic/usecaseDia/usecaseDia.jpg)
 
 **機能の階層構造(WBS:Work Breakdown Structure)**を作りすぎないようにする。
-WBSができてしまわないように、`<<include>>`の階層1,2層ぐらいにとどめておく。
+WBSができてしまわないように、`<<include>>`の階層を1,2層ぐらいにとどめておく。
 
 - *「DVDを宅配で借りる」は、「DVDを借りる」の特殊なユースケースとなっているが、中身は異なる。*
 
 - *「会員かどうかを確認する」は、`<<include>>`で接続されているので「DVDを借りる」のに必須。*
 - *「カードで支払う」は、`<<extend>>`で接続されているので「DVDを借りる」のに必須ではない。*
 
-##ロバストネス図(Robustness Diagram)/分析クラス(Analysis Class)/BCE図(Boundary Control Entity Diagram)
+## ロバストネス図(Robustness Diagram)/分析クラス(Analysis Class)/BCE図(Boundary Control Entity Diagram)
+
 
 ユースケースを分析して、バウンダリ、コントロール、エンティティに分解した図。
 ユースケースと静的モデルとの対応関係を検討するためのもの。UML１では拡張プロファイルとして規定されていたが、UML2ではなくなった。
@@ -308,7 +336,7 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 拡張要素 | 表示形式 | 意味
 :--- |:---: |:---
 バウンダリ(boundary) | ![](pic/usecaseDia/boundary.jpg) | ユーザとシステムの境界。UIを提供するクラス。
-コントロール(control) | ![](pic/usecaseDia/control.jpg) | ユースケースの機能ロジックをて帰郷するクラス。
+コントロール(control) | ![](pic/usecaseDia/control.jpg) | ユースケースの機能ロジックを提供するクラス。
 エンティティ(entity) | ![](pic/usecaseDia/entity.jpg) | ドメイン層の型であるクラス。
 
 ![](pic/usecaseDia/BCE_diagram.jpg)
@@ -318,17 +346,17 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 
 --
 <a id="classDiaSec"></a>
-#[クラス図(Class Diagram)](#agenda)
+# [クラス図(Class Diagram)](#agenda)
 
-クラス間の**静的**な関係、**論理的な集まり**を表現する。DBの設計ではER図の代替としても利用できる。
+クラス間の**静的**な関係、**論理的な集まり**を表現する。DBの設計ではER図の代替としても利用できる。クラス間の関係では、依頼・参照・使用・集約・**状態**などを表現する。
 
-##クラス図の要素
+## クラス図の要素
 <a id="classDia/element"></a>
 
 要素 | 表示形式 | 意味
 :--- |:---: |:---
 [クラス(class)](#classDia/class) | ![](pic/classDia/class.jpg) | オブジェクトを属性(構造)と操作(振る舞い)の共通性に着目し、**抽象化**しもの。「もの」「ひと」「こと」を**抽象的**に表現する。
-[関連(association)](#classDia/association) | ![](pic/classDia/association.jpg) | クラス間に構造的な関係を示す。鏃をつけて方向性の指定も可能。
+[関連(association)](#classDia/association) | ![](pic/classDia/association.jpg) | クラス間に**構造的(静的)**な関係を示す。鏃をつけて方向性の指定も可能。
 [集約(aggregation)](#classDia/aggregation) | ![](pic/classDia/aggregation.jpg) | 関連の一種。**Part-Of**の関係。全体側の端にひし形を付ける。
 [合成集約,コンポジション(composition)](#classDia/composition) | ![](pic/classDia/composition.jpg) | 集約の一種。全体側と部分側の**ライフサイクルがほぼ同一の場合**利用する。
 [依存(dependency)](#classDia/dependency) | ![](pic/classDia/dependency.jpg) | あるクラスが別のクラスを利用する関係。利用されるクラス側に鏃を付ける。
@@ -339,7 +367,8 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 [インターフェース(interface)](#classDia/interface) | ![](pic/classDia/assemblyConnector.jpg) | 外部に公開する操作を明確にし、実装側の変更を呼び出し側が受け無いようにする。
 
 <a id="classDia/class"></a>
-##[クラス(class)](#classDia/element)
+## [クラス(class)](#classDia/element)
+
 オブジェクトを属性(構造)と操作(振る舞い)の共通性に着目し、**抽象化**しもの。「もの」「ひと」「こと」を**抽象的**に表現する。
 雛形としてオブジェクトを生成することを**インスタンス化([名]instantiation, [動]instantiate)**という。クラス間の関係では、依頼・参照・作成・使用・集約・状態などを表現する。
 
@@ -347,28 +376,32 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 - **ポリモルフィズム(Polymorphism:多態性、多相性、多様性):　**１つのインターフェースの元に様々な実装を隠すこと。保守性を向上させる。
 - **継承(Inheritance):　**クラスの性質を受け継いで再利用性を上げる(sub class **Is-A** super class).
 
-###クラス名の表記
+### クラス名の表記
+
 クラス名には、パッケージ名を修飾できる。
 
 ```
 パッケージ名::クラス名
 ```
 
-###属性の表記
+### 属性の表記
+
 属性は隠すことができる。可視性、属性の型、初期値は省略できる。属性リストの区画は省略できる(クラス名の下の区画が操作リストの区画になる)。
 
 ```
 可視性等 属性名:属性の型=初期値
 ```
 
-###操作の表記
+### 操作の表記
+
 可視性、引数名、引数の型、戻り値の型は省略できる。
 
 ```
 可視性 操作名(引数名:引数の型):戻り値の型
 ```
 
-###可視性(visibility) / 派生(導出)属性(derived attribute)
+### 可視性(visibility) / 派生(導出)属性(derived attribute)
+
 属性名や操作名の前に記述する。
 
 記号 | 意味 | 説明
@@ -379,16 +412,16 @@ WBSができてしまわないように、`<<include>>`の階層1,2層ぐらい�
 `~` | package | 自分自信および同一パッケージ内のクラスから参照可能
 `/` | derived | 他の属性から計算できる**属性(操作には付与できない)**。計算に時間がかかる場合など、主にパフォーマンスのために持たせる。
 
-###スコープ
+### スコープ
 
 属性(フィールド)や操作(メソッド)に**クラススコープ**と**インスタンススコープ**を設定できる。クラススコープの場合には、属性名、操作名にアンダーバーを引く。
 
-##UMLの拡張
+## UMLの拡張
 
 #### ステレオタイプ
 
 UML要素(クラスやオブジェクト)につけて意味を拡張する。クラスに付ける場合は、クラス名の前か上につける。
-属性や操作の並びにステレオタイプを付けると別のステレオタイプが指定されるまで同じステレオタイプが適用される。
+属性や操作の並び(**上側に**)ステレオタイプを付けると**別のステレオタイプが指定されるまで**同じステレオタイプが適用されるが、属性/操作の**前に**付けると**その属性/操作のみ**に適用される。
 
 ```
 <<stereotype>>
@@ -422,7 +455,8 @@ UML要素に条件や制限を付ける。
 attribute{constraints}
 ```
 
-##クラス間の関係
+## クラス間の関係
+
 クラス間の関係では、**依頼、参照、作成、使用、集約、状態**などを表現する。クラス同士を関係づけることで**構造化された情報を表現**でき、より複雑な情報を表現できる。
 
 - [関連(association)](#classDia/association)
@@ -433,7 +467,7 @@ attribute{constraints}
 - [汎化(generalization)](#classDia/generalization)
 
 <a id="classDia/association"></a>
-##[関連(association)](#classDia/element)
+## [関連(association)](#classDia/element)
 
 クラス間に構造的な関係があるときに実線で結ぶ。
 線の上に**関連名**を付けることができ、任意で、関連名を**読む方向**を▶︎で表現できる(関連名は通常３単現の動詞)。
@@ -441,7 +475,8 @@ attribute{constraints}
 
 ![](pic/classDia/class-relation-class.jpg)
 
-###多重度(multiplicity)
+### 多重度(multiplicity)
+
 **ターゲット**クラスの**あるオブジェクト**が関連しているソースクラスの**オブジェクト数**(総インスタンス数ではない)。オブジェクト図(に相当する集合図)とER図のcrow's footを見ればイメージしやすい。
 
 ![](pic/classDia/multiplicity-EX.jpg)
@@ -453,11 +488,11 @@ attribute{constraints}
 | x..*       | x以上   |
 | x, y, z    | x, y, z|
 
-*例: *ロールをつけて関連ごとに分けてみないと、多対多の関連(リンク)があるように見える場合があるので注意。
+*例:　* ロールをつけて関連ごとに分けてみないと、多対多の関連(リンク)があるように見える場合があるので注意。
 
 ![](pic/classDia/multiplicity-EX2.jpg)
 
-*例:　*下限が1の場合、Aのインスタンスが存在するときBのインスタンスが必ずBのインスタンスが必ず存在する(インスタンスの生成順序や生存期間を気にしなければなら無い)。下限が0ならBのインスタンスが存在しなくても良い。
+*例:　*下限が1の場合、Aのインスタンスが存在するときBのインスタンスが必ず存在する(インスタンスの生成順序や生存期間を気にしなければなら無い)。下限が0ならBのインスタンスが存在しなくても良い。
 
 ![](pic/classDia/multiplicityLowerBound.jpg)
 
@@ -467,13 +502,15 @@ attribute{constraints}
 
 ![](pic/classDia/multiplicity-1-m.jpg)
 
-###誘導可能性(navigability)
+### 誘導可能性(navigability)
+
 関連の端に矢印か罰印つけて**方向性(誘導可能性)**をつけることができる。
 ``[A]×->[B]``ならAからBが参照可能で、BからAは参照不可能。罰印も矢印も無い場合は、UML2.0では**不定**を示す。
 双方向の関連をつけることもできる(片方向の関連よりメンテコストは高くなりやすい)。
 
-###再帰的関連(recursive association)
-同一クラスの複数のオブジェクト間の関連(**同一クラスの同一のオブジェクト間に関係がある場合は引かない**)。
+### 再帰的関連(recursive association)
+
+同一クラスの複数のオブジェクト間の関連(**同一クラスの同一のオブジェクト間に関係がある場合に引くわけではない**)。
 
 再帰的関連になっている場合は、**ループを許すかどうか**(任意のインスタンスから再帰的にナビゲートして出来上がるインスタンスのツリー構造の中にそのインスタンス自身が存在するかどうか)に注意する。制約`{階層}`をつけてノートで定義しておくと良い。
 
@@ -492,14 +529,14 @@ attribute{constraints}
 ```
 
 <a id="classDia/qualifier"></a>
-###[限定子(qualifier)](#classDia/element)
-keyが指定されれば、valueが特定されるような関係を示すために、**限定子**を使う。限定子を使うことで多重度を限定できる。限定子(小さい長方形)に書き込む限定子属性は、限定子と**逆側のクラスの属性**(複数でも良い)を指定する。
+### [限定子(qualifier)](#classDia/element)
 
-![](pic/classDia/qualifierEX.jpg)
+keyが指定されれば、valueが特定されるような関係を示すために、**限定子**を使う。限定子を使うことで多重度を限定できる。限定子(小さい長方形)に書き込む限定子属性は、限定子と**逆側のクラスの属性**(複数でも良い)を指定し、**逆側端の多重度**を限定する。
 
-3つ以上の関連には**N項関連(N-ary association)**を利用する。ひし形を中継点として各関連クラスを実線(関連)で結ぶ。
+![](pic/classDia/qualifierEX.jpg) *borrower側の多重度を1に限定している*
 
-###関連クラス(association class)
+
+### 関連クラス(association class)
 
 **多重度が多対多**で接続されたクラス間の情報を管理したいときに利用される、クラスと関連の性質を持ったクラス(関連の合間で仲介するクラス)。関連と関連クラスを点線で結んで表記する。
 ２つのクラスに**関連が引かれたときに発生するような(どちらの属性にするか迷うような)情報**に使われることが多い。両端のクラスが関連クラスのインスタンスを**別々に**持っている可能性がある。**関連クラスは１対多なら多側のクラスに紛れ込ますことが多い。** また、関連は集合であり重複せず、関連クラスもその性質を持っており、**特に宣言しない限り、同じインスタンス同士のリンクは重複しない(インスタンスの組み合わせがユニーク)。**
@@ -508,7 +545,8 @@ keyが指定されれば、valueが特定されるような関係を示すため
 
 ![](pic/classDia/associationClass.jpg)
 
-####広義の関連クラス
+#### 広義の関連クラス
+
 多対多の関連がある場合、広義の関連クラスに置き換えて実装すると良いことが多い。(狭義の)関連クラスとは異なり、**特に宣言しない限り、ユニーク制限はない。**
 
  
@@ -517,14 +555,17 @@ keyが指定されれば、valueが特定されるような関係を示すため
 ![](pic/classDia/nonAssociationClass.jpg)
 
 <a id="classDia/N-aryAssociation"></a>
-###[N項関連(N-ary association)](#classDia/element)
+### [N項関連(N-ary association)](#classDia/element)
+
+3つ以上の関連には**N項関連(N-ary association)**を利用する。ひし形を中継点として各関連クラスを実線(関連)で結ぶ。
+
 N項関連にも関連クラスをつけることができる。２項関連と同様に広義の関連クラスにすることもできる。多項関連になっている場合は、インスタンスの生成単位が曖昧になっているので、**どの単位でユニーク制約を課すかを検討してノートをつけておく。**
 
 ![](pic/classDia/N−aryAssociationEX.jpg)
 
 <a id="classDia/aggregation"></a>
 
-###[集約(aggregation)](#classDia/element)
+### [集約(aggregation)](#classDia/element)
 
 **Part-Of**の関係。全体側の端にひし形を付ける。
 集約にも方向性を指定できる。
@@ -534,7 +575,7 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 ![](pic/classDia/shelf-aggregate-book.jpg)
 
 <a id="classDia/composition"></a>
-###[コンポジション(composition)](#classDia/element)
+### [コンポジション(composition)](#classDia/element)
 
 集約の一種。全体側と部分側の**ライフサイクルがほぼ同一の場合**利用する。ひし形を黒塗りにする。全体側のクラスを**コンポジットクラス(composite class)**と言い、表記方法が３種類ある。
 
@@ -543,24 +584,25 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 ![](pic/classDia/compositeClass1.jpg) | ![](pic/classDia/compositeClass2.jpg) | ![](pic/classDia/compositeClass3.jpg)
 
 <a id="classDia/dependency"></a>
-##[依存(dependency)](#classDia/element)
+## [依存(dependency)](#classDia/element)
 
 利用される側に鏃を付ける。**属性値として持っている場合は集約やコンポジション。**
 
 - 引数や戻り値で受け取る
-- ローカル変数として使用する
+- ローカル変数として使用する（一時的にインスタンスを生成する・メッセージを送信する）
 - モデルやパッケージ内からグローバルに見える他のクラスのオブジェクトを参照する
 
 ![](pic/classDia/dependencyEX.jpg)
 
 <a id="classDia/realization"></a>
-###[実現化(realization)/実装(implementation)](#classDia/element)
+### [実現化(realization)/実装(implementation)](#classDia/element)
 
 **インターフェース**や**テンプレートクラス**とその実装を持つクラスやコンポーネント,サブシステム etc.とそのインターフェースとの関係。
 インターフェース、テンプレートクラス側に鏃を付ける。
 
 <a id="classDia/interface"></a>
-####[インターフェース(interface)](#classDia/element)
+#### [インターフェース(interface)](#classDia/element)
+
 外部に公開する操作を明確にし、実装側の変更を呼び出し側が受け無いようにする。インターフェースは**属性を持たず、インスタンス化できない**。interfaceは必ずしも**javaなどのinterfaceで実装されるとは限らない**。
 ステレオタイプ`<<interface>>`をつけた実現関係を引く。
 
@@ -574,7 +616,7 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 
 ![](pic/classDia/interfaceWithUML2.jpg)
 
-####テンプレートクラス(template class)
+#### テンプレートクラス(template class)
 
 クラスを生成するクラス。仮パラメタに具体的な値をバインドすることで実際に使用可能なクラスを生成する。
 
@@ -587,11 +629,11 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 ![](pic/classDia/implicitBinding.jpg)
 
 <a id="classDia/generalization"></a>
-##[汎化(generalization)/継承(inheritance)](#classDia/element)
+## [汎化(generalization)/継承(inheritance)](#classDia/element)
 
 **Is-A**の関係。スーパークラス側に▷をつける。線に**区別子**(テキストラベル)をつけて汎化関係のグループ化ができる。
 
-####汎化関係の制約
+#### 汎化関係の制約
 
 制約 | 意味
 :---: | :---
@@ -615,18 +657,18 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 同じ分類軸にある部分集合の間を、インスタンスが行ったり来たりすることを許す分類。`<<dynamic>>`キーワードを定義して、汎化セット名の近くにつけておくと良い。
 フラグやStateパターンなどで実装できる。
 
-####抽象クラス(abstract class)
+#### 抽象クラス(abstract class)
 
 オブジェクトを生成することが無い。下位のクラスをまとめるクラス。クラス名を**斜体**にする、あるいは、メタ属性**{abstract}**をつけて表記する。
 抽象クラスは、**インスタンスを作れず、属性と操作をもつが一部操作は具象クラスの再実装を要する**。
 
-##その他のクラス
+## その他のクラス
 
-###ユーティリティクラス(utility class)
+### ユーティリティクラス(utility class)
 
 クラスにステレオタイプ`<<utility>>`を記述して、**他のクラスやプログラムから全て参照可能**なユーティリティクラスを定義できる。
 
-###メタクラス(meta class)
+### メタクラス(meta class)
 
 クラスにステレオタイプ`<<metaclass>>`を記述して、**生成されるインスタンスがクラスである**メタクラスを定義できる。クラス自体の定義に利用される。
 
@@ -637,22 +679,27 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 
 ![](pic/classDia/metaClass.jpg)
 
-##導出(derivation)
+## 導出/派生(derivation)
+
 既存の属性や関連から、論理的に導出すること。導出方法をノートしておくと良い。
 
-###導出属性(derived attribute)
+### 導出属性(derived attribute)
+
 他の属性から導出できる属性。`/`をつける。
 
-###導出関連(derived relationship)
+### 導出関連(derived relationship)
+
 ある既存の属性や関連から、論理的に導出できる導出できる関連。関連端には`/`をつける。想定上のリンクの存在制約なので`{derived}`をつけておく。
 
 ![](pic/classDia/derivedRelationship.jpg)
 
-###導出クラス(derived class)
+### 導出クラス(derived class)
+
 導出属性を型として外出ししたもの。RDBMSのView(導出表)などが実装方法として考えられる。
 導出クラス名には`/`をつける。
 
-##べき型(powertype)
+## べき型(powertype)
+
 基本となる型をカテゴライズする型。ベースとなる型のインスタンス生成を制約するのが主な目的。べき型からなる構造を**知識レベル(knowledge level)**, ベースとなる型からなる構造を**操作レベル(operation level)**と呼ぶ。
 
 *例:　*幾つかの個客種、商品種、注文種の組み合わせが決まっていて、それに反する注文は出来ない(インスタンスはない)。
@@ -664,15 +711,15 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 
 ![](pic/classDia/knowledgeLevel_EX2.jpg)
 
-##クラス図の注意点
+## クラス図の注意点
 
-###関連の誘導可能性
+### 関連の誘導可能性
 
 *例:　*unreachableが独立するスレッドで動いて動作の起点になっているようなことがなければunreachableクラスは必要ない
 
 ![](pic/classDia/unreachableClass.jpg)
 
-###汎化と関連
+### 汎化と関連
 
 *例:　*OKとキャンセルのボタンを一つずつ持つdialog
 
@@ -686,7 +733,7 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 
 ![](pic/classDia/dialog-rightAssociation.jpg)
 
-###汎化と実現化の使い分け
+### 汎化と実現化の使い分け
 
 クラス　　　　　　　　　　 | 関係
 --------------------- | ----
@@ -695,7 +742,7 @@ interfaceと実体        | 実現化
 テンプレートクラスと実体  | 実現化(依存)
 抽象クラスと具象クラス    | 汎化　
 
-###集約とコンポジション
+### 集約とコンポジション
 
 集約は、全体側オブジェクトと部分側オブジェクトのライフサイクルは必ずしも一致せず、部分側オブジェクトは**複数の全体側オブジェクトから共有されることがある**。
 
@@ -710,10 +757,11 @@ interfaceと実体        | 実現化
 
 --
 <a id="objDiaSec"></a>
-#[オブジェクト図(Object Diagram)](#agenda)
+# [オブジェクト図(Object Diagram)](#agenda)
+
 システムのある瞬間の状態など、**静的な側面**を表現する。**ある瞬間のオブジェクトの状態**や、クラス図の**多重度**を考えるときに使用する。オブジェクトは「もの」「ひと」「こと」を**具体的**に表したもの。
 
-##オブジェクト図の要素
+## オブジェクト図の要素
 <a id="objDia/element"></a>
 
 要素 | 表示形式 | 意味
@@ -722,7 +770,8 @@ interfaceと実体        | 実現化
 リンク(link) | ![](pic/comDia/link.jpg) | 関係のインスタンス。**オブジェクト間の関係**を示し、なんらかの**情報のやり取り**があることを表す。
 
 <a id="objDia/object"></a>
-##[オブジェクト(Object)](#objDia/element)
+## [オブジェクト(Object)](#objDia/element)
+
 **属性**(静的かつ単純な情報)、**振る舞い**(動的な手続き)と**状態**を持つ。**メッセージ送信**でオブジェクト間の情報のやり取りを行う。分析段階では現実に存在するもの(物理的あるいは概念的に存在するもの)で、設計段階では、必ずしも実在するものとは限らない(list, stack, utility etc.)。
 
 *クラスのインスタンスはオブジェクト、関係のインスタンスはリンク、ユースケースのインスタンスはシナリオ*
@@ -741,7 +790,7 @@ interfaceと実体        | 実現化
 
 *クラス名(パッケージ含む)とオブジェク名のどちか一方を省略可能*
 
-###コンポジットオブジェクト(composite object)
+### コンポジットオブジェクト(composite object)
 
 コンポジットクラスのオブジェクト。
 
@@ -752,14 +801,14 @@ interfaceと実体        | 実現化
 
 --
 <a id="seqDiaSec"></a>
-#[シーケンス図(Sequence Diagram)](#agenda)
+# [シーケンス図(Sequence Diagram)](#agenda)
 
 *参考：*[Demeterの法則(Law of Demeter (LoD)), 最小知識の原則(principle of least knowledge)](https://en.wikipedia.org/wiki/Law_of_Demeter)
 
 相互作用図(interaction diagram)の一つ。
 **ライフライン**(人や物、オブジェクト)同士のメッセージのやり取りを**時系列に沿って１つのシナリオ(ユースケース)の具体的な流れ**整理する。*1つのシナリオ(ユースケース)*に沿って作成する。
 
-##シーケンス図の要素
+## シーケンス図の要素
 
 要素 | 表示形式 | 意味
 :--- |:---: |:---
@@ -769,6 +818,7 @@ interfaceと実体        | 実現化
 同期メッセージ(synchronous message) | ![](pic/seqDia/syncMessage.jpg) | メッセージの呼び出し終了を待つ
 非同期メッセージ(asyncronous message) | ![](pic/seqDia/asyncMessage.jpg) | メッセージの呼び出し終了を待たない
 応答,戻り(reply) | ![](pic/seqDia/reply.jpg) | 送信先から送信元への応答
+生成メッセージ(create message) | ![](pic/seqDia/reply.jpg) | ライフラインを生成するメッセージ。リプライと同じ記号をライフラインにつなげる。
 拾得メッセージ(found message) | ![](pic/seqDia/foundMessage.jpg) | 送信元が明確でない場合のメッセージ受信
 消失メッセージ(lost message) | ![](pic/seqDia/lostMessage.jpg) | 送信先が明確でない場合のメッセージ送信 
 生成メッセージ(create message) | ![](pic/seqDia/createMessage.jpg) | ライフライン生成。`<<create>>`を付ける場合もある。**リプライと同じ矢印**
@@ -776,7 +826,7 @@ interfaceと実体        | 実現化
 
 ![sequenceDiagram](pic/seqDia/sequenceDiagram.jpg)
 
-##メッセージのフォーマット
+## メッセージのフォーマット
 
 ```
 シーケンス番号[ガード条件]*[繰り返しの条件]:戻り値リスト:=メッセージ名(引数リスト)
@@ -820,9 +870,10 @@ class lifeline2 {
 }
 ```
 
-##結合(複合)フラグメント(combined fragment)
+## 結合(複合)フラグメント(combined fragment)
 <a id="seqDia/fragment"></a>
-複合フラグメントを使って、フレーム単位に分割記述できる。
+
+結合フラグメントを使って、フレーム単位に分割記述できる。
 
 相互作用操作子(interaction operator) | 読み | 意味
 :--- | :--- | :---
@@ -841,7 +892,7 @@ class lifeline2 {
 [`consider`](#seqDia/fragment-consider) | consider | 重要な処理 
 
 <a id="seqDia/fragment-ref"></a>
-###[参照(`ref`)](#seqDia/fragment)
+### [参照(`ref`)](#seqDia/fragment)
 
 別に定義されている要素を参照する。
 
@@ -850,7 +901,7 @@ class lifeline2 {
 *sequence diagram 2を参照する。*
 
 <a id="seqDia/fragment-alt"></a>
-###[条件分岐(`alt`)](#seqDia/fragment)
+### [条件分岐(`alt`)](#seqDia/fragment)
 
 点線で区切られた区画のうち、ガード内の条件が成り立つものだけが実行される。**同時に実行されることはない**。
 
@@ -859,7 +910,7 @@ class lifeline2 {
 *condition Aならmessage A, condition Bならmessage Bが送信される。*
 
 <a id="seqDia/fragment-opt"></a>
-###[条件判断(`opt`)](#seqDia/fragment)
+### [条件判断(`opt`)](#seqDia/fragment)
 
 ガード内の条件を満たす時だけフラグメント内の処理が実行される。
 
@@ -868,12 +919,12 @@ class lifeline2 {
 *condition Aのときのみmessage  Aが送信される。*
 
 <a id="seqDia/fragment-par"></a>
-###[並列処理(`par`)](#seqDia/fragment)
+### [並列処理(`par`)](#seqDia/fragment)
 
 点線で区切られた各区画を並列処理する。
 
 <a id="seqDia/fragment-critical"></a>
-###[クリティカルセクション(`critical`)](#seqDia/fragment)
+### [クリティカルセクション(`critical`)](#seqDia/fragment)
 
 そのフラグメントを実行するスレッドが常に一つでフラグメントが終了するまで別のスレッドを実行できない。割り込みや中断を許さない。
 
@@ -882,12 +933,12 @@ class lifeline2 {
 *message Aとmessage Bは同期処理だが並列に実行される。ただし、message Cが実行されれば、その応答が返ってくるまで、他のスレッドは止まる。*
 
 <a id="seqDia/fragment-loop"></a>
-###[反復処理(`loop`)](#seqDia/fragment)
+### [反復処理(`loop`)](#seqDia/fragment)
  
 フラグメント内を繰り返し処理する。反復条件は、ヘッダに`loop[開始, 終了]`, `loop[反復回数]`, `loop[開始,*]`という形式で書くか、フラグメント内にガード条件として定義できる。
 
 <a id="seqDia/fragment-break"></a>
-###[中断処理(`break`)](#seqDia/fragment)
+### [中断処理(`break`)](#seqDia/fragment)
 
 ガード条件が成り立つときに、フレーム内の処理を実行して外側のフレームを中断させる。
 
@@ -896,22 +947,22 @@ class lifeline2 {
 *n回message Aが送信されるが、condition Bが成立した場合はreply Bを返して中断する。*
 
 <a id="seqDia/fragment-assert"></a>
-###[アサート(`assert`)](#seqDia/fragment)
+### [アサート(`assert`)](#seqDia/fragment)
 
 処理が妥当であるための定義(状態)を`{}`内を書く。
 
 <a id="seqDia/fragment-neg"></a>
-###[不正処理(`neg`)](#seqDia/fragment)
+### [不正処理(`neg`)](#seqDia/fragment)
 
 通常、起こり得ない処理。エラーハンドリングする。
 
 <a id="seqDia/fragment-ignore"></a>
-###[重要でない(`ignore`)](#seqDia/fragment)
+### [重要でない(`ignore`)](#seqDia/fragment)
 
 フラグメント内の重要でない処理を`ignore{message_i, message_j,...}`の形式で示す。
 
 <a id="seqDia/fragment-consider"></a>
-###[重要(`consider`)](#seqDia/fragment)
+### [重要(`consider`)](#seqDia/fragment)
 
 フラグメント内の重要なメッセージを`consider{message_i, message_j, ...}`の形式で示す。
 
@@ -919,7 +970,7 @@ class lifeline2 {
 
 *message2, 2.1は妥当な状態condition Aになっているものとして処理する。message3,4は重要でないので無視しても構わない。condition Aになっていないならerror処理を行う。message6,7は重要な処理。*
 
-##シーケンス図の注意点
+## シーケンス図の注意点
 
 ライフライン自身へのメッセージ(**再帰的メッセージ:recursive message**)があっても、クラス図で自分自身への**再帰的関連(recursive association)**があるとは限らない。別のライフライン(インスタンス)へメッセージがあり送信側と受信側両方のライフラインのクラスが同じ場合、再帰的関連となる。
 
@@ -928,11 +979,11 @@ class lifeline2 {
 
 --
 <a id="comDiaSec"></a>
-#[コミュニケーション図(Communication Diagram)](#agenda)
+# [コミュニケーション図(Communication Diagram)](#agenda)
 
 旧コラボレーション図(collaboration diagram)。相互作用図の一つ。**ライフライン間のメッセージ**のやり取り、**システムの動的な側面**を表現する。**クラス図の操作**を検討することができる。
 
-##コミュニケーション図の要素
+## コミュニケーション図の要素
 
 
 要素 | 表示形式 | 意味
@@ -959,7 +1010,7 @@ class lifeline2 {
 
 *同期メッセージ1,2が送信され、続いて、非同期メッセージ3,4a,4b,5が送信されるが、4a, 4bが並列に送信される。5の送信には、先立って4bが送信されている必要がある。*
 
-##コミュニケーション図の注意点
+## コミュニケーション図の注意点
 
 シーケンス図同様、ライフライン自身へのメッセージがあっても、クラス図で再帰的関連があるとは限らない。
 
@@ -968,11 +1019,11 @@ class lifeline2 {
 
 --
 <a id="stateMachineDiaSec"></a>
-#[ステートマシン図(State Machine Diagram)](#agenda)
+# [ステートマシン図(State Machine Diagram)](#agenda)
 
 **１つ**の**オブジェクト**の**生成から消滅まで**の時間経過に伴う**状態変化**を表現する。UML2から**(振る舞い)ステートマシン図**と**プロトコルステートマシン図(protocol state machine diagram)**を書き分けるようになった。
 
-##ステートマシン図の要素
+## ステートマシン図の要素
 <a id="stateMachineDia/element"></a>
 
 要素 | 表示形式 | 意味
@@ -992,7 +1043,7 @@ class lifeline2 {
 [合成アイコン(composition icon)](#stateMachineDia/compositionIcon) | ![](pic/stateMachineDia/compositionIcon.jpg) | サブ状態を省略したコンポジット状態
 
 <a id="stateMachineDia/transition"></a>
-##[状態遷移(state transition)](#stateMachineDia/element)
+## [状態遷移(state transition)](#stateMachineDia/element)
 
 遷移の矢印に沿って状態間で**トークン(token)**を受け渡し、トークンを持っている状態がインスタンスの現在の状態となる。
 ある状態から同じトリガーで別の状態に遷移する場合はガード条件を書いて分岐できる。
@@ -1007,18 +1058,18 @@ class lifeline2 {
 トリガがない場合は、**完了遷移(トリガレス遷移、λ遷移)**と言い、**アクション**や**アクティビティ**の終了をきっかけとして遷移する。
 
 <a id="stateMachineDia/state"></a>
-###処理(評価)の順番
+### 処理(評価)の順番
 
 ![](pic/stateMachineDia/stepEX.jpg)
 
 1. **入場アクション(entry action):　**状態に入るときに**瞬間的**に行われ、**中断しない**。
-2. **アクティビティ(activity):　**状態に入るときに開始し、**一定時間継続する**。動作中にトリガーにより状態遷移で**中断される**。
-3. **トリガー(trigger):　**なんらかの影響をもたらす事象。**外部からのメソッドコール**。
-4. **ガード条件(gard):　**状態遷移可能かどうかの条件。**評価は全て同時で一瞬のうちに行われる**
-5. **退場アクション(exit action):　**状態からでるときに**瞬間的に**行われ、**中断されない**。(アクティビティの後にトリガが発生しない or ガード条件を満たさないで遷移しない場合も実行される？ (L1 16章 2))
-6. **エフェクト(effect):　**状態遷移と**同時に瞬間的**に行われ、**中断されない**。
+1. **アクティビティ(activity):　**状態に入るときに開始し、**一定時間継続する**。動作中にトリガーにより状態遷移で**中断される**。
+1. **トリガー(trigger):　**なんらかの影響をもたらす事象。**外部からのメソッドコール**。
+1. **ガード条件(gard):　**状態遷移可能かどうかの条件。**評価は全て同時で一瞬のうちに行われる**
+1. **退場アクション(exit action):　**状態からでるときに**瞬間的に**行われ、**中断されない**。(アクティビティの後にトリガが発生しない or ガード条件を満たさないで遷移しない場合も実行される？ (L1 16章 2))
+1. **エフェクト(effect):　**状態遷移と**同時に瞬間的**に行われ、**中断されない**。
 
-###据え置きイベント(deferred event)
+### 据え置きイベント(deferred event)
 
 アクションdeferがつけられたイベントは、**据え置きイベント(defferred event)**と呼ばれ、他の状態に遷移するまで捨てられずに処理が据え置かれる。
 
@@ -1029,7 +1080,7 @@ class lifeline2 {
 *状態2でイベントが起こると据え置かれ、のちにトリガー2により状態1に遷移したとき、据え置かれたイベントが呼ばれて終了状態に遷移する。*
 
 <a id="stateMachineDia/compositeState"></a>
-##[コンポジット(合成)状態(composite state)](#stateMachineDia/element)
+## [コンポジット(合成)状態(composite state)](#stateMachineDia/element)
 
 状態の内部にサブ状態をもつ状態。各スコープで開始状態は一つ。
 
@@ -1043,23 +1094,23 @@ class lifeline2 {
 ![](pic/stateMachineDia/compositionIconEX.jpg)
 
 <a id="stateMachineDia/orthogonal"></a>
-###[直交状態(orthogonal state)](#stateMachineDia/element)
+### [直交状態(orthogonal state)](#stateMachineDia/element)
 
-1つのコンポジット状態のなkで、**同時に**複数のサブ状態が存在する状態。点線で領域(UML1.xでは平行サブ状態)を作って表現する。それぞれの領域は**独立した状態**を持っている。
+1つのコンポジット状態のなかで、**同時に**複数のサブ状態が存在する状態。点線で領域(UML1.xでは平行サブ状態)を作って表現する。それぞれの領域は**独立した状態**を持っている。
 
 ![](pic/stateMachineDia/orthogonalState.jpg)
 
-**各領域は独立しており、取りうる状態の数は2*2*2=8状態**
+**各領域は独立しており、取りうる状態の数は2×2×2=8状態**
 
 <a id="stateMachineDia/fork-join"></a>
-###[平行遷移(concurrent transition)](#stateMachineDia/element)
+### [平行遷移(concurrent transition)](#stateMachineDia/element)
 
 **同期バー**を使って、**分岐(fork)**と**合流(join)**の同期を記述できる。forkした各サブ状態が終了するまでjoin地点で待つ。
 
 ![](pic/stateMachineDia/concurrentTransition.jpg)
 
 <a id="stateMachineDia/history"></a>
-###[履歴(history)](#stateMachineDia/element)
+### [履歴(history)](#stateMachineDia/element)
 
 履歴を使って、コンポジット状態(の最後にアクティブであったサブ状態)を保存できる。
 コンポジット状態に入るときは直接履歴に遷移を貼る。初めてアクティブになったときの開始状態を忘れないようにしておく。**浅い履歴はサブ状態のサブ状態までは覚えておけない。**コンポジット状態の開始状態の代わりに、履歴を使用しても良い。
@@ -1069,18 +1120,19 @@ class lifeline2 {
 *上の図の場合、コンポジット状態の開始状態および、sub1への遷移を取り除き、履歴からsub1の遷移を加えても良い。*
 
 <a id="stateMachineDia/choice"></a>
-##[選択疑似状態(choice, conditional pseudo state)](#stateMachineDia/element)
+## [選択疑似状態(choice, conditional pseudo state)](#stateMachineDia/element)
 
 **動的条件分岐(dynamic conditional branch)**。選択疑似状態から出て行く遷移のうち、ガード条件に合致するものが１つもなければ、記述の誤り。[else]のガード条件を使うと良い。属性値をアイコンの中に書いて、ガード条件の左辺を省略しても良い。
 
 <a id="stateMachineDia/junction"></a>
-##[交差状態(junction)](#stateMachineDia/element)
+## [交差状態(junction)](#stateMachineDia/element)
 
 **静的条件分岐 (static conditional branch)**。交差状態から出て行く遷移のうち、ガード条件に合致するものが１つもなくても良い。その場合は直ちに遷移しない(交差状態の前の状態のまま)。
 
-##ステートマシン図の注意点
+## ステートマシン図の注意点
 
-###ガード条件の評価
+### ガード条件の評価
+
 [参考](http://labo.mamezou.com/special/sp_002/sp_002_003.html)
 
 遷移が起ころうとするのをガードするために付加する条件。**ガード条件がかけられている遷移が起ころうとする時にだけ評価される。**タイムイベント**after**を使ってポーリングしていれば、自己遷移によってガード条件の再評価が行われる。
@@ -1095,15 +1147,16 @@ class lifeline2 {
 
 *whenイベントは、チェンジイベントなので、開始状態で既に条件を満たしている場合は、発火しない。そのため、選択疑似状態を挟んでいる。*
 
-###選択疑似状態と交差状態
+### 選択疑似状態と交差状態
 
 [参考](http://labo.mamezou.com/special/sp_002/sp_002_004.html)
 
 ![](pic/stateMachineDia/choiceJunctionEX.jpg)
 
-*上の例だと最大で、actionが4回(retryは3回)行われる。選択疑似状態を交差状態に変えると、[action success]の評価と同時に[retry <= 3], [retry >3]が評価されて、retryのインクリメントが行われるので、最大でactionが5回(retryは4回)行われる。*
+*上の例だと最大で、actionが4回(retryは3回)行われる。選択疑似状態を交差状態に変えると、[failure]の評価と同時に[retry <= 3], [retry >3]が評価されて、retryのインクリメントが行われるので、最大でactionが5回(retryは4回)行われる。*
 
-##プロトコルステートマシン図(Protocol State Machine Diagram)
+## プロトコルステートマシン図(Protocol State Machine Diagram)
+
 インスタンスのとりうる状態ではなく、**状態ごとに許される操作**を記述する。
 使う記号は(振る舞い)ステートマシン図と同じで遷移情報の記述の仕方だけ異なる。
 図名の後ろに`{protocol}`をつけて明示する。
@@ -1122,19 +1175,19 @@ class lifeline2 {
 
 --
 <a id="activityDiaSec"></a>
-#[アクティビティ図(Activity Diagram)](#agenda)
+# [アクティビティ図(Activity Diagram)](#agenda)
 
 システムや業務の流れを表現する。フローチャート的なもの。
 ステートマシン図の全ての状態にアクティビティがついて、完了遷移を行うと、アクティビティ図になる。
 
-##アクティビティ図の要素
+## アクティビティ図の要素
 
 要素 | 表示形式 | 意味
 :--- |:---: |:---
 アクティビティエッジ | ![](pic/activityDia/activityEdge.jpg) | **制御フロー**と**オブジェクトフロー**がある。オブジェクトに流入するフローをオブジェクトフローと言い、トークンは素通りして次のアクションを発火する。
 開始状態(begin, initial state) | ![](pic/activityDia/begin.jpg) | アクティビティ図の開始状態
 終了状態(sink state) | ![](pic/activityDia/sink.jpg) | アクティビティ図の終了状態。必要なら複数存在する。
-フロー終了ノード(flow final node) | ![](pic/activityDia/flowFinalNode.jpg) | 流入するフローを止める(分岐している場合、リュ運輸していないフローはそのまま)。
+フロー終了ノード(flow final node) | ![](pic/activityDia/flowFinalNode.jpg) | 流入するフローを止める(分岐している場合、流入していないフローはそのまま)。
 コネクタ(connector) | ![](pic/activityDia/connector.jpg) | ある端から他の端へ線を引かずにすませるためのもの。同じ文字が書かれているコネクタどうしが繋がっている。
 同期バー(分岐:fork, 合流:join) | ![](pic/activityDia/syncBar.jpg) | 分岐、合流の同期を表現する。UML2.0からオブジェクトフローをforkノードから出したり、joinノードに合流させたりしても良いことになった。
 デシジョン/マージノード(decision/merge node) | ![](pic/activityDia/decision-mergeNode.jpg) | 前のアクションを受けて、次の状態を選択するためのノード(**ノードの中には何も書かない**)。合致するものがなければ記述の誤り。`<<decisionInput>>`をつけたノートに判断基準を書いて付加して良い(ガードをつけて[true], [false] etc. で分岐する)。
@@ -1152,7 +1205,8 @@ class lifeline2 {
 
 また、ユースケースに相当するアクションノードにユースケースのノートを`<<usecase>>`キーワード付きで載せると良い。
 
-##プロセス図(Process Diagram)
+## プロセス図(Process Diagram)
+
 **UML1.0**のアクティビティ図を拡張したもの。内容がはっきりしない段階の活動や行為の集合「プロセス」の大まかな流れを表す。*UMLに含まれるものでは無い。*
 
 ![](http://www.bcm.co.jp/site/2002/uml/img/figure14-03.gif)
@@ -1164,45 +1218,54 @@ class lifeline2 {
 
 --
 <a id="componentDiaSec"></a>
-#[コンポーネント図(Component Diagram)](#agenda)
+# [コンポーネント図(Component Diagram)](#agenda)
 
 **物理的なシステム構成**、**実装**を表現する図の１つ。システムの**モジュール**構成、**ソフトウェアコンポーネント**の構成を表現する。ハードウェア的なものは表記しない。
 
-##コンポーネント図の要素
+## コンポーネント図の要素
 
-インターフェースには、クラス図のものと同じアイコンも使用可能。依存、実装などはクラス図と同じ記号を使う。
+インターフェースには、クラス図のものと同じアイコンも使用可能。**依存、実装などはクラス図と同じ記号**を使う。
 
-コンポーネント間は**依存関係**により、ソースファイルのコンパイルや、実行ファイルの呼び出し間駅を表現する。
+コンポーネント間は**依存関係**により、ソースファイルのコンパイルや、実行ファイルの呼び出し関係を表現する。
 
 要素 | 表示形式 | 意味
 :--- |:---: |:---
-コンポーネント(component) | ![](pic/componentDia/component.jpg) | あらかじめ決められたインターフェースを持った再利用部品。`<<component>>`をつけておけば右上のアイコンは不要。`<<subsystem>>`をつけるとサブシステムとなる。
+コンポーネント(component) | ![](pic/componentDia/component.jpg) | あらかじめ決められたインターフェースを持った再利用部品。`<<component>>`をつけておけば右上のアイコンは不要。`<<subsystem>>`をつけるとサブシステムとなり、複数のコンポーネントを含む。オブジェクトからWebサービスまで様々なものがコンポーネントになりうる。
 コンポーネントインスタンス(component instance) | ![](pic/componentDia/componentInstance.jpg) | コンポーネントのインスタンス。
 分類子(classifier) | ![](pic/componentDia/classifier.jpg) | クラス、インターフェース、コンポーネントなど
 成果物(deliverables) | ![](pic/componentDia/deliverables.jpg) | コンポーネントが実装されている成果物。**物理的なファイル**、**DBのテーブル**など。右上にファイルアイコンをつけるか、`<<artifact>>`をつける。アンダーバーを引いてインスタンス化できる。
-アセンブリコネクタ(assembly connector),要求/提供インターフェース(required/provided interface) | ![](pic/componentDia/assemblyConnector.jpg) | 要求インターフェースと提供インターフェースを結んだコネクタをアセンブリコネクタと言う。
+アセンブリコネクタ(assembly connector),要求/提供インターフェース(required/provided interface) | ![](pic/componentDia/assemblyConnector.jpg) | 要求インターフェースと提供インターフェースを結んだコネクタをアセンブリコネクタと言う。オス？側が提供インターフェース。アセンブリコネクタを使わず、コンポーネントに`<<provided interfaces>>`, `<<required interfaces>>`をつけても良い。
+委譲コネクター(delegation conector) | ![](pic/componentDia/delegationConnector.jpg) | インターフェースの実装を別のコンポーネントなどへ委譲することを示す。
+依存関係(dependency relathionship), [マニフェステーション関係(manifestation relationship)](#deploymentDia/manifestation) | ![](pic/componentDia/dependency.jpg) | 成果物間、コンポーネント間の依存関係や、マニフェステーション関係(`<<manifest>>`)、インターフェースの実装、成果物の配置などを表す。
 
-###コンポーネント間の関係
+### コンポーネント間の関係
 `<<copy>>`, `<<become>>`, `<<import>>` などのステレオタイプが仕様される。
+
+### 委譲コネクター
+
+インターフェースの実装を別のコンポーネントなどへ委譲することを示す。
+
+![](pic/componentDia/delegationEx.jpg)
+
 
 --
 [コンポーネント図](#componentDiaSec)　[目次へ戻る](#agenda)
 
 --
 <a id="deploymentDiaSec"></a>
-#[配置図(Deployment Diagram)](#agenda)
+# [配置図(Deployment Diagram)](#agenda)
 
 **物理的なシステム構成**、**実装**を表現する図の１つ。**物理的な**ファイルを配置する**ハードウェア**構成を表現する。
 
-##配置図の要素
+## 配置図の要素
 <a id="deploymentDia/element"></a>
 
 要素 | 表示形式 | 意味
 :--- |:---: |:---
-[ノード(型)(node)](#deploymentDia/node) | ![](pic/deploymentDia/node.jpg) | システムリソースの仕様を表現する。
+[ノード(型)(node)](#deploymentDia/node) | ![](pic/deploymentDia/node.jpg) | システムリソースの仕様を表現する。`<<device>>`, `<<executionEnvironment>>`などのステレオタイプをつけることができる。
 [ノードインスタンス(node instance)](#deploymentDia/node) | ![](pic/deploymentDia/nodeInstance.jpg) | システムリソースを実際に何台か配置する場合に仕様する。ノード型のインスタンス。
 分類子(classifier) | ![](pic/componentDia/classifier.jpg) | クラス、インターフェース、コンポーネントなど
-コンポーネント(component) | ![](pic/deploymentDia/component.jpg) | あらかじめ決められたインターフェースを持った再利用部品。青果物と
+コンポーネント(component) | ![](pic/deploymentDia/component.jpg) | あらかじめ決められたインターフェースを持った再利用部品。成果物とマニフェステーション関係を結ぶ。
 コンポーネントインスタンス(component instance) | ![](pic/deploymentDia/componentInstance.jpg) | コンポーネントのインスタンス。
 成果物(deliverables) | ![](pic/deploymentDia/deliverables.jpg) | **物理的なファイル**、**DBのテーブル**など。ブラウザなども成果物になりうる。右上にファイルアイコンをつけるか、`<<artifact>>`をつける。アンダーバーを引いてインスタンス化できる。
 アセンブリコネクタ(assembly connector),要求/提供インターフェース(required/provided interface) | ![](pic/deploymentDia/assemblyConnector.jpg) | 要求インターフェースと提供インターフェース。
@@ -1210,13 +1273,15 @@ class lifeline2 {
 [通信経路(channel)](#deploymentDia/channel) | ![](pic/deploymentDia/channel.jpg) | ノード間の関連(association)、リンク(link)の記号。`<<LAN>>`, `<<internet>>`, `<<RS232C>>`, `<<TCP/IP>>`, `<<IIOP>>`など**ハードウェア**や**プロトコル**のステレオタイプを指定できる。
 
 <a id="deploymentDia/node"></a>
-##[ノード(node)](#deploymentDia/element)
+## [ノード(node)](#deploymentDia/element)
 **メモリや処理機能**を持ち、演算を実行するコンピュータ、プリンタ、ハードウェアなどの**システムリソース**。ノードは入れ子にすることができる。
 ノード型とノードインスタンスがある。
 
-##配置図の関係
+## 配置図の関係
 <a id="deploymentDia/manifestation"></a>
-###[マニフェステーション関係](#deploymentDia/element)
+
+### [マニフェステーション関係](#deploymentDia/element)
+
 成果物(を含むノード)とコンポーネントの関係。成果物(実行ファイル、スクリプト, ソースファイル etc.)でコンポーネントを実現する。依存関係に`<<manifest>>`をつける。
 
 ![](pic/deploymentDia/manifestEX.jpg)
@@ -1224,13 +1289,15 @@ class lifeline2 {
 ![](pic/deploymentDia/realizationEX.jpg)
 
 <a id="deploymentDia/deployment"></a>
-###[配置](#deploymentDia/element)
+### [配置](#deploymentDia/element)
+
 ノードと成果物(ノード)の配置関係を視覚表記、代替配置表記(依存関係に`<<deploy>>`をつける)、リスト表記で記述できる。
 
 ![](pic/deploymentDia/deploymentEX.jpg)
 
 <a id="deploymentDia/channel"></a>
 ###[通信路](#deploymentDia/element)
+
 ノード型には多重度をつけることができる。
 
 ![](pic/deploymentDia/channelEX.jpg)
@@ -1240,11 +1307,11 @@ class lifeline2 {
 
 --
 <a id="compositeStructureDiaSec"></a>
-#[合成構造図(Composite Structure Diagram)](#agenda)
+# [合成構造図(Composite Structure Diagram)](#agenda)
 
 あるクラスとその**内部構造**との関係の詳細を表す。クラス図のコンポジションをパートを用いてよりわかりやすくしたもの。
 
-##合成構造図の要素
+## 合成構造図の要素
 
 要素 | 表示形式 | 意味
 :--- |:---: |:---
@@ -1257,11 +1324,12 @@ class lifeline2 {
 
 --
 <a id="timingDiaSec"></a>
-#[タイミング図(Timing Diagram)](#agenda)
+# [タイミング図(Timing Diagram)](#agenda)
+
 相互作用図の一つ。
 **時刻と状態の変化**の厳密な関係を表現する。ステートマシン図と同様に、ライフラインの状態を表現するが、シーケンス図のように**複数のライフライン間**のメッセージのやり取りを表現することもできる。
 
-##タイミング図の要素
+## タイミング図の要素
 
 要素 | 意味
 :--- |:---
@@ -1281,11 +1349,12 @@ class lifeline2 {
 
 --
 <a id="interactionOverviewDiaSec"></a>
-#[相互作用概要図(Interaction Overview Diagram)](#agenda)
+# [相互作用概要図(Interaction Overview Diagram)](#agenda)
+
 相互作用図の一つ。[アクティビティ図](#activityDiaSec)と[シーケンス図](#seqDiaSec)を組み合わせ、複数の相互作用の関係を鳥瞰する。
 
 
-##相互作用概要図の要素
+## 相互作用概要図の要素
 
 要素 | 表示形式 | 意味
 :--- |:---: |:---
@@ -1302,7 +1371,7 @@ class lifeline2 {
 --
 
 <a id="OCLSec"></a>
-#[オブジェクト制約言語(OCL: Object Constraint Language)](#agenda)
+# [オブジェクト制約言語(OCL: Object Constraint Language)](#agenda)
 
 制約を記述する述語論理に基づく論理言語。
 
@@ -1312,57 +1381,69 @@ class lifeline2 {
 --
 
 
-#Review Point
+# Review Point
 - [[改訂版] UMLモデリング技能認定試験<入門レベル(L1)>問題集 -UML2.0対応](http://www.amazon.co.jp/%E6%94%B9%E8%A8%82%E7%89%88-UML%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93-%E5%85%A5%E9%96%80%E3%83%AC%E3%83%99%E3%83%AB-%E5%95%8F%E9%A1%8C%E9%9B%86--UML2-0%E5%AF%BE%E5%BF%9C/dp/4774132454/ref=sr_1_1?ie=UTF8&qid=1443222547&sr=8-1&keywords=uml%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93)
 - L1:[徹底攻略UMLモデリング技能認定試験問題集―L1(T1/T2)対応 (ITプロ/ITエンジニアのための徹底攻略)](http://www.amazon.co.jp/gp/product/4844324829?psc=1&redirect=true&ref_=oh_aui_detailpage_o02_s00)
 
-##開発プロセス/モデリング
+## 開発プロセス/モデリング
+
 - 1章　9
 - 12章　5, 8, 9
 - L1 22章　3, 4
 
-##ユースケース図
+## ユースケース図
+
 - 2章  15
 - 13章　1, 2, 3, 4, 6, 8
 - L1 12章　2, 7, 9
 
-##シーケンス図
+## シーケンス図
+
 - 4章　4, 9, 12, 17
 - 15章　4, 7, 8
 - L1 14章　8
 
-##コミュニケーション図
+## コミュニケーション図
+
 - 5章　1, 6, 8
 - 15章　11
 - L1 15章　2, 5, 6
 - L1 22章 20
 
-###コミュニケーション図とシーケンス図
+### コミュニケーション図とシーケンス図
+
 - 10章　11
 
-##ステートマシン図
+## ステートマシン図
+
 - 6章　1, 7, 12, 14, 16, 17, 18, 19
 - L1 16章　2
 - L1 22章 22
 
-###ステートマシン図とコミュニケーション図
+### ステートマシン図とコミュニケーション図
+
 - 10章　12
 
-###ステートマシン図とクラス図
+### ステートマシン図とクラス図
+
 - L1 20章　5
 
-##アクティビティ図
+## アクティビティ図
+
 - 7章　2
 
-##コンポーネント図
+## コンポーネント図
+
 - 8章　1, 4, 9, 10, 11
 - L1 22章　25
 
-##配置図
+## 配置図
+
 - 9章　3, 7, 8, 10
 - 16章　5, 6
 
-##クラス図とオブジェクト図
+## クラス図とオブジェクト図
+
 - 1章  2
 - 3章　3, 5, 21, 22, 25, 26, 30, 31, 33, 34, 38, 41, 42, 44, 46, 51
 - 5章　10, 13
@@ -1371,23 +1452,26 @@ class lifeline2 {
 - L1 13章　1, 6, 11, 13, 15, 17, 20, 23, 24
 - L1 22章 10, 11, 14, 30
 
-###クラス図とシーケンス図
+### クラス図とシーケンス図
+
 - 17章　4, 11
 - L1 20章　4, 9, 11
 - L1 22章　17
 
-###クラス図とコミュニケーション図
+### クラス図とコミュニケーション図
+
 - 17章　5
 - 1L 20章　6
 - 1L 22章　29
 
 --
-#関連知識
+# 関連知識
 
-##CASE(Computer Aided Software Engineering)
+## CASE(Computer Aided Software Engineering)
+
 ソフトウェア開発やソフトウェアの保守にソフトウェアツールを利用すること。
 
-##CATWOE
+## CATWOE
 
 - Customer(受益者または被害者)
 - Actor(次の変換をトリガーする行為者)
@@ -1398,7 +1482,7 @@ class lifeline2 {
 
 に相当するものを明らかにして、基本定義(root definition)の意味を確認して合意する手法。
 
-##ConOps(Concept of Operation)
+## ConOps(Concept of Operation)
 
 情報システムの開発において，ユーザ要求を記述するために，IEEE Std 1362で定められたドキュメントの標準仕様。
 
@@ -1407,9 +1491,9 @@ class lifeline2 {
 - [ISディジタル辞典－重要用語の基礎知識－](http://ipsj-is.jp/isdic/1292/)
 - [Wikipedia](https://en.wikipedia.org/wiki/Concept_of_operations)
 
-#メモ
+# メモ
 
-#References
+# References
 
 - [[改訂版] UMLモデリング技能認定試験<入門レベル(L1)>問題集 -UML2.0対応](http://www.amazon.co.jp/%E6%94%B9%E8%A8%82%E7%89%88-UML%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93-%E5%85%A5%E9%96%80%E3%83%AC%E3%83%99%E3%83%AB-%E5%95%8F%E9%A1%8C%E9%9B%86--UML2-0%E5%AF%BE%E5%BF%9C/dp/4774132454/ref=sr_1_1?ie=UTF8&qid=1443222547&sr=8-1&keywords=uml%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E6%8A%80%E8%83%BD%E8%AA%8D%E5%AE%9A%E8%A9%A6%E9%A8%93)
 - [徹底攻略UMLモデリング技能認定試験問題集―L1(T1/T2)対応 (ITプロ/ITエンジニアのための徹底攻略)](http://www.amazon.co.jp/gp/product/4844324829?psc=1&redirect=true&ref_=oh_aui_detailpage_o02_s00)
