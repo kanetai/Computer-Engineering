@@ -94,7 +94,7 @@ IBMが提唱するプロセス。**JISでは規定されていない**。
 
 - **ユースケース駆動**
 - **アーキテクチャ中心**
-- リスクが高い機能をより早期に開発するう
+- リスクが高い機能をより早期に開発する
 - **管理された反復**
 
 1. 方向付けフェーズ：　プロジェクトを開始することの実現可能性、妥当性を判断する
@@ -1404,7 +1404,7 @@ class lifeline2 {
 開始状態(begin, initial state) | ![](pic/interactionOverviewDia/begin.jpg) | 開始状態。
 終了状態(sink state) | ![](pic/interactionOverviewDia/sink.jpg) | 終了状態。
 デシジョン(decision) | ![](pic/interactionOverviewDia/decision.jpg) | 処理の流れの分岐を表現する。
-遷移(transision) | ![](pic/interactionOverViewDia/transition.jpg) | 状態遷移
+遷移(transition) | ![](pic/interactionOverviewDia/transition.jpg) | 状態遷移
 
 --
 [相互作用概要図](#interactionOverviewDiaSec)　[目次へ戻る](#agenda)
