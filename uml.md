@@ -237,7 +237,11 @@ IBMが提唱するプロセス。**JISでは規定されていない**。
 <a id="packageDiaSec"></a>
 # [パッケージ図(Package Diagram)](#agenda)
 
-UMLのモデル要素をまとめて整理する。
+UMLのモデル要素をまとめて整理する。パッケージ分割することで **並行開発** しやすくなる。
+
+- パッケージの依存関係がなるべくすくなるようにする
+- パッケージの双方向の依存関係を避ける（双方向依存のクラスをパッケージ内に集める）
+- パッケージ内のクラスはあまり多くならないようにする（100以下）
 
 ## パッケージ図の要素
 <a id="packageDia/element"></a>
@@ -710,8 +714,11 @@ N項関連にも関連クラスをつけることができる。２項関連と�
 
 #### 抽象クラス(abstract class)
 
-オブジェクトを生成することが無い。下位のクラスをまとめるクラス。クラス名を**斜体**にする、あるいは、メタ属性**{abstract}**をつけて表記する。
-抽象クラスは、**インスタンスを作れず、属性と操作をもつが一部操作は具象クラスの再実装を要する**。
+下位のクラスをまとめるクラス。
+抽象クラスは、 **インスタンスを作れず、抽象操作** を持てる。
+インターフェースと異なり、 **属性と(実装された)操作** をもつことができる。
+
+クラス名、抽象操作を **斜体** にする、あるいは、メタ属性 **`{abstract}`** をつけて表記する。＊具象クラスで **斜体でない操作(実装された操作)が必須**
 
 ## その他のクラス
 
@@ -1445,6 +1452,8 @@ class lifeline2 {
 
 # デザインパターン(Design Pattern)
 
+システム上の課題を解決する設計上の手法。
+
 ## UIアーキテクチャ
 
 [参考](https://msdn.microsoft.com/ja-jp/library/cc465210.aspx)
@@ -1589,3 +1598,4 @@ class lifeline2 {
 - [タイミング図（Timing Diagram）](http://www.itsenka.com/contents/development/uml/timing.html)
 - [ISディジタル辞典－重要用語の基礎知識－](http://ipsj-is.jp/isdic/1292/)
 - [Concept of Operations](https://en.wikipedia.org/wiki/Concept_of_operations)
+- [Multi Web UI アプリケーション開発への道 第 9 回 Multi Web UI アプリケーション開発の実践 その 2](https://msdn.microsoft.com/ja-jp/library/cc465210.aspx)
