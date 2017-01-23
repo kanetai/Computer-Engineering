@@ -253,6 +253,8 @@ UMLのモデル要素をまとめて整理する。パッケージ分割する�
 [依存(dependency)](#packageDia/dependency) | ![](pic/packageDia/dependency.jpg) | パッケージ内の要素が他のパッケージ内の要素を利用している。利用される側に矢印をつける。`<<import>>`をつけても良い。
 汎化(generalization) | ![](pic/usecaseDia/generalization.jpg) | より汎用的なパッケージと具体的なパッケージの関係。汎用的なパッケージの側に矢印をつける。
 
+![](pic/packageDia/package-ex.jpg)
+
 ## パッケージ間の関係
 <a id="packageDia/nest"></a>
 ### [パッケージの階層化](#packageDia/element)
@@ -374,7 +376,7 @@ WBSができてしまわないように、`<<include>>`の階層を1,2層ぐら�
 :--- |:---: |:---
 バウンダリ(boundary) | ![](pic/usecaseDia/boundary.jpg) | ユーザとシステムの境界。UIを提供するクラス。
 コントロール(control) | ![](pic/usecaseDia/control.jpg) | ユースケースの機能ロジックを提供するクラス。
-エンティティ(entity) | ![](pic/usecaseDia/entity.jpg) | ドメイン層の型であるクラス。
+エンティティ(entity) | ![](pic/usecaseDia/entity.jpg) | 問題領域（ドメイン）に対して一般的に考えられるクラス。
 
 ![](pic/usecaseDia/BCE_diagram.jpg)
 
