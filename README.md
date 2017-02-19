@@ -1,2 +1,2 @@
-- [論理回路](LogicCircuit/LogicCircuit.md):　
+- [論理回路](LogicCircuit/LogicCircuit.html):　
 - [UML](UML/UML.md): UMTP勉強用
