@@ -1,2 +1,2 @@
-- [論理回路](LogicCircuit/LogicCircuit.html):　
+- [論理回路](https://htmlpreview.github.io/?https://github.com/kanetai/Computational-Science/blob/master/LogicCircuit/LogicCircuit.html): [markdown](LogicCircuit/LogicCircuit.md)　
 - [UML](UML/UML.md): UMTP勉強用
