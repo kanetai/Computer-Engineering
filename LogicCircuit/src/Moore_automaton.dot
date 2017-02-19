@@ -1,0 +1,4 @@
+digraph "automaton" {
+	graph [rankdir = LR];
+	" 状態\n出力" -> "状態\n出力" [label="入力"];
+}

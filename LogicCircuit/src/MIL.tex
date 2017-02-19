@@ -1,0 +1,60 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+\begin{document}
+
+\thispagestyle{empty}
+\tikzstyle{branch}=[fill,shape=circle,minimum size=3pt,inner sep=0pt]
+\begin{tikzpicture}[label distance=2mm]
+
+    \node (x3) at (0,0) {$x_3$};
+    \node (x2) at (1,0) {$x_2$};
+    \node (x1) at (2,0) {$x_1$};
+    \node (x0) at (3,0) {$x_0$};
+
+    \node[not gate US, draw, rotate=-90] at ($(x2)+(0.5,-1)$) (Not2) {};
+    \node[not gate US, draw, rotate=-90] at ($(x1)+(0.5,-1)$) (Not1) {};
+    \node[not gate US, draw, rotate=-90] at ($(x0)+(0.5,-1)$) (Not0) {};
+
+    \node[or gate US, draw, logic gate inputs=nnn] at ($(x0)+(2,-2)$) (Or1) {};
+    \node[or gate US, draw, logic gate inputs=nnnn] at ($(Or1)+(0,-1)$) (Or2) {};
+    \node[or gate US, draw, logic gate inputs=nnn] at ($(Or2)+(0,-1)$) (Or3) {};
+    \node[xor gate US, draw, logic gate inputs=nn] at ($(Or3)+(0,-1)$) (Xor1) {};
+    \node[and gate US, draw, logic gate inputs=nn, anchor=input 1] at ($(Or3.output)+(1,0)$) (And1) {};
+    \node[nor gate US, draw, logic gate inputs=nn, anchor=input 1] at ($(Or2.output -| And1.output)+(1,0)$) (Nor1) {};
+    \node[and gate US, draw, logic gate inputs=nn, anchor=input 1] at ($(Or1.output -| Nor1.output)+(1,0)$) (And2) {};
+
+    \foreach \i in {2,1,0}
+    {
+        \path (x\i) -- coordinate (punt\i) (x\i |- Not\i.input);
+        \draw (punt\i) node[branch] {} -| (Not\i.input);
+    }
+    \draw (x3) |- (Or2.input 1);
+    \draw (x3 |- Or1.input 1) node[branch] {} -- (Or1.input 1);
+    \draw (x2) |- (Xor1.input 1);
+    \draw (x2 |- Or3.input 1) node[branch] {} -- (Or3.input 1);
+    \draw (Not2.output) |- (Or2.input 2);
+    \draw (x1) |- (Or3.input 2);
+    \draw (x1 |- Or1.input 2) node[branch] {} -- (Or1.input 2);
+    \draw (Not1.output) |- (Xor1.input 2);
+    \draw (Not1.output |- Or2.input 3) node[branch] {} -- (Or2.input 3);
+    \draw (x0) |- (Or2.input 4);
+    \draw (Not0.output) |- (Or3.input 3);
+    \draw (Not0.output |- Or1.input 3) node[branch] {} -- (Or1.input 3);
+    \draw (Or3.output) -- (And1.input 1);
+    \draw (Xor1.output) -- ([xshift=0.5cm]Xor1.output) |- (And1.input 2);
+    \draw (Or2.output) -- (Nor1.input 1);
+    \draw (And1.output) -- ([xshift=0.5cm]And1.output) |- (Nor1.input 2);
+    \draw (Or1.output) -- (And2.input 1);
+    \draw (Nor1.output) -- ([xshift=0.5cm]Nor1.output) |- (And2.input 2);
+    \draw (And2.output) -- ([xshift=0.5cm]And2.output) node[above] {$f_1$};
+
+\end{tikzpicture}
+
+\end{document}

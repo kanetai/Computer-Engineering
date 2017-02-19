@@ -1,0 +1,257 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+\newcommand\subcaption[1]{\begin{center}#1\end{center}}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+\begin{document}
+
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{ccc}
+
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{cc|c||c}
+\hline
+$S$ & $R$ & $Q^{+}$ &  動作 \\ \hline
+$0$ & $0$ & $Q$ & 不変 \\
+$0$ & $1$ & $0$ & リセット \\
+$1$ & $0$ & $1$ & セット \\
+$1$ & $1$ & $\phi$ & 禁止 \\
+\hline
+\end{tabular} 
+\subcaption{SR-FF: 特性表}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{ccc|cc}
+\hline
+$S$ & $R$ & $Q$ & $Q^{+}$ & $\overline{Q^{+}}$ \\ \hline
+$0$ & $0$ & $0$ & $0$ & $1$ \\
+$0$ & $0$ & $1$ & $1$ & $0$ \\
+$0$ & $1$ & $0$ & $0$ & $1$ \\
+$0$ & $1$ & $1$ & $0$ & $1$ \\
+$1$ & $0$ & $0$ & $1$ & $0$ \\
+$1$ & $0$ & $1$ & $1$ & $0$ \\
+$1$ & $1$ & $0$ & $\phi$ & $\phi$ \\
+$1$ & $1$ & $1$ & $\phi$ & $\phi$ \\
+\hline
+\end{tabular} 
+\subcaption{SR-FF: 展開特性表}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{cc|cc}
+\hline
+$Q$ & $Q^{+}$ & $S$ & $R$ \\ \hline
+$0$ & $0$ & $0$ & $\phi$ \\ 
+$0$ & $1$ & $1$ & $0$ \\ 
+$1$ & $0$ & $0$ & $1$ \\ 
+$1$ & $1$ & $\phi$ & $0$ \\ 
+\hline
+\end{tabular} 
+\subcaption{SR-FF: 入力要求表}
+\end{center}
+\end{minipage}
+
+
+\end{tabular}
+\end{center}
+\end{table} 
+
+
+
+
+
+
+
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{ccc}
+
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{c|c||c}
+\hline
+$D$ & $Q^{+}$ & 動作 \\ \hline
+$0$ & $0$  & 遅延出力 \\
+$1$ & $1$ & 遅延出力 \\
+\hline
+\end{tabular} 
+\subcaption{D-FF: 特性表}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{cc|c}
+\hline
+$D$ & $Q$ & $Q^{+}$ \\ \hline
+$0$ & $0$ & $0$ \\
+$0$ & $1$ & $0$ \\
+$1$ & $0$ & $1$ \\
+$1$ & $1$ & $1$ \\
+\hline
+\end{tabular} 
+\subcaption{D-FF: 展開特性表}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{cc|c||cc}
+\hline
+$Q$ & $Q^{+}$ & $D$ & $s$ & $r$ \\ \hline
+$0$ & $0$ & $0$ & $0$ & $\phi$ \\ 
+$0$ & $1$ & $1$ & $1$ & $0$ \\ 
+$1$ & $0$ & $0$ & $0$ & $1$ \\ 
+$1$ & $1$ & $1$ & $\phi$ & $0$ \\ 
+\hline
+\end{tabular} 
+\subcaption{D-FF: 拡大入力要求表}
+\end{center}
+\end{minipage}
+
+
+\end{tabular}
+\end{center}
+\end{table} 
+
+
+
+
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{ccc}
+
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{c|c||c}
+\hline
+$T$ & $Q^{+}$ & 動作\\ \hline
+$0$ & $Q$ & 不変 \\
+$1$ & $\overline{Q}$ & 反転 \\
+\hline
+\end{tabular} 
+\subcaption{T-FF: 特性表}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{cc|c}
+\hline
+$T$ & $Q$ & $Q^{+}$ \\ \hline
+$0$ & $0$ & $0$ \\
+$0$ & $1$ & $1$ \\
+$1$ & $0$ & $1$ \\
+$1$ & $1$ & $0$ \\
+\hline
+\end{tabular} 
+\subcaption{T-FF: 展開特性表}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{cc|c||cc}
+\hline
+$Q$ & $Q^{+}$ & $T$ & $s$ & $r$ \\ \hline
+$0$ & $0$ & $0$ & $0$ & $\phi$ \\ 
+$0$ & $1$ & $1$ & $1$ & $0$ \\ 
+$1$ & $0$ & $1$ & $0$ & $1$ \\ 
+$1$ & $1$ & $0$ & $\phi$ & $0$ \\ 
+\hline
+\end{tabular} 
+\subcaption{T-FF: 拡大入力要求表}
+\end{center}
+\end{minipage}
+
+
+\end{tabular}
+\end{center}
+\end{table} 
+
+
+
+
+
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{ccc}
+
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{cc|c||c}
+\hline
+$J$ & $K$ & $Q^{+}$ & 動作 \\ \hline
+$0$ & $0$ & $Q$ & 不変 \\
+$0$ & $1$ & $0$ & リセット\\
+$1$ & $0$ & $1$ & セット\\
+$1$ & $1$ & $\overline{Q}$ & 反転 \\
+\hline
+\end{tabular} 
+\subcaption{JK-FF: 特性表}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{ccc|c}
+\hline
+$J$ & $K$ & $Q$ & $Q^{+}$ \\ \hline
+$0$ & $0$ & $0$ & $0$  \\
+$0$ & $0$ & $1$ & $1$  \\
+$0$ & $1$ & $0$ & $0$  \\
+$0$ & $1$ & $1$ & $0$  \\
+$1$ & $0$ & $0$ & $1$  \\
+$1$ & $0$ & $1$ & $1$  \\
+$1$ & $1$ & $0$ & $1$  \\
+$1$ & $1$ & $1$ & $0$  \\
+\hline
+\end{tabular} 
+\subcaption{JK-FF: 展開特性表}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.3\hsize}
+\begin{center}
+\begin{tabular}{cc|cc||cc}
+\hline
+$Q$ & $Q^{+}$ & $J$ & $K$ & $s$ & $r$ \\ \hline
+$0$ & $0$ & $0$ & $\phi$ & $0$ & $\phi$ \\ 
+$0$ & $1$ & $1$ & $\phi$ & $1$ & $0$ \\ 
+$1$ & $0$ & $\phi$ & $1$ & $0$ & $1$ \\ 
+$1$ & $1$ & $\phi$ & $0$ & $\phi$ & $0$ \\ 
+\hline
+\end{tabular} 
+\subcaption{JK-FF: 拡大入力要求表}
+\end{center}
+\end{minipage}
+
+
+\end{tabular}
+\end{center}
+\end{table} 
+
+
+
+
+\end{document}

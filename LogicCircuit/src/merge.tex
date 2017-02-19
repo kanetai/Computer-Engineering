@@ -1,0 +1,45 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+\newcommand\subcaption[1]{\begin{center}#1\end{center}}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+\begin{document}
+
+\begin{tabular}{c|c|c||c|c}
+\hline
+現状態$q$  & \multicolumn{2}{c||}{次状態$q^{+}$} & \multicolumn{2}{c}{出力$O$} \\
+\cline{2-5}  
+   & 入力$I=0$ & 入力$I=1$ & 入力$I=0$ & 入力$I=1$\\
+\hline
+$q_{1}$ & $q_{2}$ & $q_{3}$ & $0$ & $1$ \\
+$q_{2}$ & $q_{4}$ & $q_{5}$ & $0$ & $1$ \\
+$q_{3}$ & $q_{6}$ & $q_{1}$ & $1$ & $1$ \\
+$q_{4}$ & $q_{2}$ & $q_{7}$ & $0$ & $1$ \\
+$q_{5}$ & $q_{4}$ & $q_{2}$ & $1$ & $1$ \\
+$q_{6}$ & $q_{8}$ & $q_{4}$ & $1$ & $1$ \\
+$q_{7}$ & $q_{2}$ & $q_{2}$ & $1$ & $1$ \\
+$q_{8}$ & $q_{2}$ & $q_{4}$ & $1$ & $1$ \\
+\hline
+\end{tabular}
+\newpage
+\begin{tabular}{c|c|c||c|c}
+\hline
+現状態$r$  & \multicolumn{2}{c||}{次状態$r^{+}$} & \multicolumn{2}{c}{出力$O$} \\
+\cline{2-5}  
+   & 入力$I=0$ & 入力$I=1$ & 入力$I=0$ & 入力$I=1$\\
+\hline
+$r_{1}$ & $r_{2}$ & $r_{3}$ & $0$ & $1$ \\
+$r_{2}$ & $r_{2}$ & $r_{5}$ & $0$ & $1$ \\
+$r_{3}$ & $r_{4}$ & $r_{1}$ & $1$ & $1$ \\
+$r_{4}$ & $r_{5}$ & $r_{2}$ & $1$ & $1$ \\
+$r_{5}$ & $r_{2}$ & $r_{2}$ & $1$ & $1$ \\
+\hline
+\end{tabular}
+
+
+\end{document}

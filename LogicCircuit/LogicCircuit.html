@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>LogicCircuit</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<p>\(
+\def\Bset{\mathcal{B}}
+\def\vector#1{\mathbf{#1}}
+\)</p>
+
+<h1 id="toc_0">論理回路(Logic Circuit)</h1>
+
+<h2 id="toc_1">論理代数（Logical Algebra）</h2>
+
+<ul>
+<li><code>ブール領域(Boolean domain)</code>:　\(\Bset = \{0, 1\}\)</li>
+<li><code>否定(NOT/negation/inversion)</code>:　\(\overline{X},\; \lnot X\)</li>
+<li><code>論理積/合接/連言(AND/conjunction)</code>:　\(X \cdot Y,\; X \land Y\)</li>
+<li><code>論理積/離接/選言(OR/disjunction)</code>:　\(X + Y,\; X \lor Y\)</li>
+<li><code>排他的論理和(XOR/EOR/EX-OR/exclusive or[disjunction])</code>:　\(X \oplus Y\)
+
+<ul>
+<li>\(X\oplus Y = \overline{X}\cdot Y + X\cdot \overline{Y} = (X + Y)(\overline{X} + \overline{Y})\)　</li>
+<li>＊２変数値が同じなら0, 異なるなら1。\(X \neq Y\)</li>
+</ul></li>
+<li><code>否定論理和(NAND)</code>:　\(X \mid Y,\; \overline{X \cdot Y},\; \lnot (X \land Y) \) 　＊\(\mid\): Sheffer-Stroke</li>
+<li><code>否定論理和(NOR)</code>:　\(X \downarrow Y,\; \overline{X + Y},\; \lnot (X \lor Y) \) 　＊\(\downarrow\): Pierce-Arrow</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>\(X\)</th>
+<th></th>
+<th>\(\overline{X}\)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>\(X\)</th>
+<th>\(Y\)</th>
+<th></th>
+<th>\(X \cdot Y\)</th>
+<th>\(X + Y\)</th>
+<th>\(X \oplus Y\)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_2">諸定理</h3>
+
+<ul>
+<li><code>双対(dual)</code>:　ある論理式\(L\)において、ANDとOR, 0と1をを入れ替えてできる論理式。論理式\(L\)が成立している時、それと双対な論理式 \(L^{d}\)も成立することを双対性(duality)があると言う。
+
+<ul>
+<li>\(P=Q \Rightarrow P^{d}=Q^{d}\)</li>
+</ul></li>
+</ul>
+
+<p>＊\(\ast\)はAND または OR演算子とする</p>
+
+<ul>
+<li><code>２重否定(double negative elimination)</code>: \(\overline{\overline{X}} = X\)</li>
+<li><code>交換則(commutative law)</code>:　\(X \ast Y = Y \ast X\)</li>
+<li><code>結合則(associative law)</code>:　\[\begin{cases}(X \ast Y) \ast Z = X \ast (Y \ast Z) \\ (X\oplus Y)\oplus Z = X\oplus (Y\oplus Z)\end{cases}\]</li>
+<li><code>分配則(distribution law)</code>: \[\begin{cases}X \cdot (Y + Z) = (X \cdot Y) + (X \cdot Z) \\ X + (Y \cdot Z) = (X + Y) \cdot (X + Z) \\ X \cdot (Y\oplus Z) = (X\cdot Y)\oplus (X\cdot Z)\end{cases}\]</li>
+<li><code>相補則(complement law)</code>: \(X \ast \overline{X}=0\)</li>
+<li><code>冪等則(idempotent law)</code>:　\(X \ast X \ast \cdots \ast X = X\)</li>
+<li><code>吸収則(absorption law)</code>:　\(X = X(Y+\overline{Y})\)を使って消すと
+\[ \begin{cases} X + (X \cdot Y) = X \\ X \cdot (X + Y) = X \end{cases} \]</li>
+<li><code>De Morganの法則(De Morgan&#39;s laws)</code>:　\[ \begin{cases} \overline{X_{1} \cdot X_{2} \cdot \cdots \cdot X_{n}} = \overline{X_{1}} + \overline{X_{2}} + \cdots + \overline{X_{n}} \\ \overline{X_{1} + X_{2} + \cdots + X_{n}} = \overline{X_{1}} \cdot \overline{X_{2}} \cdot \cdots \cdot \overline{X_{n}} \end{cases} \]</li>
+</ul>
+
+<h3 id="toc_3">論理関数(Logical Function)</h3>
+
+<p>\[L = f(X_{1}, \overline{X_{1}}, X_{2}, \overline{X_{2}}, \cdots , X_{n}, \overline{X_{n}}, \cdot ,+) \\ \overline{L} = f(\overline{X_{1}}, X_{1},  \overline{X_{2}}, X_{2}, \cdots , \overline{X_{n}}, X_{n}, + ,\cdot )\]</p>
+
+<ul>
+<li><p><code>双対関数(dual function)</code>:　論理関数\(f\)のすべての変数のNOTをとり、関数全体にNOTをとった論理関数。
+\[ \begin{eqnarray} f^{d}&amp;=&amp;\overline{f(\overline{X_{1}}, X_{1},  \overline{X_{2}}, X_{2}, \cdots , \overline{X_{n}}, X_{n}, \cdot, + )} \\ &amp;=&amp; f(X_{1}, \overline{X_{1}}, X_{2}, \overline{X_{2}}, \cdots , X_{n}, \overline{X_{n}}, +, \cdot) \because \text{De Margan&#39;s laws} \end{eqnarray}\]</p></li>
+<li><p><code>自己双対関数(self‐dual function)</code>:　\(f=f^{d}\)となる論理関数。</p></li>
+<li><p>\(x_{i}\)-residue:　\(f(x_{1}, x_{2}, \cdots ,x_{n})\)に\(x_{i}=1\)を入れたもの。\(f_{x_{i}}, f_{i}(1)\)といった表記が使われる。
+\[f_{x_{i}} = f(x_{1}, \cdots, x_{i-1}, 1, x_{i+1}, \cdots, x_{n})\]</p></li>
+<li><p>\(\overline{x_{i}}\)-residue:　\(f(x_{1}, x_{2}, \cdots ,x_{n})\)に\(x_{i}=0\)を入れたもの。\(f_{\overline{x_{i}}}, f_{i}(0)\)といった表記が使われる。
+\[f_{\overline{x_{i}}} = f(x_{1}, \cdots, x_{i-1}, 0, x_{i+1}, \cdots, x_{n})\]</p></li>
+<li><p><code>ブール微分(Boolean difference[derivative])</code>: <a href="http://slideplayer.com/slide/2330166/">参考1</a> <a href="http://manome-yoichi.sakura.ne.jp/ronri5/node8.html">参考2</a></p>
+
+<ul>
+<li>\[\frac{\partial f}{\partial x_{i}} = f_{x_{i}} \oplus f_{\overline{x_{i}}}\]　＊\(x_{i}\)の値の変化により\(f\)の値が変化する条件</li>
+<li>\[\frac{\partial}{\partial x_{j}}\left(\frac{\partial f}{\partial x_{i}}\right) = f_{\overline{x_{i}}\overline{x_{j}}} \oplus f_{x_{i}\overline{x_{j}}} \oplus f_{\overline{x_{i}}x_{j}} \oplus f_{x_{i}x_{j}}\] ＊微分演算は順序の入れ替え可能。</li>
+</ul></li>
+<li><p><code>リテラル(literal)</code>:　論理変数そのもの、あるいは、その変数の否定(NOT)。</p>
+
+<ul>
+<li>\(X\)のリテラルを\(\tilde{X}^{l}\)と表し、\(\tilde{X}^{1}=X, \tilde{X}^{0} = \overline{X}\)とする。</li>
+</ul></li>
+<li><p><code>展開定理(expansion theorem)</code>:　\[ \begin{cases} X_{i} \cdot f(X_{1},X_{2}, \cdots ,X_{n}) = X_{i} \cdot f_{X_{i}} \\ X_{i} + f(X_{1}, X_{2}, \cdots ,X_{n}) = X_{i} + f_{\overline{X_{i}}} \end{cases}\]</p></li>
+<li><p><code>Shannonの展開定理(Shannon’s expansion theorem)</code>:　\[\begin{eqnarray} f(X_{1}, \cdots ,X_{i}, \cdots ,X_{n}) &amp;=&amp; (X_{i} \cdot f_{X_{i}}) + (\overline{X_{i}} \cdot f_{\overline{X_{i}}}) \\ &amp;=&amp; (X_{i} + f_{\overline{X_{i}}}) \cdot (\overline{X_{i}} + f_{X_{i}}) \end{eqnarray}\]</p></li>
+</ul>
+
+<h4 id="toc_4">標準形(Normal[Canonical] Form)</h4>
+
+<p>\(f(X_{1}, X_{2}, \cdots ,X_{n})\)の各変数についてShannnonの展開定理を適用していくと、\(2^{n}\)項の積和形または和積形を得る。</p>
+
+<p>\[ \begin{eqnarray} f(X_{1}, X_{2}, \cdots , X_{n}) =  \overline{X_{1}} \cdot \overline{X_{2}} \cdot \cdots \cdot \overline{X_{n}} &amp;\cdot&amp; f(0, 0, \cdots , 0) \\ + X_{1} \cdot \overline{X_{2}} \cdot \cdots \cdot \overline{X_{n}} &amp;\cdot&amp; f(1, 0, \cdots , 0) \\ + \overline{X_{1}} \cdot X_{2} \cdot \cdots \cdot \overline{X_{n}} &amp;\cdot&amp; f(0, 1, \cdots , 0) \\  &amp;\vdots&amp; \\ + X_{1} \cdot X_{2} \cdot \cdots \cdot X_{n} &amp;\cdot&amp; f(1, 1, \cdots , 1) \\ = (\overline{X_{1}} + \overline{X_{2}} + \cdots + \overline{X_{n}} &amp;+&amp; f(1, 1, \cdots , 1)) \\ \cdot (X_{1} + \overline{X_{2}} + \cdots + \overline{X_{n}} &amp;+&amp; f(0, 1, \cdots , 1)) \\ \cdot (\overline{X_{1}} + X_{2} + \cdots + \overline{X_{n}} &amp;+&amp; f(1, 0, \cdots , 1)) \\  &amp;\vdots&amp; \\ \cdot (X_{1} + X_{2} + \cdots + X_{n} &amp;+&amp; f(0, 0, \cdots , 0)) \end{eqnarray} \]</p>
+
+<ul>
+<li><code>最小項/極小項(minterm)</code>:　\(\tilde{X_{1}}^{l_{1}} \cdot \tilde{X_{2}}^{l_{2}} \cdot \cdots \cdot \tilde{X_{n}}^{l_{n}}\)</li>
+<li><code>最大項/極大項(maxterm)</code>:　\(\tilde{X_{1}}^{\overline{l_{1}}} + \tilde{X_{2}}^{\overline{l_{2}}} + \cdots + \tilde{X_{n}}^{\overline{l_{n}}}\)</li>
+</ul>
+
+<p><em>例)</em> \(f(X,Y)\)の最小項、最大項はそれぞれ４項ある。</p>
+
+<p>\(\overline{X} \ast \overline{Y}, X \ast \overline{Y}, \overline{X} \ast Y, X \ast Y\)　＊ANDなら最小項、ORなら最大項</p>
+
+<ul>
+<li><code>(主)加法標準形/選言標準形(DNF: (principal) disjunctive normal[canonical] form)</code>: 
+
+<ul>
+<li>\(f(l_{1}, l_{2}, \cdots, l_{n})=1\)となるリテラルの組による最小項\(\tilde{X_{1}}^{l_{1}} \cdot \tilde{X_{2}}^{l_{2}} \cdot \cdots \cdot \tilde{X_{n}}^{l_{n}}\)のすべてをORで結んだもの</li>
+</ul></li>
+<li><code>(主)乗法標準形/連言標準形(CNF: (principal) conjunctive normal[canonical] form)</code>:　
+
+<ul>
+<li>\(f(l_{1}, l_{2}, \cdots, l_{n})=0\)となるリテラルの組による最大項\(\left( \tilde{X_{1}}^{\overline{l_{1}}} + \tilde{X_{2}}^{\overline{l_{2}}} + \cdots + \tilde{X_{n}}^{\overline{l_{n}}}\right) \)のすべてをANDで結んだもの</li>
+</ul></li>
+</ul>
+
+<p>どのような形式の論理関数も唯一の加法標準形と乗法標準形を持つ。</p>
+
+<ul>
+<li><code>万能論理関数集合(universal function set)</code>:　その要素である論理関数を組み合わせると、任意の論理関数が表現できる論理関数の集合。次の集合は万能論理関数集合。
+
+<ul>
+<li>AND/OR形式:　\(U_{0} = \{NOT, AND, OR\}\)</li>
+<li>(NOT-)AND形式:　\(U_{1} = \{NOT, AND\} \because \text{De Morgan&#39;s laws}\)</li>
+<li>(NOT-)AND形式:　\(U_{2} = \{NOT, OR\} \because \text{De Morgan&#39;s laws}\)</li>
+<li>NAND形式:　\(U_{3} = \{NAND\}\)
+
+<ul>
+<li>\[\begin{cases}\overline{X} &amp;=&amp; \overline{X\cdot X} = X\mid X \\ X\cdot Y &amp;=&amp; \overline{\overline{X \cdot Y}} = \overline{X\mid Y} = (X\mid Y)\mid (X\mid Y) \\ X + Y &amp;=&amp; \overline{\overline{X} \cdot \overline{Y}} = \overline{X}\mid \overline{Y} = (X\mid X)\mid (Y\mid Y)\end{cases} \]</li>
+<li>\[\begin{eqnarray} X \oplus Y &amp;=&amp; X\;\overline{Y} + \overline{X}\;Y + X\;\overline{X} + Y\;\overline{Y} = (X + Y)(\overline{X} + \overline{Y}) \\ &amp;=&amp; (X + Y)(X\mid Y) = X\cdot (X\mid Y) + Y\cdot (X\mid Y) \\ &amp;=&amp; (X\mid (X\mid Y))\mid (Y\mid (X\mid Y))\end{eqnarray}\]</li>
+</ul></li>
+<li>NOR形式:　\(U_{4} = \{NOR\}\)
+
+<ul>
+<li>\[\begin{cases}\overline{X} &amp;=&amp; \overline{X + X} = X\downarrow X \\ X\cdot Y &amp;=&amp; \overline{\overline{X} + \overline{Y}} = \overline{X}\downarrow \overline{Y} = (X\downarrow X)\downarrow (Y\downarrow Y) \\ X + Y &amp;=&amp; \overline{\overline{X + Y}} = \overline{X \downarrow Y} = (X\downarrow Y)\downarrow (X\downarrow Y)\end{cases}\]</li>
+</ul></li>
+</ul></li>
+<li><p><code>万能論理関数(universal function)</code>:　万能論理関数集合の要素である論理関数。</p></li>
+<li><p><code>包含</code>:　ある論理積項\(Q\)の値を1にする変数値の組み合わせすべてに対して、別の論理積項\(P\)が1になるとき、\(P\)は\(Q\)を包含するという。</p></li>
+<li><p><code>主項(prime implicant)</code>:　最小項を\(t_{i}\)としたとき、加法標準形は\(f = t_{1} + t_{2} + \cdots + t_{n}\; (i=1,2,\cdots n)\)と表せ、\(t_{i}\)が\(t_{j}\; (i\neq j)\)のいずれにも包含されないととき,\(t_{i}\)を主項という。</p>
+
+<ul>
+<li>例) \(f = X\,\overline{Z} + X\;Y + X\;\overline{Y}\;\overline{Z}\)のうち、主項は\(X\,\overline{Z}\)と\(X\;Y\)。\(X\;\overline{Y}\;\overline{Z}\)は\(X\,\overline{Z}\)に包含されるので主項ではない。</li>
+</ul></li>
+<li><p><code>最小積和形</code>:　主項だけで構成され、主項の総数が最小の積和形。</p></li>
+<li><p><code>必須(主)項(essential prime implicant)</code>:　加法標準形を構成する最小項を包含する唯一の主項。</p></li>
+<li><p><code>特異最小項(singular minterm)</code>:　必須主項に包含される最小項。</p></li>
+</ul>
+
+<h3 id="toc_5">論理関数の表現</h3>
+
+<ul>
+<li><code>Grayコード(Gray code)/交番二進符号(reflected binary code)</code>:　前後に隣接する符号間のHamming距離(Hamming distance)が1の符号
+
+<ul>
+<li>２進数のGrayコードの作り方：1bit右論理シフトして元の数との排他的論理和をとる</li>
+</ul></li>
+</ul>
+
+<div><pre><code class="language-swift">extension Int { //swift 3.0
+    var grayCode: Int { return self^(self&gt;&gt;1) }
+    func biaryFormat(bit n: Int) -&gt; String {
+        return [Int](0..&lt;n).map { x in (self&gt;&gt;(n-x-1))&amp;1 == 0 ? &quot;0&quot; : &quot;1&quot; }.joined()
+    }
+}
+for n in 1...4 {
+    print([Int](0..&lt;(1&lt;&lt;n)).map { x in x.grayCode.biaryFormat(bit: n) })
+}
+//[&quot;0&quot;, &quot;1&quot;]
+//[&quot;00&quot;, &quot;01&quot;, &quot;11&quot;, &quot;10&quot;]
+//[&quot;000&quot;, &quot;001&quot;, &quot;011&quot;, &quot;010&quot;, &quot;110&quot;, &quot;111&quot;, &quot;101&quot;, &quot;100&quot;]
+//[&quot;0000&quot;, &quot;0001&quot;, &quot;0011&quot;, &quot;0010&quot;, &quot;0110&quot;, &quot;0111&quot;, &quot;0101&quot;, &quot;0100&quot;, &quot;1100&quot;, &quot;1101&quot;, &quot;1111&quot;, &quot;1110&quot;, &quot;1010&quot;, &quot;1011&quot;, &quot;1001&quot;, &quot;1000&quot;]</code></pre></div>
+
+<ul>
+<li><code>ドントケア/不完全定義/組み合わせ禁止(don&#39;t care)</code>:　論理関数の変数値の組みに対して、論理関数値が定義されていないこと</li>
+</ul>
+
+<h4 id="toc_6">n次元立方体(N-Cube)/超立方体(Hypercube)</h4>
+
+<p><img src="pic/hypercube.png" width="400"></p>
+
+<h4 id="toc_7"><a href="https://en.wikipedia.org/wiki/Binary_decision_diagram">２分決定図(BDD;Binary Decision Diagram)</a></h4>
+
+<h4 id="toc_8">Karnaugh図(Karnaugh Map)</h4>
+
+<p>真理値の1またはドントケア\(\phi\)の部分で加法標準形を作ることができ、面積が2の累乗になる長方形をグルーピングすると、グルーピングした項のうち共通なリテラルだけが残る。これが必須主項となり、最小積和形が作れる。</p>
+
+<p><img src="pic/KarnaughMap.png" alt=""> \(\begin{eqnarray}f(A,B,C,D) &amp;=&amp; \overline{A}\,B\,\overline{C}\,\overline{D} + A\,B\,\overline{C}\,\overline{D} + A\,\overline{B}\,\overline{C}\,\overline{D} + A\,B\,\overline{C}\,D + A\,\overline{B}\,\overline{C}\,D + A\,B\,C\,\overline{D} \\ &amp;=&amp;B\,\overline{C}\,\overline{D}+A\,\overline{C}+A\,B\,\overline{D} \end{eqnarray}\)</p>
+
+<h2 id="toc_9">組み合わせ回路(Combinational Circuit)</h2>
+
+<p>ある時刻の出力信号値がその時刻の入力信号値だけで決定する論理回路。</p>
+
+<ul>
+<li><code>段数</code>:　論理回路の入力端子から出力端子に至るまでに通過する論理ゲート数。</li>
+<li><code>２段論理最小化</code>:　最小積和形にして段数を2にすること。</li>
+<li><code>多段論理最小化</code>:　論理回路が多段になる(時間サイズが増大する)ことを許すことを前提とし、論理回路の空間最適化を図ること。</li>
+<li><p><code>ファクタリング(factoring)</code>:　分配則を用いて、論理式から共通項をくくり出す操作。
+\[\begin{eqnarray}f = f(W, X, Y, Z) &amp;=&amp; W\;X\;Z + \overline{W}\;\overline{X}\;Y+W\;X\;Y + \overline{W}\;\overline{X}\;Z \\ &amp;=&amp; f_{1}\cdot f_{2} = (W\;X + \overline{W}\;\overline{X})\cdot(X + Z)\end{eqnarray}\]
+<img src="pic/KarnaughMapFactoring.png" alt=""></p></li>
+<li><p><code>テクノロジマッピング(technology mapping)</code>:　与えられた論理関数を\(U_{0}, U_{1}, U_{2}, U_{3}, U_{4}\)のいずれかの形式の論理関数として設計する。</p></li>
+<li><p>MIL記号</p></li>
+</ul>
+
+<div style="float:left"><img src="pic/AND.png" width="100"><br>AND</div>
+<div style="float:left"><img src="pic/OR.png" width="100"><br>OR</div>
+<div style="float:left"><img src="pic/NOT.png" width="100"><br>NOT</div>
+<div style="clear:both"></div>
+<div style="float:left"><img src="pic/NAND.png" width="100"><br>NAND</div>
+<div style="float:left"><img src="pic/NOR.png" width="100"><br>NOR</div>
+<div style="float:left"><img src="pic/XOR.png" width="100"><br>XOR</div>
+<div style="clear:both"></div>
+
+<h3 id="toc_10"><a href="https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm">Q-M法(Quine-McCluskey Algorithm /The Method of Prime Implicants)</a></h3>
+
+<h3 id="toc_11">マルチプレクサ(Multiplexor)/セレクタ(Selector)</h3>
+
+<p>\(2^{n} = m\)個の入力\(D_{1}, D_{2}, \cdots ,D_{m}\)から、\(n\)個の選択入力\(S_{1}, S_{2}, \cdots ,S_{n}\)によって対応する１つを選んで、出力\(Q\)に切り替える機能を持つ組み合わせ回路を\(m\times 1\)マルチプレクサという。</p>
+
+<p>例) \(4\times 1\)マルチプレクサ:
+\[Q = \overline{S_{1}}\;\overline{S_{0}}\;D_{0} + \overline{S_{1}}\;S_{0}\;D_{1} + S_{1}\;\overline{S_{0}}\;D_{2} + S_{1}\;S_{0}\;D_{3}\]</p>
+
+<table>
+<thead>
+<tr>
+<th>\(S_{1}\)</th>
+<th>\(S_{0}\)</th>
+<th></th>
+<th>\(Q\)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>\(D_{0}\)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>\(D_{1}\)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>\(D_{2}\)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>\(D_{3}\)</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_12">デマルチプレクサ(Demultiplexor)</h3>
+
+<p>\(n\)本の選択入力\(S_{1}, S_{2}, \cdots ,S_{n}\)によって\(2^{n}=m\)個の出力\(Q_{1}, Q_{2}, \cdots ,Q_{m}\)から対応する１つを選んで、それだけに入力を分配する機能を持つ組み合わせ回路を\(1\times m\)でデマルチプレクサという。</p>
+
+<p>例) \(1\times 4\)デマルチプレクサ
+\[\begin{cases}Q_{0} = \overline{S_{1}}\;\overline{S_{0}}\;D \\ Q_{1} = \overline{S_{1}}\;S_{0}\;D \\ Q_{2} = S_{1}\;\overline{S_{0}}\;D \\ Q_{3} = S_{1}\;S_{0}\;D\end{cases}\]</p>
+
+<table>
+<thead>
+<tr>
+<th>\(S_{1}\)</th>
+<th>\(S_{0}\)</th>
+<th></th>
+<th>\(Q_{3}\)</th>
+<th>\(Q_{2}\)</th>
+<th>\(Q_{1}\)</th>
+<th>\(Q_{0}\)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>\(D\)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td>0</td>
+<td>\(D\)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>\(D\)</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>\(D\)</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_13">デコーダ(Decoder)</h3>
+
+<p>\(n\)入力と\(2^{n}=m\)出力にデコードする組み合わせ回路を\(n\times m\)デコーダという。</p>
+
+<p>例) \(2\times 4\)デコーダ
+\[\begin{cases}Q_{0} = \overline{D_{1}}\;\overline{D_{0}} \\ Q_{1} = \overline{D_{1}}\;D_{0}\ \\ Q_{2} = D_{1}\;\overline{D_{0}}\ \\ Q_{3} = D_{1}\;D_{0}\end{cases}\]</p>
+
+<table>
+<thead>
+<tr>
+<th>\(D_{1}\)</th>
+<th>\(D_{0}\)</th>
+<th></th>
+<th>\(Q_{3}\)</th>
+<th>\(Q_{2}\)</th>
+<th>\(Q_{1}\)</th>
+<th>\(Q_{0}\)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_14">エンコーダ(Encoder)</h3>
+
+<p>デコーダの入力と出力を逆にしたもの。\(2^{n} = m\)入力、\(n\)出力のエンコーダを\(m\times n\)エンコーダという。　</p>
+
+<table>
+<thead>
+<tr>
+<th>\(D_{3}\)</th>
+<th>\(D_{2}\)</th>
+<th>\(D_{1}\)</th>
+<th>\(D_{0}\)</th>
+<th></th>
+<th>\(Q_{1}\)</th>
+<th>\(Q_{0}\)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>＊上に無い組み合わせの入力の場合、出力はドントケア</p>
+
+<ul>
+<li><code>優先順位付きエンコーダ(priority encoder)</code>:　入力に優先順位を付け、ドントケアを減らしたエンコーダ</li>
+</ul>
+
+<p>例) \(4\times 2\)エンコーダ
+\[\begin{cases}Q_{0} = D_{1}\;\overline{D_{2}} + D_{3} \\ Q_{1} = D_{2} + D_{3}\end{cases}\]</p>
+
+<table>
+<thead>
+<tr>
+<th>\(D_{3}\)</th>
+<th>\(D_{2}\)</th>
+<th>\(D_{1}\)</th>
+<th>\(D_{0}\)</th>
+<th></th>
+<th>\(Q_{1}\)</th>
+<th>\(Q_{0}\)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>\(\phi\)</td>
+<td>\(\phi\)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_15">加算器(Adder)</h3>
+
+<h4 id="toc_16">半加算器(Half Adder)</h4>
+
+<p>下位ビットからの桁上がり入力を考慮しない２進数１桁の加算回路。
+\[\begin{cases}S = X\;\overline{Y} + \overline{X}\;Y = X\oplus Y \\ C = X\;Y\end{cases}\; \\ (S, C) = f_{HA}(X, Y)\]</p>
+
+<h4 id="toc_17">全加算器(Full Adder)</h4>
+
+<p>半加算器に下位ビットからの桁上げ入力\(I\)と上位ビットへの桁上げ出力\(C\)を付加したか加算回路。</p>
+
+<p>\[\begin{cases}S = \overline{X}\;Y\;\overline{C_{in}} + X\;\overline{Y}\;\overline{C_{in}} + \overline{X}\;\overline{Y}\;C_{in} + X\;Y\;C_{in} = X\oplus Y\oplus C_{in} \\ C_{out} = X\;Y + X\;C_{in} + Y\;I = X\;Y + (X\oplus Y)\;C_{in}\end{cases}\; \\ (S, C_{out}) = f_{FA}(X, Y, C_{in})\]</p>
+
+<p><img src="pic/fullAdder.png" alt=""></p>
+
+<ul>
+<li>nビットの全加算器を作るには、1ビットの全加算器の組み合わせで実現できる。
+\[(S_{n}, C_{n}) = f_{FA}(X_{n}, Y_{n}, C_{n-1})\]</li>
+</ul>
+
+<p>＊\(C_{n}\)は桁あふれ検出に利用。\(Y&#39; = Y \oplus C_{SUB}, C_{-1} = C_{SUB}\)とすれば、加減算器となる。</p>
+
+<h4 id="toc_18"><a href="https://en.wikipedia.org/wiki/Carry-lookahead_adder">桁上げ先見加算器(Carry Lookahead Adder)</a></h4>
+
+<ul>
+<li><code>None</code>:　\((X, Y) = (0, 0)\)のとき、桁上がり出力は、桁上がり入力に依存しない\((C_{out} = 0)\)</li>
+<li><code>Pass</code>\(P_{i} = X_{i}\oplus Y_{i}\):　\((X, Y) = (1, 0)\; or \;(0, 1)\)のとき、桁上がり入力があると桁上がり出力が発生する\((C_{out} = C_{in})\)</li>
+<li><code>Generate</code>\(G_{i} = X_{i}Y_{i}\):　\((X, Y) = (1, 1)\)のとき、桁上がり入力に依存せず、常に桁上がり出力が発生する\((C_{out} = 1)\)</li>
+</ul>
+
+<p>\[\begin{cases}S_{i} = X_{i}\oplus Y_{i}\oplus C_{i-1} = P_{i} \oplus C_{i-1} \\ C_{i} = X_{i}Y_{i} + (X_{i}\oplus Y_{i})C_{i-1} = G_{i} + P_{i}C_{i-1}\end{cases}\]</p>
+
+<p>1: 桁上げ生成伝播ユニット:　はじめに\(G, P\)を作る。
+\[\begin{cases}G_{i} = X_{i}Y_{i} \\ P_{i} = X_{i}\oplus Y_{i}\end{cases}\]</p>
+
+<p>2: CLAユニット:　桁上がり信号だけ高速に作る。
+\[C_{i} = G_{i} + P_{i}C_{i-1}\]</p>
+
+<p>3: 和ユニット:　桁上がり信号と\(P\)を演算して加算結果を出力する。
+\[S_{i} = P_{i}\oplus C_{i-1}\]</p>
+
+<h3 id="toc_19">多数決回路(Majority Circuit)</h3>
+
+<p>複数の入力を投票とみなし、その多数決結果を単一の出力とする組み合わせ回路。</p>
+
+<p>例) ４入力多数決回路:　
+\[M = A\;B + A\;D + A\;C + B\;C = A\;(B + C + D) +B\;C\]</p>
+
+<h2 id="toc_20">順序回路(Sequential Circuit)</h2>
+
+<p>ある時刻の出力が、その時刻の入力と状態に依存する論理回路を順序回路という。特に回路動作がクロック(CK)に同期する順序回路を同期式順序回路といい、クロック入力ごとに、メモリに保存している変わり、入力と出力を決める。</p>
+
+<ul>
+<li><code>状態遷移関数(state transition function)</code>:　\(Q^{+} = f(Q, I)\)</li>
+<li><p><code>出力関数(output function)</code>:　\(O = g(Q,I)\)</p>
+
+<ul>
+<li>次状態\(Q^{+}\), 出力\(O\)は、現状態\(Q\)と入力\(I\)によって決まる。</li>
+</ul></li>
+<li><p><code>Mealyマシン(Mealy machine)</code>:　現状態と入力とで出力が決まる順序回路。
+\[\begin{cases}\vector{Q}^{+} = \vector{f}(\vector{Q}, \vector{I}) \\ \vector{O} = \vector{g}(\vector{Q}, \vector{I})\end{cases}\]</p></li>
+</ul>
+
+<p><img src="pic/Mealy-Machine_table.png" alt=""><img src="pic/Mealy_automaton.gif" alt=""></p>
+
+<ul>
+<li><code>Mooreマシン(Moore machine)</code>:　現状態だけで出力が決まり、入力は出力に無関係な順序回路。
+\[\begin{cases}\vector{Q}^{+} = \vector{f}(\vector{Q}, \vector{I}) \\ \vector{O} = \vector{g}(\vector{Q})\end{cases}\]</li>
+</ul>
+
+<p><img src="pic/Moore-Machine_table.png" alt=""><img src="pic/Moore_automaton.gif" alt=""></p>
+
+<h3 id="toc_21">フリップフロップ(Flip-Flop)</h3>
+
+<p>論理値の0か1のいずれかを安定状態(双安定状態)として持つ１ビットのメモリ。
+クロック付きフリップフロップは、クロック(ビットタイム)毎に、次の３動作を同期して行う。</p>
+
+<ol>
+<li>入力を受け付ける（チェックする）。</li>
+<li>1で受け付た入力と現状態とによって決まる特性に従い、状態遷移を起こす。</li>
+<li>2で遷移した次状態を出力とする。</li>
+</ol>
+
+<p>＊フリップフロップでは2と3は同じ動作。</p>
+
+<ul>
+<li><code>特性方程式(characteristic equation)</code>:　\(Q^{+}=O=f(I, Q)\)</li>
+</ul>
+
+<p>一般に、状態数が\(n\)個あれば、必要なフリップフロップは、\(\lceil \log_{2}n \rceil\)個。</p>
+
+<h4 id="toc_22">SRフリップフロップ(Set-Reset Flip-Flop)</h4>
+
+<p><img src="pic/SR-FF_table.png" alt=""></p>
+
+<ul>
+<li>特性方程式(展開特性表より)</li>
+</ul>
+
+<p>\(\begin{cases}Q^{+} = S + \overline{R}\;Q = \overline{S}\mid (\overline{R} \mid Q) = \overline{S\downarrow(R\downarrow\overline{Q})} = R\downarrow(S\downarrow Q)\\ \overline{Q^{+}} = R + \overline{S}\;\overline{Q} = \overline{R}\mid (\overline{S} \mid Q) = \overline{R\downarrow(S\downarrow Q)} = S\downarrow(R\downarrow\overline{Q})\end{cases}\)</p>
+
+<p><img src="pic/SR-FF_NAND.png" width="300">
+<img src="pic/SR-FF_NOR.png" width="300"></p>
+
+<p>他のFFをSR-FFを使って作るには、SR-FFへの入力\(s, r\)を、\(Q\)と他のFFの入力を使って表せば良い。</p>
+
+<h4 id="toc_23">Dフリップフロップ(Delayed Flip-Flop)</h4>
+
+<p><img src="pic/D-FF_table.png" alt=""></p>
+
+<ul>
+<li>特性方程式(展開特性表より):　\(Q^{+} = D\)</li>
+<li>(拡大入力要求表より):　\(\begin{cases}s = D \\ r = \overline{D} \end{cases}\)</li>
+</ul>
+
+<p><img src="pic/D-FF.png" width="300"></p>
+
+<h4 id="toc_24">Tフリップフロップ(Toggle Flip-Flop)</h4>
+
+<p><img src="pic/T-FF_table.png" alt=""></p>
+
+<ul>
+<li>特性方程式(展開特性表より):　\(Q^{+} = T\;\overline{Q} + \overline{T}\;Q\)</li>
+<li>(拡大入力要求表より):　\(\begin{cases}s = T\;\overline{Q} \\ r = T\;Q\end{cases}\)</li>
+</ul>
+
+<p><img src="pic/T-FF.png" width="300"></p>
+
+<h4 id="toc_25">JKフリップフロップ(JK Flip-Flop)</h4>
+
+<p><img src="pic/JK-FF_table.png" alt=""></p>
+
+<ul>
+<li>特性方程式(展開特性表より):　\(Q^{+} = J\;\overline{Q} + \overline{K}\;Q\)</li>
+<li>(拡大入力要求表より):　\(\begin{cases}s = J\;\overline{Q} \\ r = K\;Q\end{cases}\)</li>
+</ul>
+
+<p><img src="pic/JK-FF.png" width="300"></p>
+
+<h4 id="toc_26">クロック入力付きフリップフロップ</h4>
+
+<ul>
+<li>クロック付きフリップフロップ:　クロックCKとのANDをとるなどして入力することで同期(入力のチェック)するフリップフロップ
+
+<ul>
+<li>ポジティブエッジトリガ:　クロックの立ち上がりで状態変化する</li>
+<li>ネガティブエッジトリガ:　クロックの立ち下がりで状態変化する</li>
+</ul></li>
+</ul>
+
+<p><img src="pic/CK-FF.png" width="400"></p>
+
+<h3 id="toc_27">順序回路の設計</h3>
+
+<h4 id="toc_28">状態数最小化</h4>
+
+<ul>
+<li><code>等価(equivalence)</code>:　ある状態\(p\)と\(q\)のそれぞれの時に、任意の同一入力(の組)系列を与えて得る出力(の組)系列が同一である場合に、\(p \equiv q\)と表す。</li>
+<li><code>両立</code>:　ある状態\(p\)と\(q\)とに、任意の同一入力(の組)系列を与えて得る出力(の組)系列がドントケアを除いて同一であり、<strong>かつ、遷移先がドントケアでない</strong>場合に、\(p \sim\ q\)と表す。</li>
+<li><code>含意(implication)</code>:　ある状態\(p\)と\(q\)が同一入力によって、それぞれ\(r\)と\(s\)に遷移する時、状態対\((p, q)\)は状態対\((r, s)\)を含意するという。</li>
+<li><code>両立集合</code>:　状態\(q_{1}, \cdots q_{n}\)において任意の状態対\((q_{i}, q_{j})\;(i\neq j)\)のすべてが両立するような状態の集合\(\{q_{1}, \cdots q_{n}\}\)。ある状態\(q_{i}\)が外のどの状態とも両立しない時は,\(\{q_{i}\}\)を両立集合とする。</li>
+<li><code>被覆(cover)</code>:　両立集合の集合\(\Pi=\{C_{i}\}\)を考える時、いずれの状態もが\(\Pi\)を構成するいずれかの両立集合\(C_{i}\)の要素になっている。このような\(\Pi\)はすべての状態を被覆しているという。</li>
+<li><code>閉包</code>:　両立集合の集合\(\Pi=\{C_{i}\}\)を考える時、ある同一入力を与えて得る遷移先を要素とする集合を\(C_{i}^{+}\)は,\(\Pi\)のいずれかの両立集合\(C_{i}\)に包含している\((C_{i}^{+}\in C_{i})\)。このような\(\Pi\)は閉じている(閉包である)という。</li>
+<li>最小形:　すべての状態を被覆し閉じた両立集合の集合\(\Pi\)のうち、要素数が最小の集合\(\Pi^{*}\)を構成する各両立集合\(C_{i}^{*}\)の要素である状態をマージし、新たな状態名をつけた形。</li>
+</ul>
+
+<h5 id="toc_29">状態の併合操作</h5>
+
+<p>状態\(q_{1}, \cdots, q_{6}\)のうち、両立する状態対が</p>
+
+<p>\((q_{1}, q_{3}), (q_{1}, q_{5}), (q_{1}, q_{6}), (q_{2}, q_{6}), \\ (q_{2}, q_{7}), (q_{3}, q_{5}), (q_{3}, q_{6}), (q_{5}, q_{6}), (q_{6}, q_{7})\)</p>
+
+<p>だった時、これらから両立集合 </p>
+
+<p>\(\{q_{1}, q_{3}\}, \{q_{1}, q_{5}\}, \{q_{1}, q_{6}\}, \{q_{2}, q_{6}\}, \\ \{q_{2}, q_{7}\}, \{q_{3}, q_{5}\}, \{q_{3}, q_{6}\}, \{q_{5}, q_{6}\}, \{q_{6}, q_{7}\}, \{q_{4}\}\)</p>
+
+<p>を得る。マージできるものをチェックして、新たに両立集合</p>
+
+<p>\(\{q_{1}, q_{3}, q_{5}, q_{6}\}, \{q_{1}, q_{5}, q_{6}\}, \{q_{1}, q_{3},  q_{6}\}, \\ \{q_{3}, q_{5}, q_{6}\}, \{q_{1}, q_{3}, q_{5}\}, \{q_{2}, q_{6}, q_{7}\}\)</p>
+
+<p>を得る。以上、16個の両立集合の組み合わせのうちから、閉じた被覆の組み合わせで最小個数3のものを選ぶと、</p>
+
+<p>\(\{q_{1}, q_{3}, q_{5}(, q_{6})\}, \{q_{2}, q_{6}, q_{7}\}, \{q_{4}\}\)</p>
+
+<p>となる。これらに新しい状態名に付け替え最小形を得る。</p>
+
+<p>\(r_{1} \Leftarrow \{q_{1}, q_{3}, q_{5}\}, r_{2} \Leftarrow \{q_{2}, q_{6}, q_{7}\}, r_{3} \Leftarrow \{q_{4}\}\)</p>
+
+<h4 id="toc_30">両立状態対の求め方</h4>
+
+<p>いずれかあるいは両方の出力[遷移先]がドントケアの場合は同一の出力[遷移先]と見なす。</p>
+
+<ol>
+<li>状態閉合表の枠を書く。両立性には対称則が成立するので\(i&gt;j\)とする。</li>
+<li>すべての状態対\((q_{i},q_{j})\)に対して両立性を調べ、その結果を座標\((q_{i}, q_{j})\)のマス目に記入する。
+
+<ul>
+<li>\((q_{i}\)と\(q_{j})\)に、ある入力(の組)を与えると相反出力となる時は、両立しない印\(\times\)を記入する。</li>
+<li>\(\times\)が付かない所は状態遷移について調べる。
+
+<ul>
+<li>\((q_{i}, q_{j})\)が\((q_{k}, q_{k})\)を含意する時は、両立する印\(\bigcirc\)を記入する。</li>
+<li>\((q_{i}, q_{j})\)が\((q_{k}, q_{l})\;(k\neq l)\)を含意する時、\((q_{i},q_{j})\)に遷移先のラベル\((r_{k}, r_{l})\)を記入する。「\((r_{i}, r_{j})\)が両立するためには、それらが含意する\((r_{k}, r_{l})\)も両立する必要がある」</li>
+</ul></li>
+<li>各マスが何かしらの記号で埋まる</li>
+</ul></li>
+<li>両立性が未決定な座標\((q_{i}, q_{j})\)について、含意する状態対\((q_{r}, q_{k})\)の両立性を座標\((q_{r}, q_{k})\)によって調べる。
+
+<ul>
+<li>そこに\(\bigcirc\)があれば、遷移元の状態対\((q_{i}, q_{j})\)も両立するので、ラベル\((q_{k}, q_{l})\)に\(\bigcirc\)をつける。同様に、\(\times\)の場合も考えて、両立しないラベルに\(\times\)をつける。</li>
+<li>連鎖して\(\times\)が記入されなくなるまで繰り返す。</li>
+</ul></li>
+<li>\(\times\)が付いていない座標\((q_{i}, q_{j})\)が両立状態対</li>
+</ol>
+
+<p><img src="pic/unmerged.png" width="450">
+<img src="pic/merge.png" width="450"></p>
+
+<p>両立状態対\((q_{2}, q_{4}), (q_{5}, q_{8}), (q_{5}, q_{7}), (q_{7}, q_{8})\)と残りの状態を両立集合にして、両立集合</p>
+
+<p>\(\{q_{2}, q_{4}\}, \{q_{5}, q_{8}\}, \{q_{5}, q_{7}\}, \{q_{7}, q_{8}\}, \{q_{1}\}, \{q_{3}\}, \{q_{6}\}\)</p>
+
+<p>を得る。これらでマージできるものをチェックして、</p>
+
+<p>\(\{q_{2}, q_{4}\}, \{q_{5}, q_{7}, q_{8}\}\)</p>
+
+<p>を得る。これらの両立集合の組み合わせのうちから、閉じた被覆の組み合わせで最小個数のものを選んでラベルをつけると</p>
+
+<p>\(r_{1} \Leftarrow \{q_{1}\}, r_{2} \Leftarrow \{q_{2}, q_{4}\}, r_{3} \Leftarrow \{q_{3}\}, r_{4} \Leftarrow \{q_{6}\}, r_{5} \Leftarrow \{q_{5}, q_{7}, q_{8}\}\)</p>
+
+<p><img src="pic/merged.png" width="420"></p>
+
+<h3 id="toc_31">同期式順序回路(Synchronous Sequential Circuit)</h3>
+
+<ul>
+<li><code>レジスタ[ラッチ](register[latch])</code>:　フリップフロップの一斉読み出し(read)と一斉書き込み(write)ができるFF群。</li>
+</ul>
+
+<p><img src="pic/register.png" width="400"></p>
+
+<ul>
+<li><code>シフタ(shifter)</code>:　同期してシフト動作を行うFF群。</li>
+</ul>
+
+<p><img src="pic/shifter.png" width="420"></p>
+
+<ul>
+<li><a href="http://www.electronicshub.org/ring-counters-johnson-ring-counter/">Johnsonカウンタ(Johnson counter)</a></li>
+</ul>
+
+<h3 id="toc_32">非同期式順序回路(Asynchronous Sequential Circuit)</h3>
+
+<p>回路動作が任意の時刻に発生する入力変化とその順序だけに依存する順序回路。
+非同期式順序回路では、入力変化が状態遷移と出力変化を引き起こす。</p>
+
+<ul>
+<li><code>静的ハザード(static hazard)</code>:
+
+<ul>
+<li>1ハザード：出力が1で不変の時に一瞬発生する0</li>
+<li>0ハザード：出力が0で不変の時に一瞬発生する1</li>
+</ul></li>
+<li><code>動的ハザード(dynamic hazard)</code>:　入力変化によって出力が発生する不正出力</li>
+<li><code>競合(race)</code>:　２つ(2 bit)以上の状態変数が同時に変化すること(00-&gt;11)。</li>
+<li><code>クリティカルレース(critical race)</code>:　競合の際、２つ(2 bit)以上の状態変数が同時ではなく、遅延のばらつきで不正な遷移先を持つ可能性がある競合(00 -&gt; 11(00 -&gt; 01, 00 -&gt; 10))</li>
+<li><p><code>マスタースレーブフリップフロップ(master-slave flip-flop)</code>:　クリティカルレースを避けるために、マスターフリップフロップ(1段目)と、スレーブフリップフロップ(2段目)を直列接続したもの</p>
+
+<ul>
+<li>マスター動作:　１段目のフリップフロップで入力を取り込み保持する</li>
+<li>スレーブ動作:　２段目のフリップフロップで1段目で保持した入力による状態遷移と出力を行う。</li>
+</ul></li>
+<li><p>リプルカウンタ(ripple counter): 非同期式２進カウンタ(各CK入力が同一のクロック入力になっていない)</p></li>
+</ul>
+
+<p><img src="pic/RippleCounter.png" width="600"></p>
+
+<h2 id="toc_33">ソフトウェアによる論理回路設計</h2>
+
+<ul>
+<li><code>コンピュータ援用設計(CAD;Computer Aided Design)</code>:　コンピュータを用いて設計を支援する手法。CADシステムは、HDLをコンパイルして、ICへの実装まで行ってくれるので、シリコンコンパイラ(silicon compiler)ということもある。</li>
+<li><code>ハードウェア記述言語(HDL;Hardware Description Language)</code>:　ハードウェアや論理回路の動作を記述するプログラミング言語
+
+<ul>
+<li><code>ビヘイビア(behavior)</code>:　回路の動作。動作の細かいタイミングまでは規定しない。順序回路における状態遷移図もビヘイビア記述の一つ。</li>
+<li><code>レジスタトランスファレベル(RTL;Register Transfer Level)</code>:　基本的な組み合わせ回路を論理ブロックとして、その間の接続関係と、その動作タイミングを規定する。</li>
+<li><code>論理ゲート(logic gate)</code>:　論理ゲートとそれらの組み合わせを規定する。回路図をプログラムとして書き直しただけのレベル。</li>
+</ul></li>
+<li>VHDL: 米国国防省を中心に標準化されたHDL</li>
+<li><p>Verilog-HDL: C言語風のHDL</p></li>
+<li><p><code>ASIC(Application Specific Integrated Circuit)</code>:　特定の目的・用途向けに作られた集積回路。</p>
+
+<ul>
+<li>利点：速度・集積度・消費電力の点で有利。量産すればコストが下がる。</li>
+<li>欠点：開発コストや時間は大きい。</li>
+</ul></li>
+<li><p><code>プログラマブル論理回路(programmable logic circuit)</code>:　一旦合成したものを修正できたり、何度も作り直せる論理回路。</p>
+
+<ul>
+<li>利点：開発が早い。合成後の修正が可能。</li>
+<li>欠点：速度面・集積度で不利。</li>
+</ul></li>
+<li><p><code>プログラム可能AND/ORアレイ(programmable AND/OR array)</code>:　選択された入力だけのAND/ORを出力するANDまたはORゲートの並び。</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Programmable_logic_array">プログラム可能回路アレイ(PLA;Programmable Logic Array)`</a>: メモリによる組み合わせ回路構成のANDアレイ、ORアレイをプログラム可能にした組み合わせ回路。</p></li>
+<li><p><code>フィールドプログラム可能回路アレイ(FPLA;Field Programmable Logic Array)</code>:　使用者の手元でブログラム可能なPLA。</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Gate_array">ゲートアレイ(gate array)</a>:　NANDあるいはNORゲートのいずれかにテクノロジマッピングできる基本ハードウェア部品を規則正しく並べた構造のIC。</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array">フィールドプログラム可能ゲートアレイ(FPGA;Field Programmable Gate Array)</a>:　NAND/NORゲートの代わりに、もっと機能の高い論理ブロックを規則正しく並べたもの。</p></li>
+</ul>
+
+<h1 id="toc_34">References</h1>
+
+<ul>
+<li><a href="https://www.amazon.co.jp/%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9%E3%81%A7%E5%AD%A6%E3%81%B6%E8%AB%96%E7%90%86%E5%9B%9E%E8%B7%AF%E3%81%A8%E3%81%9D%E3%81%AE%E8%A8%AD%E8%A8%88-%E6%9F%B4%E5%B1%B1-%E6%BD%94/dp/4764902753/ref=asap_bc?ie=UTF8">コンピュータサイエンスで学ぶ論理回路とその設計</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
+<li><a href="http://slideplayer.com/slide/2330166/">Slide Player: Three Special Functions The “Boolean Difference” (or Boolean Derivative) indicates under what conditions f is sensitive to changes in the value of x i.</a></li>
+<li><a href="http://manome-yoichi.sakura.ne.jp/ronri5/node8.html">ブール微分</a></li>
+</ul>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\w\W]*?\*\//,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0}],string:{pattern:/(["'])(\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,lookbehind:!0,inside:{punctuation:/(\.|\\)/}},keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(true|false)\b/,"function":/[a-z0-9_]+(?=\()/i,number:/\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,operator:/--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
+</script>
+
+<script type="text/javascript">
+Prism.languages.swift=Prism.languages.extend("clike",{string:{pattern:/("|')(\\(?:\((?:[^()]|\([^)]+\))+\)|\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,inside:{interpolation:{pattern:/\\\((?:[^()]|\([^)]+\))+\)/,inside:{delimiter:{pattern:/^\\\(|\)$/,alias:"variable"}}}}},keyword:/\b(as|associativity|break|case|catch|class|continue|convenience|default|defer|deinit|didSet|do|dynamic(?:Type)?|else|enum|extension|fallthrough|final|for|func|get|guard|if|import|in|infix|init|inout|internal|is|lazy|left|let|mutating|new|none|nonmutating|operator|optional|override|postfix|precedence|prefix|private|Protocol|public|repeat|required|rethrows|return|right|safe|self|Self|set|static|struct|subscript|super|switch|throws?|try|Type|typealias|unowned|unsafe|var|weak|where|while|willSet|__(?:COLUMN__|FILE__|FUNCTION__|LINE__))\b/,number:/\b([\d_]+(\.[\de_]+)?|0x[a-f0-9_]+(\.[a-f0-9p_]+)?|0b[01_]+|0o[0-7_]+)\b/i,constant:/\b(nil|[A-Z_]{2,}|k[A-Z][A-Za-z_]+)\b/,atrule:/@\b(IB(?:Outlet|Designable|Action|Inspectable)|class_protocol|exported|noreturn|NS(?:Copying|Managed)|objc|UIApplicationMain|auto_closure)\b/,builtin:/\b([A-Z]\S+|abs|advance|alignof(?:Value)?|assert|contains|count(?:Elements)?|debugPrint(?:ln)?|distance|drop(?:First|Last)|dump|enumerate|equal|filter|find|first|getVaList|indices|isEmpty|join|last|lexicographicalCompare|map|max(?:Element)?|min(?:Element)?|numericCast|overlaps|partition|print(?:ln)?|reduce|reflect|reverse|sizeof(?:Value)?|sort(?:ed)?|split|startsWith|stride(?:of(?:Value)?)?|suffix|swap|toDebugString|toString|transcode|underestimateCount|unsafeBitCast|with(?:ExtendedLifetime|Unsafe(?:MutablePointers?|Pointers?)|VaList))\b/}),Prism.languages.swift.string.inside.interpolation.inside.rest=Prism.util.clone(Prism.languages.swift);
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>
