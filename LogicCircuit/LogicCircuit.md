@@ -1,6 +1,6 @@
 \\(
 \def\Bset{\mathcal{B}}
-\def\vector#1{\mathbf{#1}}
+\def\bvec#1{\mathbf{#1}}
 \\)
 
 # 論理回路(Logic Circuit)
@@ -304,12 +304,12 @@ for n in 1...4 {
 	- 次状態\\(Q^{+}\\), 出力\\(O\\)は、現状態\\(Q\\)と入力\\(I\\)によって決まる。
 
 - `Mealyマシン(Mealy machine)`:　現状態と入力とで出力が決まる順序回路。
-\\[\begin{cases}\vector{Q}^{+} = \vector{f}(\vector{Q}, \vector{I}) \\ \vector{O} = \vector{g}(\vector{Q}, \vector{I})\end{cases}\\]
+\\[\begin{cases}\bvec{Q}^{+} = \bvec{f}(\bvec{Q}, \bvec{I}) \\ \bvec{O} = \bvec{g}(\bvec{Q}, \bvec{I})\end{cases}\\]
 
 ![](pic/Mealy-Machine_table.png)![](pic/Mealy_automaton.gif)
 
 - `Mooreマシン(Moore machine)`:　現状態だけで出力が決まり、入力は出力に無関係な順序回路。
-\\[\begin{cases}\vector{Q}^{+} = \vector{f}(\vector{Q}, \vector{I}) \\ \vector{O} = \vector{g}(\vector{Q})\end{cases}\\]
+\\[\begin{cases}\bvec{Q}^{+} = \bvec{f}(\bvec{Q}, \bvec{I}) \\ \bvec{O} = \bvec{g}(\bvec{Q})\end{cases}\\]
 
 ![](pic/Moore-Machine_table.png)![](pic/Moore_automaton.gif)
 
