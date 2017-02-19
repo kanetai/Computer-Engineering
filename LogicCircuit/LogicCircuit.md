@@ -134,7 +134,7 @@ for n in 1...4 {
 
 #### n次元立方体(N-Cube)/超立方体(Hypercube)
 
-<img src="pic/hypercube.png" width="400">
+<img src="pic/hyperCube.png" width="400">
 
 #### [２分決定図(BDD;Binary Decision Diagram)](https://en.wikipedia.org/wiki/Binary_decision_diagram)
 
