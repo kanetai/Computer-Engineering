@@ -40,7 +40,7 @@
 - `交換則(commutative law)`:　\\(X \ast Y = Y \ast X\\)
 - `結合則(associative law)`:　\\[\begin{cases}(X \ast Y) \ast Z = X \ast (Y \ast Z) \\ (X\oplus Y)\oplus Z = X\oplus (Y\oplus Z)\end{cases}\\]
 - `分配則(distribution law)`: \\[\begin{cases}X \cdot (Y + Z) = (X \cdot Y) + (X \cdot Z) \\ X + (Y \cdot Z) = (X + Y) \cdot (X + Z) \\ X \cdot (Y\oplus Z) = (X\cdot Y)\oplus (X\cdot Z)\end{cases}\\]
-- `相補則(complement law)`: \\(X \ast \overline{X}=0\\)
+- `相補則(complement law)`: \\[\begin{cases}X + \overline{X} = 1 \\ X \cdot \overline{X} = 0\end{cases}\\]
 - `冪等則(idempotent law)`:　\\(X \ast X \ast \cdots \ast X = X\\)
 - `吸収則(absorption law)`:　\\(X = X(Y+\overline{Y})\\)を使って消すと
 	\\[ \begin{cases} X + (X \cdot Y) = X \\ X \cdot (X + Y) = X \end{cases} \\]
